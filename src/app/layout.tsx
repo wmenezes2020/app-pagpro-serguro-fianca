@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${inter.variable} bg-gradient-to-br from-slate-50 via-white to-slate-50 text-slate-900 antialiased`}
+        className={`${inter.variable} bg-gradient-to-br from-slate-100 via-slate-50 to-slate-100 text-slate-900 antialiased`}
         suppressHydrationWarning
       >
         <Providers>{children}</Providers>

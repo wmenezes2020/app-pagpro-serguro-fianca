@@ -8,22 +8,22 @@
 @theme inline {
   --font-sans: var(--font-inter);
 
-  /* Paleta de cores de banco digital - Azul elegante e profissional */
-  --color-primary-50: #f0f4ff;
-  --color-primary-100: #e0e9ff;
-  --color-primary-200: #c7d7fe;
-  --color-primary-300: #a5b8fc;
-  --color-primary-400: #8b94f8;
-  --color-primary-500: #6b6ef1;
-  --color-primary-600: #5450d4;
-  --color-primary-700: #4640b3;
-  --color-primary-800: #3a3693;
-  --color-primary-900: #343377;
+  /* Paleta de cores de banco digital/financeira moderna - Azul corporativo profundo */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
   --color-primary: var(--color-primary-600);
   --color-primary-foreground: #ffffff;
 
-  /* Verde para sucesso e confiança */
-  --color-secondary: #10b981;
+  /* Verde financeiro para sucesso e confiança */
+  --color-secondary: #059669;
   --color-secondary-50: #ecfdf5;
   --color-secondary-100: #d1fae5;
   --color-secondary-600: #059669;
@@ -31,15 +31,15 @@
 
   /* Cores de estado */
   --color-warning: #f59e0b;
-  --color-danger: #ef4444;
-  --color-success: #10b981;
+  --color-danger: #dc2626;
+  --color-success: #059669;
 
-  /* Superfícies e backgrounds */
-  --color-surface: #f8fafc;
+  /* Superfícies e backgrounds - Tons mais escuros e profissionais */
+  --color-surface: #f1f5f9;
   --color-surface-elevated: #ffffff;
-  --color-muted: #f1f5f9;
-  --color-border: #e2e8f0;
-  --color-border-subtle: #f1f5f9;
+  --color-muted: #e2e8f0;
+  --color-border: #cbd5e1;
+  --color-border-subtle: #e2e8f0;
   --color-body: #0f172a;
   --color-body-muted: #475569;
 
@@ -59,8 +59,11 @@
 }
 
 body {
-  @apply bg-gradient-to-br from-slate-50 via-white to-slate-50 text-slate-900 font-sans antialiased;
+  @apply bg-gradient-to-br from-slate-100 via-slate-50 to-slate-100 text-slate-900 font-sans antialiased;
   background-attachment: fixed;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(5, 150, 105, 0.02) 0%, transparent 50%);
 }
 
 ::selection {
@@ -168,15 +171,52 @@ a {
   @apply bg-slate-400;
 }
 
-/* Gradientes de banco digital */
+/* Gradientes de banco digital/financeira */
 .bank-gradient-primary {
-  background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
 }
 
 .bank-gradient-secondary {
-  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-700) 100%);
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
 }
 
 .bank-gradient-surface {
   background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+}
+
+/* Efeitos de IA/Tecnologia */
+.ai-glow {
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.15), 0 0 40px rgba(37, 99, 235, 0.1);
+}
+
+.ai-pattern {
+  background-image: 
+    linear-gradient(90deg, transparent 0%, rgba(37, 99, 235, 0.03) 50%, transparent 100%),
+    linear-gradient(0deg, transparent 0%, rgba(37, 99, 235, 0.02) 50%, transparent 100%);
+  background-size: 20px 20px;
+}
+
+/* Cards financeiros com visual de dashboard moderno */
+.financial-card {
+  position: relative;
+  border-top: 3px solid #2563eb;
+}
+
+.financial-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8rem;
+  height: 8rem;
+  opacity: 0.05;
+  background: radial-gradient(circle, #2563eb 0%, transparent 70%);
+  transform: translate(30%, -30%);
+  pointer-events: none;
+}
+
+/* Sidebar financeiro */
+.financial-sidebar {
+  @apply bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
 }

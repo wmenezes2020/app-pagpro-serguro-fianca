@@ -26,15 +26,15 @@ export interface ButtonProps
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30 hover:from-primary-700 hover:to-primary-800 focus-visible:ring-primary/30 transition-all duration-200",
+    "bg-gradient-to-r from-primary-600 via-primary-700 to-primary-800 text-white shadow-md shadow-primary-500/30 hover:shadow-lg hover:shadow-primary-500/40 hover:from-primary-700 hover:via-primary-800 hover:to-primary-900 focus-visible:ring-4 focus-visible:ring-primary/20 transition-all duration-200 font-bold",
   secondary:
-    "bg-gradient-to-r from-secondary to-secondary-700 text-white shadow-lg shadow-secondary/25 hover:shadow-xl hover:shadow-secondary/30 hover:from-secondary-700 hover:to-secondary-800 focus-visible:ring-secondary/30 transition-all duration-200",
+    "bg-gradient-to-r from-secondary via-secondary-600 to-secondary-700 text-white shadow-md shadow-secondary/30 hover:shadow-lg hover:shadow-secondary/40 hover:from-secondary-600 hover:via-secondary-700 hover:to-secondary-800 focus-visible:ring-4 focus-visible:ring-secondary/20 transition-all duration-200 font-bold",
   ghost:
-    "bg-transparent text-slate-700 hover:bg-slate-100/80 focus-visible:ring-slate-200 transition-all duration-200",
+    "bg-transparent text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus-visible:ring-2 focus-visible:ring-slate-300 transition-all duration-200 font-semibold",
   outline:
-    "border-2 border-slate-300 text-slate-700 hover:bg-slate-50 hover:border-slate-400 focus-visible:ring-slate-200 transition-all duration-200",
+    "border-2 border-slate-300 text-slate-700 bg-white hover:bg-slate-50 hover:border-slate-400 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 transition-all duration-200 font-semibold",
   danger:
-    "bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-500/25 hover:shadow-xl hover:shadow-red-500/30 hover:from-red-600 hover:to-red-700 focus-visible:ring-red-200 transition-all duration-200",
+    "bg-gradient-to-r from-red-600 via-red-700 to-red-800 text-white shadow-md shadow-red-500/30 hover:shadow-lg hover:shadow-red-500/40 hover:from-red-700 hover:via-red-800 hover:to-red-900 focus-visible:ring-4 focus-visible:ring-red/20 transition-all duration-200 font-bold",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
