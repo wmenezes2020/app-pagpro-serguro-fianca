@@ -26,15 +26,15 @@ export interface ButtonProps
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-primary text-primary-foreground hover:bg-primary-600 focus-visible:ring-primary/30",
+    "bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30 hover:from-primary-700 hover:to-primary-800 focus-visible:ring-primary/30 transition-all duration-200",
   secondary:
-    "bg-secondary text-white hover:bg-secondary/90 focus-visible:ring-secondary/30",
+    "bg-gradient-to-r from-secondary to-secondary-700 text-white shadow-lg shadow-secondary/25 hover:shadow-xl hover:shadow-secondary/30 hover:from-secondary-700 hover:to-secondary-800 focus-visible:ring-secondary/30 transition-all duration-200",
   ghost:
-    "bg-transparent text-slate-700 hover:bg-slate-100 focus-visible:ring-slate-200",
+    "bg-transparent text-slate-700 hover:bg-slate-100/80 focus-visible:ring-slate-200 transition-all duration-200",
   outline:
-    "border border-slate-300 text-slate-700 hover:bg-slate-100 focus-visible:ring-slate-200",
+    "border-2 border-slate-300 text-slate-700 hover:bg-slate-50 hover:border-slate-400 focus-visible:ring-slate-200 transition-all duration-200",
   danger:
-    "bg-red-500 text-white hover:bg-red-600 focus-visible:ring-red-200",
+    "bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-500/25 hover:shadow-xl hover:shadow-red-500/30 hover:from-red-600 hover:to-red-700 focus-visible:ring-red-200 transition-all duration-200",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
@@ -82,7 +82,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={asChild ? undefined : isDisabled}
         aria-disabled={isDisabled}
         className={cn(
-          "inline-flex items-center justify-center gap-2 rounded-md font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60",
+          "inline-flex items-center justify-center gap-2 rounded-xl font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60 active:scale-[0.98]",
           variantClasses[variant],
           sizeClasses[size],
           fullWidth && "w-full",

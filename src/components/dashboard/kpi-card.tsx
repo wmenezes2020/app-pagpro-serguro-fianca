@@ -36,23 +36,24 @@ export function KpiCard({
   };
 
   return (
-    <Card className={cn("border-slate-200", className)}>
-      <CardContent className="flex flex-col gap-4">
+    <Card className={cn("border-slate-200/80 bg-gradient-to-br from-white to-slate-50/50 overflow-hidden relative", className)}>
+      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary-100/50 to-transparent rounded-full blur-2xl -mr-16 -mt-16" />
+      <CardContent className="flex flex-col gap-4 relative z-10">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
             {label}
           </span>
           {icon ? (
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary-600 to-primary-700 text-white shadow-lg shadow-primary-500/25">
               {icon}
             </span>
           ) : null}
         </div>
-        <p className="text-3xl font-semibold text-slate-900">
+        <p className="text-4xl font-bold text-slate-900 tracking-tight">
           {formatValue()}
         </p>
         {description ? (
-          <p className="text-xs text-slate-500">{description}</p>
+          <p className="text-xs text-slate-500 leading-relaxed">{description}</p>
         ) : null}
       </CardContent>
     </Card>

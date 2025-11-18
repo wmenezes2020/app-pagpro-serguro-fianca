@@ -21,19 +21,20 @@ export function AuthCard({
   className,
 }: AuthCardProps) {
   return (
-    <Card className={cn("border-slate-200 shadow-lg", className)}>
-      <CardHeader className="space-y-3">
-        <CardTitle className="text-2xl font-semibold text-slate-900">
+    <Card className={cn("border-slate-200/80 shadow-xl bg-gradient-to-br from-white to-slate-50/50 overflow-hidden relative", className)}>
+      <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary-100/30 to-transparent rounded-full blur-3xl -mr-32 -mt-32" />
+      <CardHeader className="space-y-3 relative z-10">
+        <CardTitle className="text-3xl font-bold text-slate-900 tracking-tight">
           {title}
         </CardTitle>
         {description ? (
-          <p className="text-sm text-slate-600">{description}</p>
+          <p className="text-sm text-slate-600 leading-relaxed">{description}</p>
         ) : null}
       </CardHeader>
-      <CardContent className="space-y-6">
+      <CardContent className="space-y-6 relative z-10">
         {children}
         {footer ? (
-          <div className="border-t border-slate-200 pt-4 text-sm text-slate-600">
+          <div className="border-t border-slate-200/80 pt-6 text-sm text-slate-600">
             {footer}
           </div>
         ) : null}
