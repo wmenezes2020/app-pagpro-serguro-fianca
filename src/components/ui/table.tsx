@@ -8,9 +8,9 @@ export function Table({
   ...props
 }: React.HTMLAttributes<HTMLTableElement>) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-slate-200/80 shadow-lg bg-white">
+    <div className="overflow-hidden rounded-2xl border border-gray-800 shadow-lg bg-gradient-to-br from-gray-900 to-black luxury-border">
       <table
-        className={cn("min-w-full divide-y divide-slate-200/80 bg-white", className)}
+        className={cn("min-w-full divide-y divide-gray-800 bg-transparent", className)}
         {...props}
       >
         {children}
@@ -25,7 +25,7 @@ export function TableHeader({
   ...props
 }: React.HTMLAttributes<HTMLTableSectionElement>) {
   return (
-    <thead className={cn("bg-gradient-to-r from-slate-50 to-slate-100/50", className)} {...props}>
+    <thead className={cn("bg-gradient-to-r from-gray-800 to-gray-900", className)} {...props}>
       {children}
     </thead>
   );
@@ -37,7 +37,7 @@ export function TableBody({
   ...props
 }: React.HTMLAttributes<HTMLTableSectionElement>) {
   return (
-    <tbody className={cn("divide-y divide-slate-200", className)} {...props}>
+    <tbody className={cn("divide-y divide-gray-800", className)} {...props}>
       {children}
     </tbody>
   );
@@ -49,7 +49,7 @@ export function TableRow({
   ...props
 }: React.HTMLAttributes<HTMLTableRowElement>) {
   return (
-    <tr className={cn("hover:bg-slate-50/80 transition-all duration-200", className)} {...props}>
+    <tr className={cn("hover:bg-gray-800/50 transition-all duration-200", className)} {...props}>
       {children}
     </tr>
   );
@@ -63,7 +63,7 @@ export function TableHead({
   return (
     <th
       className={cn(
-        "px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-slate-600",
+        "px-6 py-4 text-left text-xs font-bold uppercase tracking-wider text-gray-300",
         className,
       )}
       {...props}
@@ -80,7 +80,7 @@ export function TableCell({
 }: React.TdHTMLAttributes<HTMLTableCellElement>) {
   return (
     <td
-      className={cn("px-6 py-4 text-sm text-slate-700 align-top font-medium", className)}
+      className={cn("px-6 py-4 text-sm text-gray-300 align-top font-medium", className)}
       {...props}
     >
       {children}

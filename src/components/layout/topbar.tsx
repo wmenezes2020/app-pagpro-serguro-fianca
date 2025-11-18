@@ -15,7 +15,7 @@ export function Topbar({ onToggleSidebar, className }: TopbarProps) {
   return (
     <header
       className={cn(
-        "flex items-center justify-between rounded-xl border border-slate-300/50 bg-white/95 backdrop-blur-xl px-6 py-4 shadow-lg",
+        "flex items-center justify-between rounded-xl border border-gray-800 bg-gradient-to-r from-gray-900 to-black backdrop-blur-xl px-6 py-4 shadow-lg luxury-border",
         className,
       )}
     >
@@ -24,30 +24,30 @@ export function Topbar({ onToggleSidebar, className }: TopbarProps) {
           <button
             type="button"
             onClick={onToggleSidebar}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-300 bg-white text-slate-700 hover:bg-slate-100 hover:border-slate-400 transition-all duration-200 md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-gray-700 bg-gray-900 text-gray-300 hover:bg-gray-800 hover:border-accent-600 hover:text-accent-600 transition-all duration-200 md:hidden"
           >
             <Menu className="h-5 w-5" />
           </button>
         ) : null}
         <div>
-          <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
+          <p className="text-xs font-bold uppercase tracking-wider text-gray-400">
             Bem-vindo de volta
           </p>
-          <h1 className="text-xl font-bold text-slate-900 tracking-tight">
+          <h1 className="text-xl font-bold text-white tracking-tight">
             {user?.fullName ?? user?.email}
           </h1>
         </div>
       </div>
       <div className="flex items-center gap-4">
         <div className="hidden text-right md:block">
-          <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
+          <p className="text-xs font-bold uppercase tracking-wider text-gray-400">
             Perfil
           </p>
-          <p className="text-sm font-bold text-slate-900">
+          <p className="text-sm font-bold text-white">
             {user?.role ?? "Usuário"}
           </p>
         </div>
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white font-bold shadow-md shadow-primary-500/30 border-2 border-white">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-accent-600 via-accent-600 to-accent-700 text-black font-bold shadow-md luxury-glow border-2 border-black">
           {user?.fullName?.[0]?.toUpperCase() ?? user?.email?.[0]?.toUpperCase()}
         </div>
       </div>

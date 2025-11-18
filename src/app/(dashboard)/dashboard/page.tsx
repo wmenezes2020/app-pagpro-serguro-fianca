@@ -38,10 +38,10 @@ export default function DashboardHomePage() {
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-3xl font-bold text-slate-900 tracking-tight mb-2">
+        <h2 className="text-3xl font-bold text-white tracking-tight mb-2">
           Visão Geral
         </h2>
-        <p className="text-slate-600">
+        <p className="text-gray-400">
           Acompanhe suas métricas e performance em tempo real
         </p>
       </div>
@@ -83,10 +83,10 @@ export default function DashboardHomePage() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
-        <Card className="border-slate-300/50 bg-white">
+        <Card className="border-gray-800 bg-gradient-to-br from-gray-900 to-black">
           <CardHeader className="flex flex-col gap-3">
-            <CardTitle className="text-2xl font-bold text-slate-900">Visão geral da carteira</CardTitle>
-            <p className="text-sm font-medium text-slate-600 leading-relaxed">
+            <CardTitle className="text-2xl font-bold text-white">Visão geral da carteira</CardTitle>
+            <p className="text-sm font-medium text-gray-400 leading-relaxed">
               Acompanhe a distribuição das solicitações por status e identifique
               oportunidades de ação rápida.
             </p>
@@ -144,9 +144,9 @@ export default function DashboardHomePage() {
           </CardContent>
         </Card>
 
-        <Card className="border-slate-300/50 bg-white">
+        <Card className="border-gray-800 bg-gradient-to-br from-gray-900 to-black">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold text-slate-900">Ações rápidas</CardTitle>
+            <CardTitle className="text-2xl font-bold text-white">Ações rápidas</CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col gap-3">
             <Button variant="outline" asChild className="justify-start h-12 font-semibold">
@@ -163,27 +163,27 @@ export default function DashboardHomePage() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <Card className="border-slate-300/50 bg-white">
+        <Card className="border-gray-800 bg-gradient-to-br from-gray-900 to-black">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold text-slate-900">Últimas atualizações</CardTitle>
+            <CardTitle className="text-2xl font-bold text-white">Últimas atualizações</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 text-sm font-medium text-slate-700 leading-relaxed">
+          <CardContent className="space-y-4 text-sm font-medium text-gray-300 leading-relaxed">
             <div className="flex gap-3">
-              <div className="flex h-2 w-2 rounded-full bg-primary-600 mt-2 flex-shrink-0 shadow-sm" />
+              <div className="flex h-2 w-2 rounded-full bg-accent-600 mt-2 flex-shrink-0 shadow-sm" />
               <p>
                 Cobertura máxima de acordo com o score interno atualizada
                 automaticamente após análise de crédito.
               </p>
             </div>
             <div className="flex gap-3">
-              <div className="flex h-2 w-2 rounded-full bg-primary-600 mt-2 flex-shrink-0 shadow-sm" />
+              <div className="flex h-2 w-2 rounded-full bg-accent-600 mt-2 flex-shrink-0 shadow-sm" />
               <p>
                 Monitoramento contínuo de pagamentos com alerta de inadimplência
                 em tempo real.
               </p>
             </div>
             <div className="flex gap-3">
-              <div className="flex h-2 w-2 rounded-full bg-primary-600 mt-2 flex-shrink-0 shadow-sm" />
+              <div className="flex h-2 w-2 rounded-full bg-accent-600 mt-2 flex-shrink-0 shadow-sm" />
               <p>
                 Acesso ao histórico de cada solicitação, incluindo documentos,
                 notas internas e decisões da análise.
@@ -192,17 +192,17 @@ export default function DashboardHomePage() {
           </CardContent>
         </Card>
 
-        <Card className="border-slate-300/50 bg-white">
+        <Card className="border-gray-800 bg-gradient-to-br from-gray-900 to-black">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold text-slate-900">Suporte dedicado</CardTitle>
+            <CardTitle className="text-2xl font-bold text-white">Suporte dedicado</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <p className="text-sm font-medium text-slate-700 leading-relaxed">
+            <p className="text-sm font-medium text-gray-300 leading-relaxed">
               Em caso de dúvidas operacionais ou acionamento de cobertura, fale
               com nosso time especializado via painel ou canais diretos.
             </p>
             <Button variant="ghost" asChild className="justify-start px-0 w-fit">
-              <Link href="/dashboard/support" className="text-primary-600 hover:text-primary-700 font-bold">
+              <Link href="/dashboard/support" className="text-accent-600 hover:text-accent-500 font-bold">
                 Acessar central de suporte →
               </Link>
             </Button>

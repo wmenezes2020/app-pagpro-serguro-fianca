@@ -26,13 +26,13 @@ export interface ButtonProps
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-gradient-to-r from-primary-600 via-primary-700 to-primary-800 text-white shadow-md shadow-primary-500/30 hover:shadow-lg hover:shadow-primary-500/40 hover:from-primary-700 hover:via-primary-800 hover:to-primary-900 focus-visible:ring-4 focus-visible:ring-primary/20 transition-all duration-200 font-bold",
+    "bg-gradient-to-r from-accent-600 via-accent-600 to-accent-700 text-black shadow-md shadow-accent-600/30 hover:shadow-lg hover:shadow-accent-600/40 hover:from-accent-700 hover:via-accent-700 hover:to-accent-800 focus-visible:ring-4 focus-visible:ring-accent-600/20 transition-all duration-200 font-bold",
   secondary:
     "bg-gradient-to-r from-secondary via-secondary-600 to-secondary-700 text-white shadow-md shadow-secondary/30 hover:shadow-lg hover:shadow-secondary/40 hover:from-secondary-600 hover:via-secondary-700 hover:to-secondary-800 focus-visible:ring-4 focus-visible:ring-secondary/20 transition-all duration-200 font-bold",
   ghost:
-    "bg-transparent text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus-visible:ring-2 focus-visible:ring-slate-300 transition-all duration-200 font-semibold",
+    "bg-transparent text-gray-300 hover:bg-gray-800 hover:text-white focus-visible:ring-2 focus-visible:ring-gray-700 transition-all duration-200 font-semibold",
   outline:
-    "border-2 border-slate-300 text-slate-700 bg-white hover:bg-slate-50 hover:border-slate-400 hover:text-slate-900 focus-visible:ring-4 focus-visible:ring-slate-200 transition-all duration-200 font-semibold",
+    "border-2 border-gray-700 text-white bg-transparent hover:bg-gray-800 hover:border-accent-600 hover:text-accent-600 focus-visible:ring-4 focus-visible:ring-gray-700 transition-all duration-200 font-semibold",
   danger:
     "bg-gradient-to-r from-red-600 via-red-700 to-red-800 text-white shadow-md shadow-red-500/30 hover:shadow-lg hover:shadow-red-500/40 hover:from-red-700 hover:via-red-800 hover:to-red-900 focus-visible:ring-4 focus-visible:ring-red/20 transition-all duration-200 font-bold",
 };

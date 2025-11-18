@@ -13,7 +13,7 @@ export function DashboardShell({ children }: DashboardShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="grid min-h-[calc(100vh-2rem)] gap-6 rounded-2xl bg-gradient-to-br from-slate-100 via-slate-50 to-slate-100 p-6 md:grid-cols-[280px_1fr] ai-pattern">
+    <div className="grid min-h-[calc(100vh-2rem)] gap-6 rounded-2xl bg-black p-6 md:grid-cols-[280px_1fr]">
       <div
         className={cn(
           "fixed inset-y-6 left-6 z-30 w-72 md:static md:w-auto",
@@ -24,7 +24,7 @@ export function DashboardShell({ children }: DashboardShellProps) {
       </div>
       {sidebarOpen ? (
         <div
-          className="fixed inset-0 z-20 bg-black/50 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 z-20 bg-black/80 backdrop-blur-sm md:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       ) : null}
