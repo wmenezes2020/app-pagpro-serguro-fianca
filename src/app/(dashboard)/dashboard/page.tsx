@@ -38,10 +38,10 @@ export default function DashboardHomePage() {
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-3xl font-bold text-white tracking-tight mb-2">
+        <h2 className="text-2xl font-semibold text-gray-900 tracking-tight mb-2">
           Visão Geral
         </h2>
-        <p className="text-gray-400">
+        <p className="text-gray-600">
           Acompanhe suas métricas e performance em tempo real
         </p>
       </div>
@@ -83,10 +83,10 @@ export default function DashboardHomePage() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
-        <Card className="border-gray-800 bg-gradient-to-br from-gray-900 to-black">
+        <Card className="border-gray-200 bg-white">
           <CardHeader className="flex flex-col gap-3">
-            <CardTitle className="text-2xl font-bold text-white">Visão geral da carteira</CardTitle>
-            <p className="text-sm font-medium text-gray-400 leading-relaxed">
+            <CardTitle className="text-lg font-semibold text-gray-900">Visão geral da carteira</CardTitle>
+            <p className="text-sm font-medium text-gray-600 leading-relaxed">
               Acompanhe a distribuição das solicitações por status e identifique
               oportunidades de ação rápida.
             </p>
@@ -109,53 +109,47 @@ export default function DashboardHomePage() {
                   },
                 ]}
               >
-                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis 
                   dataKey="name" 
-                  stroke="#64748b"
-                  style={{ fontSize: '12px', fontWeight: 600 }}
+                  stroke="#6b7280"
+                  style={{ fontSize: '12px', fontWeight: 500 }}
                 />
                 <YAxis 
-                  stroke="#64748b"
-                  style={{ fontSize: '12px', fontWeight: 600 }}
+                  stroke="#6b7280"
+                  style={{ fontSize: '12px', fontWeight: 500 }}
                 />
                 <Tooltip 
                   contentStyle={{
                     backgroundColor: 'white',
-                    border: '1px solid #e2e8f0',
-                    borderRadius: '12px',
-                    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
+                    border: '1px solid #e5e7eb',
+                    borderRadius: '8px',
+                    boxShadow: '0 1px 3px 0 rgb(0 0 0 / 0.1)'
                   }}
                 />
                 <Legend />
                 <Bar 
                   dataKey="value" 
-                  fill="url(#colorGradient)"
-                  radius={[8, 8, 0, 0]}
+                  fill="#374151"
+                  radius={[4, 4, 0, 0]}
                 />
-                <defs>
-                  <linearGradient id="colorGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#5450d4" stopOpacity={1} />
-                    <stop offset="100%" stopColor="#6b6ef1" stopOpacity={0.8} />
-                  </linearGradient>
-                </defs>
               </BarChart>
             </ResponsiveContainer>
           </CardContent>
         </Card>
 
-        <Card className="border-gray-800 bg-gradient-to-br from-gray-900 to-black">
+        <Card className="border-gray-200 bg-white">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold text-white">Ações rápidas</CardTitle>
+            <CardTitle className="text-lg font-semibold text-gray-900">Ações rápidas</CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col gap-3">
-            <Button variant="outline" asChild className="justify-start h-12 font-semibold">
+            <Button variant="outline" asChild className="justify-start h-11 font-medium">
               <Link href="/dashboard/applications">Ver solicitações</Link>
             </Button>
-            <Button variant="outline" asChild className="justify-start h-12 font-semibold">
+            <Button variant="outline" asChild className="justify-start h-11 font-medium">
               <Link href="/dashboard/properties">Cadastrar imóvel</Link>
             </Button>
-            <Button variant="outline" asChild className="justify-start h-12 font-semibold">
+            <Button variant="outline" asChild className="justify-start h-11 font-medium">
               <Link href="/dashboard/support">Abrir chamado</Link>
             </Button>
           </CardContent>
@@ -163,27 +157,27 @@ export default function DashboardHomePage() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <Card className="border-gray-800 bg-gradient-to-br from-gray-900 to-black">
+        <Card className="border-gray-200 bg-white">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold text-white">Últimas atualizações</CardTitle>
+            <CardTitle className="text-lg font-semibold text-gray-900">Últimas atualizações</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4 text-sm font-medium text-gray-300 leading-relaxed">
+          <CardContent className="space-y-4 text-sm font-medium text-gray-700 leading-relaxed">
             <div className="flex gap-3">
-              <div className="flex h-2 w-2 rounded-full bg-accent-600 mt-2 flex-shrink-0 shadow-sm" />
+              <div className="flex h-2 w-2 rounded-full bg-blue-600 mt-2 flex-shrink-0" />
               <p>
                 Cobertura máxima de acordo com o score interno atualizada
                 automaticamente após análise de crédito.
               </p>
             </div>
             <div className="flex gap-3">
-              <div className="flex h-2 w-2 rounded-full bg-accent-600 mt-2 flex-shrink-0 shadow-sm" />
+              <div className="flex h-2 w-2 rounded-full bg-blue-600 mt-2 flex-shrink-0" />
               <p>
                 Monitoramento contínuo de pagamentos com alerta de inadimplência
                 em tempo real.
               </p>
             </div>
             <div className="flex gap-3">
-              <div className="flex h-2 w-2 rounded-full bg-accent-600 mt-2 flex-shrink-0 shadow-sm" />
+              <div className="flex h-2 w-2 rounded-full bg-blue-600 mt-2 flex-shrink-0" />
               <p>
                 Acesso ao histórico de cada solicitação, incluindo documentos,
                 notas internas e decisões da análise.
@@ -192,17 +186,17 @@ export default function DashboardHomePage() {
           </CardContent>
         </Card>
 
-        <Card className="border-gray-800 bg-gradient-to-br from-gray-900 to-black">
+        <Card className="border-gray-200 bg-white">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold text-white">Suporte dedicado</CardTitle>
+            <CardTitle className="text-lg font-semibold text-gray-900">Suporte dedicado</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <p className="text-sm font-medium text-gray-300 leading-relaxed">
+            <p className="text-sm font-medium text-gray-700 leading-relaxed">
               Em caso de dúvidas operacionais ou acionamento de cobertura, fale
               com nosso time especializado via painel ou canais diretos.
             </p>
             <Button variant="ghost" asChild className="justify-start px-0 w-fit">
-              <Link href="/dashboard/support" className="text-accent-600 hover:text-accent-500 font-bold">
+              <Link href="/dashboard/support" className="text-blue-600 hover:text-blue-700 font-semibold">
                 Acessar central de suporte →
               </Link>
             </Button>

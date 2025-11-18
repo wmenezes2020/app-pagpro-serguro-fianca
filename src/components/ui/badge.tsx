@@ -7,11 +7,11 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 const badgeStyles: Record<NonNullable<BadgeProps["variant"]>, string> = {
-  default: "bg-gradient-to-r from-primary-50 to-primary-100 text-primary-700 border border-primary-200/80 shadow-sm",
-  success: "bg-gradient-to-r from-secondary-50 to-secondary-100 text-secondary-700 border border-secondary-200/80 shadow-sm",
-  warning: "bg-gradient-to-r from-amber-50 to-amber-100 text-amber-700 border border-amber-200/80 shadow-sm",
-  danger: "bg-gradient-to-r from-red-50 to-red-100 text-red-700 border border-red-200/80 shadow-sm",
-  outline: "border-2 border-slate-300 text-slate-700 bg-white shadow-sm",
+  default: "bg-gray-100 text-gray-700 border border-gray-200",
+  success: "bg-green-100 text-green-700 border border-green-200",
+  warning: "bg-yellow-100 text-yellow-700 border border-yellow-200",
+  danger: "bg-red-100 text-red-700 border border-red-200",
+  outline: "border border-gray-300 text-gray-700 bg-white",
 };
 
 export function Badge({
@@ -23,7 +23,7 @@ export function Badge({
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-xl px-3 py-1.5 text-xs font-bold uppercase tracking-wider",
+        "inline-flex items-center rounded-md px-2.5 py-1 text-xs font-semibold",
         badgeStyles[variant],
         className,
       )}

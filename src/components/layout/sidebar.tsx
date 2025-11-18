@@ -100,21 +100,20 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="flex h-full min-h-[calc(100vh-2rem)] flex-col rounded-2xl border border-gray-800 bg-gradient-to-b from-black via-gray-900 to-black p-6 shadow-2xl backdrop-blur-sm luxury-glow">
-      <div className="mb-8">
-        <div className="mb-3 flex items-center gap-3">
-          <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-accent-600 via-accent-700 to-accent-700 shadow-lg luxury-glow">
-            <ShieldCheck className="h-6 w-6 text-black" />
-            <div className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-green-500 border-2 border-black shadow-sm" />
+    <aside className="flex h-full min-h-[calc(100vh-2rem)] flex-col rounded-xl border border-gray-200 bg-gray-800 p-5 shadow-lg">
+      <div className="mb-6">
+        <div className="mb-4 flex items-center gap-3">
+          <div className="relative flex h-10 w-10 items-center justify-center rounded-lg bg-white">
+            <ShieldCheck className="h-5 w-5 text-gray-800" />
           </div>
           <div>
-            <p className="text-base font-bold text-white tracking-tight">PagPro</p>
-            <p className="text-xs font-semibold text-accent-600 uppercase tracking-wider">Finance</p>
+            <p className="text-sm font-bold text-white tracking-tight">PagPro</p>
+            <p className="text-xs font-medium text-gray-400">Finance</p>
           </div>
         </div>
-        <div className="h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent" />
+        <div className="h-px bg-gray-700" />
       </div>
-      <nav className="flex-1 space-y-1.5">
+      <nav className="flex-1 space-y-1">
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive =
@@ -125,29 +124,26 @@ export function Sidebar() {
               key={item.href}
               href={item.href}
               className={cn(
-                "group flex items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-semibold transition-all duration-200 relative",
+                "group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
                 isActive
-                  ? "bg-gradient-to-r from-accent-600 to-accent-700 text-black shadow-md luxury-glow"
-                  : "text-gray-300 hover:bg-gray-800 hover:text-white",
+                  ? "bg-white text-gray-900 shadow-sm"
+                  : "text-gray-300 hover:bg-gray-700 hover:text-white",
               )}
             >
-              {isActive && (
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-black rounded-r-full" />
-              )}
               <Icon className={cn(
                 "h-5 w-5 transition-transform duration-200 flex-shrink-0",
-                isActive ? "text-black" : "text-gray-400 group-hover:text-white"
+                isActive ? "text-gray-900" : "text-gray-400 group-hover:text-white"
               )} />
-              <span className={cn(isActive ? "text-black font-bold" : "")}>{item.label}</span>
+              <span>{item.label}</span>
             </Link>
           );
         })}
       </nav>
-      <div className="mt-6 pt-6 border-t border-gray-800">
+      <div className="mt-4 pt-4 border-t border-gray-700">
         <Button
           variant="ghost"
           fullWidth
-          className="justify-start text-sm font-semibold text-gray-300 hover:bg-red-900/20 hover:text-red-400 transition-all duration-200"
+          className="justify-start text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-all duration-200"
           onClick={handleLogout}
         >
           <LogOut className="mr-2 h-4 w-4" />

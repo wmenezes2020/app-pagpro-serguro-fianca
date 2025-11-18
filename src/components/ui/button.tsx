@@ -26,15 +26,15 @@ export interface ButtonProps
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-gradient-to-r from-accent-600 via-accent-600 to-accent-700 text-black shadow-md shadow-accent-600/30 hover:shadow-lg hover:shadow-accent-600/40 hover:from-accent-700 hover:via-accent-700 hover:to-accent-800 focus-visible:ring-4 focus-visible:ring-accent-600/20 transition-all duration-200 font-bold",
+    "bg-gray-900 text-white shadow-sm hover:bg-gray-800 focus-visible:ring-4 focus-visible:ring-gray-900/20 transition-all duration-200 font-semibold",
   secondary:
-    "bg-gradient-to-r from-secondary via-secondary-600 to-secondary-700 text-white shadow-md shadow-secondary/30 hover:shadow-lg hover:shadow-secondary/40 hover:from-secondary-600 hover:via-secondary-700 hover:to-secondary-800 focus-visible:ring-4 focus-visible:ring-secondary/20 transition-all duration-200 font-bold",
+    "bg-green-600 text-white shadow-sm hover:bg-green-700 focus-visible:ring-4 focus-visible:ring-green-600/20 transition-all duration-200 font-semibold",
   ghost:
-    "bg-transparent text-gray-300 hover:bg-gray-800 hover:text-white focus-visible:ring-2 focus-visible:ring-gray-700 transition-all duration-200 font-semibold",
+    "bg-transparent text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus-visible:ring-2 focus-visible:ring-gray-300 transition-all duration-200 font-medium",
   outline:
-    "border-2 border-gray-700 text-white bg-transparent hover:bg-gray-800 hover:border-accent-600 hover:text-accent-600 focus-visible:ring-4 focus-visible:ring-gray-700 transition-all duration-200 font-semibold",
+    "border-2 border-gray-300 text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-400 focus-visible:ring-4 focus-visible:ring-gray-300 transition-all duration-200 font-medium",
   danger:
-    "bg-gradient-to-r from-red-600 via-red-700 to-red-800 text-white shadow-md shadow-red-500/30 hover:shadow-lg hover:shadow-red-500/40 hover:from-red-700 hover:via-red-800 hover:to-red-900 focus-visible:ring-4 focus-visible:ring-red/20 transition-all duration-200 font-bold",
+    "bg-red-600 text-white shadow-sm hover:bg-red-700 focus-visible:ring-4 focus-visible:ring-red-600/20 transition-all duration-200 font-semibold",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {

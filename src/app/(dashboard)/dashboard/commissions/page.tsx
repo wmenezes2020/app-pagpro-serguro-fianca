@@ -43,10 +43,10 @@ export default function CommissionsPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-3xl font-bold text-white tracking-tight mb-2">
+        <h2 className="text-2xl font-semibold text-gray-900 tracking-tight mb-2">
           Comissões
         </h2>
-        <p className="text-gray-400">
+        <p className="text-gray-600">
           Acompanhe suas comissões e ganhos
         </p>
       </div>
@@ -78,9 +78,9 @@ export default function CommissionsPage() {
         />
       </div>
 
-      <Card className="border-gray-800 bg-gradient-to-br from-gray-900 to-black">
+      <Card className="border-gray-200 bg-white">
         <CardHeader>
-          <CardTitle className="text-2xl font-bold text-white">Histórico de Comissões</CardTitle>
+          <CardTitle className="text-lg font-semibold text-gray-900">Histórico de Comissões</CardTitle>
         </CardHeader>
         <CardContent>
           <Table>
@@ -98,23 +98,23 @@ export default function CommissionsPage() {
               {commissions && commissions.length > 0 ? (
                 commissions.map((commission) => (
                   <TableRow key={commission.id}>
-                    <TableCell className="font-medium">
+                    <TableCell className="font-medium text-gray-900">
                       {commission.beneficiary.fullName || commission.beneficiary.email}
                     </TableCell>
-                    <TableCell>{commission.commissionType}</TableCell>
-                    <TableCell className="font-bold text-accent-600">
+                    <TableCell className="text-gray-700">{commission.commissionType}</TableCell>
+                    <TableCell className="font-semibold text-green-600">
                       {formatCurrency(commission.amount)}
                     </TableCell>
-                    <TableCell>{commission.percentage}%</TableCell>
+                    <TableCell className="text-gray-700">{commission.percentage}%</TableCell>
                     <TableCell>{getStatusBadge(commission.status)}</TableCell>
-                    <TableCell>
+                    <TableCell className="text-gray-600">
                       {new Date(commission.createdAt).toLocaleDateString("pt-BR")}
                     </TableCell>
                   </TableRow>
                 ))
               ) : (
                 <TableRow>
-                  <TableCell colSpan={6} className="text-center text-gray-400">
+                  <TableCell colSpan={6} className="text-center text-gray-500 py-8">
                     Nenhuma comissão encontrada
                   </TableCell>
                 </TableRow>
