@@ -25,14 +25,14 @@ const riskLevelVariants: Record<RiskLevel, "default" | "success" | "warning" | "
 export function CreditAnalysisView({ analysis }: CreditAnalysisViewProps) {
   const getScoreColor = (score: number) => {
     if (score >= 75) return "text-green-600";
-    if (score >= 60) return "text-blue-600";
+    if (score >= 60) return "text-[#f5c437]";
     if (score >= 45) return "text-yellow-600";
     return "text-red-600";
   };
 
   const getScoreIcon = (score: number) => {
     if (score >= 75) return <TrendingUp className="h-5 w-5 text-green-600" />;
-    if (score >= 60) return <AlertCircle className="h-5 w-5 text-blue-600" />;
+    if (score >= 60) return <AlertCircle className="h-5 w-5 text-[#f5c437]" />;
     return <TrendingDown className="h-5 w-5 text-red-600" />;
   };
 
@@ -105,7 +105,7 @@ export function CreditAnalysisView({ analysis }: CreditAnalysisViewProps) {
               })}
             </div>
             {analysis.indicators.aiGenerated === true && (
-              <div className="mt-3 rounded bg-blue-50 p-2 text-xs text-blue-700">
+              <div className="mt-3 rounded bg-amber-50 p-2 text-xs text-amber-700">
                 <p className="font-medium">Análise gerada por IA</p>
                 {typeof analysis.indicators.aiModel === "string" && (
                   <p>Modelo: {analysis.indicators.aiModel}</p>

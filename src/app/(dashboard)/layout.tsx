@@ -22,7 +22,7 @@ export default function DashboardLayout({
 
   if (isLoading || !user) {
     return (
-      <div className="p-6">
+      <div className="flex min-h-screen items-center justify-center bg-gray-50">
         <LoadingScreen />
       </div>
     );

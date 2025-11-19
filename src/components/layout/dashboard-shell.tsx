@@ -13,14 +13,16 @@ export function DashboardShell({ children }: DashboardShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="grid min-h-[calc(100vh-2rem)] gap-4 rounded-2xl bg-gray-50 p-4 md:grid-cols-[260px_1fr]">
+    <div className="flex min-h-screen bg-gray-50">
       <div
         className={cn(
-          "fixed inset-y-4 left-4 z-30 w-64 md:static md:w-auto",
+          "fixed inset-y-0 left-0 z-30 w-64 md:static md:z-auto",
           sidebarOpen ? "block" : "hidden md:block",
         )}
       >
-        <Sidebar />
+        <div className="h-full overflow-y-auto bg-black md:sticky md:top-0 md:h-screen md:bg-transparent">
+          <Sidebar />
+        </div>
       </div>
       {sidebarOpen ? (
         <div
@@ -28,9 +30,9 @@ export function DashboardShell({ children }: DashboardShellProps) {
           onClick={() => setSidebarOpen(false)}
         />
       ) : null}
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-1 flex-col md:ml-0">
         <Topbar onToggleSidebar={() => setSidebarOpen((prev) => !prev)} />
-        <main className="flex-1 animate-fade-in bg-white rounded-xl p-6">{children}</main>
+        <main className="flex-1 bg-white p-8 overflow-auto">{children}</main>
       </div>
     </div>
   );

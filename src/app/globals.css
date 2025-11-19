@@ -67,8 +67,7 @@
 }
 
 body {
-  @apply bg-gray-50 text-gray-900 font-sans antialiased;
-  background-attachment: fixed;
+  @apply bg-[#f5f4ef] text-[#0f172a] font-sans antialiased;
 }
 
 ::selection {
@@ -103,7 +102,7 @@ p {
 }
 
 a {
-  @apply text-blue-600 transition-all duration-200 hover:text-blue-700;
+  @apply text-[#f5c437] transition-all duration-200 hover:text-[#f1b60d];
 }
 
 /* Efeitos de glass morphism */

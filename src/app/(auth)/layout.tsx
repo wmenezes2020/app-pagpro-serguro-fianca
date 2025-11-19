@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Shield } from "lucide-react";
+import Image from "next/image";
 
 export default function AuthLayout({
   children,
@@ -11,17 +11,14 @@ export default function AuthLayout({
       <header className="sticky top-0 z-50 border-b border-gray-200 bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-900 group-hover:bg-gray-800 transition-all duration-200">
-              <Shield className="h-5 w-5 text-white" />
-            </div>
-            <div>
-              <p className="text-base font-semibold text-gray-900">
-                PagPro
-              </p>
-              <span className="text-xs font-medium text-gray-500">
-                Finance
-              </span>
-            </div>
+            <Image
+              src="/logo-m-black.png"
+              alt="PagPro Seguro Fiança"
+              width={150}
+              height={40}
+              priority
+              className="h-8 w-auto"
+            />
           </Link>
           <Link
             href="/"

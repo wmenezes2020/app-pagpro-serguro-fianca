@@ -12,17 +12,28 @@ export function useAuthGuard() {
   const accessToken = useAuthStore((state) => state.accessToken);
   const refreshToken = useAuthStore((state) => state.refreshToken);
   const user = useAuthStore((state) => state.user);
+  const hasHydrated = useAuthStore((state) => state.hasHydrated);
   const setUser = useAuthStore((state) => state.setUser);
   const clearAuth = useAuthStore((state) => state.clearAuth);
 
+  // Aguardar a hidratação antes de verificar tokens
   useEffect(() => {
+    // Se ainda não hidratou, não fazer nada
+    if (!hasHydrated) {
+      return;
+    }
+
+    // Após hidratação, verificar se há tokens
     if (!accessToken || !refreshToken) {
       clearAuth();
       router.replace("/login");
     }
-  }, [accessToken, refreshToken, router, clearAuth]);
+  }, [hasHydrated, accessToken, refreshToken, router, clearAuth]);
 
-  const shouldFetch = Boolean(accessToken && refreshToken && !user);
+  // Só buscar usuário se tiver tokens E já hidratou E não tem user
+  const shouldFetch = Boolean(
+    hasHydrated && accessToken && refreshToken && !user
+  );
 
   const {
     data,
@@ -43,15 +54,19 @@ export function useAuthGuard() {
   }, [data, setUser]);
 
   useEffect(() => {
-    if (error) {
+    // Só tratar erro se já hidratou
+    if (hasHydrated && error) {
       clearAuth();
       router.replace("/login");
     }
-  }, [error, clearAuth, router]);
+  }, [hasHydrated, error, clearAuth, router]);
+
+  // Retornar loading enquanto não hidratou OU enquanto está buscando user
+  const isLoadingState = !hasHydrated || (shouldFetch && isLoading);
 
   return {
     user,
-    isLoading: shouldFetch || isLoading,
+    isLoading: isLoadingState,
     pathname,
   };
 }

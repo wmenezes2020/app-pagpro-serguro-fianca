@@ -26,15 +26,15 @@ export interface ButtonProps
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-gray-900 text-white shadow-sm hover:bg-gray-800 focus-visible:ring-4 focus-visible:ring-gray-900/20 transition-all duration-200 font-semibold",
+    "bg-[#f5c437] text-gray-900 shadow-sm hover:bg-[#f1b60d] focus-visible:ring-2 focus-visible:ring-[#f5c437]/40 transition-all duration-150 font-semibold",
   secondary:
-    "bg-green-600 text-white shadow-sm hover:bg-green-700 focus-visible:ring-4 focus-visible:ring-green-600/20 transition-all duration-200 font-semibold",
+    "bg-green-600 text-white shadow-sm hover:bg-green-700 focus-visible:ring-2 focus-visible:ring-green-600/20 transition-all duration-150 font-medium",
   ghost:
-    "bg-transparent text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus-visible:ring-2 focus-visible:ring-gray-300 transition-all duration-200 font-medium",
+    "bg-transparent text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus-visible:ring-2 focus-visible:ring-gray-300 transition-all duration-150 font-normal",
   outline:
-    "border-2 border-gray-300 text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-400 focus-visible:ring-4 focus-visible:ring-gray-300 transition-all duration-200 font-medium",
+    "border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-400 focus-visible:ring-2 focus-visible:ring-gray-300 transition-all duration-150 font-normal",
   danger:
-    "bg-red-600 text-white shadow-sm hover:bg-red-700 focus-visible:ring-4 focus-visible:ring-red-600/20 transition-all duration-200 font-semibold",
+    "bg-red-600 text-white shadow-sm hover:bg-red-700 focus-visible:ring-2 focus-visible:ring-red-600/20 transition-all duration-150 font-medium",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {

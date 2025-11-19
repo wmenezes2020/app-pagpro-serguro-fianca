@@ -60,9 +60,9 @@ export interface Referral {
 }
 
 export interface CommissionSummary {
-  totalPending: number;
-  totalApproved: number;
-  totalPaid: number;
+  pendingAmount: number;
+  approvedAmount: number;
+  paidAmount: number;
   totalAmount: number;
 }
 
@@ -121,4 +121,7 @@ export const commissionsService = {
     return response.data;
   },
 };
+
+export const fetchMyCommissions = () => commissionsService.getCommissions();
+
 

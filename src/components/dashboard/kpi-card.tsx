@@ -36,10 +36,10 @@ export function KpiCard({
   };
 
   return (
-    <Card className={cn("border-gray-200 bg-white overflow-hidden relative", className)}>
+    <Card className={cn("border-gray-200 bg-white shadow-sm", className)}>
       <CardContent className="flex flex-col gap-4">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+          <span className="text-xs font-bold uppercase tracking-wider text-gray-500">
             {label}
           </span>
           {icon ? (
@@ -48,11 +48,11 @@ export function KpiCard({
             </span>
           ) : null}
         </div>
-        <p className="text-3xl font-bold text-gray-900 tracking-tight">
+        <p className="text-4xl font-bold text-gray-900">
           {formatValue()}
         </p>
         {description ? (
-          <p className="text-xs font-medium text-gray-500 leading-relaxed">{description}</p>
+          <p className="text-xs font-normal text-gray-500 leading-relaxed">{description}</p>
         ) : null}
       </CardContent>
     </Card>

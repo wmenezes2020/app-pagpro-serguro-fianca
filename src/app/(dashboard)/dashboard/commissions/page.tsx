@@ -53,28 +53,28 @@ export default function CommissionsPage() {
 
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         <KpiCard
-          label="Total Pago"
-          value={formatCurrency(summary?.totalAmount ?? 0)}
+          label="Pagas"
+          value={formatCurrency(summary?.paidAmount ?? 0)}
           icon={<DollarSign className="h-5 w-5" />}
-          description="Valor total de comissões pagas"
+          description="Comissões já liberadas"
         />
         <KpiCard
           label="Pendentes"
-          value={summary?.totalPending ?? 0}
+          value={formatCurrency(summary?.pendingAmount ?? 0)}
           icon={<Clock className="h-5 w-5" />}
-          description="Comissões aguardando aprovação"
+          description="Aguardando aprovação/baixa"
         />
         <KpiCard
           label="Aprovadas"
-          value={summary?.totalApproved ?? 0}
+          value={formatCurrency(summary?.approvedAmount ?? 0)}
           icon={<CheckCircle2 className="h-5 w-5" />}
-          description="Comissões aprovadas para pagamento"
+          description="Prontas para pagamento"
         />
         <KpiCard
-          label="Pagas"
-          value={summary?.totalPaid ?? 0}
+          label="Volume total"
+          value={formatCurrency(summary?.totalAmount ?? 0)}
           icon={<TrendingUp className="h-5 w-5" />}
-          description="Comissões já pagas"
+          description="Somatório de todas as comissões"
         />
       </div>
 

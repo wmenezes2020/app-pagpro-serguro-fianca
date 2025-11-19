@@ -17,6 +17,7 @@ export interface LoginPayload {
 }
 
 export interface RegisterImobiliariaPayload {
+  inviteToken: string;
   email: string;
   password: string;
   fullName: string;
@@ -32,6 +33,7 @@ export interface RegisterImobiliariaPayload {
 }
 
 export interface RegisterInquilinoPayload {
+  inviteToken: string;
   email: string;
   password: string;
   fullName: string;
@@ -44,6 +46,7 @@ export interface RegisterInquilinoPayload {
 }
 
 export interface RegisterCorretorPayload {
+  inviteToken: string;
   email: string;
   password: string;
   fullName: string;
@@ -51,6 +54,18 @@ export interface RegisterCorretorPayload {
   creci?: string;
   phone?: string;
   brokerageName?: string;
+}
+
+export interface RegisterFranqueadoPayload {
+  inviteToken: string;
+  email: string;
+  password: string;
+  fullName: string;
+  companyName: string;
+  document?: string;
+  region?: string;
+  phone?: string;
+  notes?: string;
 }
 
 export const login = (payload: LoginPayload) =>
@@ -81,6 +96,13 @@ export const registerCorretor = (payload: RegisterCorretorPayload) =>
     data: payload,
   });
 
+export const registerFranqueado = (payload: RegisterFranqueadoPayload) =>
+  request<AuthResponse>({
+    method: "POST",
+    url: "/auth/register/franqueado",
+    data: payload,
+  });
+
 export const fetchCurrentUser = () =>
   request<AuthUser>({
     method: "GET",
@@ -91,5 +113,28 @@ export const logout = () =>
   request<{ success: boolean }>({
     method: "POST",
     url: "/auth/logout",
+  });
+
+export interface ForgotPasswordPayload {
+  email: string;
+}
+
+export interface ResetPasswordPayload {
+  token: string;
+  newPassword: string;
+}
+
+export const forgotPassword = (payload: ForgotPasswordPayload) =>
+  request<{ success: boolean }>({
+    method: "POST",
+    url: "/auth/forgot-password",
+    data: payload,
+  });
+
+export const resetPassword = (payload: ResetPasswordPayload) =>
+  request<{ success: boolean }>({
+    method: "POST",
+    url: "/auth/reset-password",
+    data: payload,
   });
 

@@ -1,11 +1,6 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  BarChart3,
-  CheckCircle2,
-  ShieldCheck,
-  Users,
-} from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, CheckCircle2, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -14,28 +9,23 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { formatCurrency, formatPercent } from "@/lib/utils";
 
-const heroMetrics = [
+const heroHighlights = [
   {
-    label: "Aprovações",
-    value: "223",
-    icon: <CheckCircle2 className="h-5 w-5" />,
+    label: "Fiador 100% digital",
+    description: "Onboarding tokenizado e assinatura eletrônica",
   },
   {
-    label: "Clientes",
-    value: "17.6K",
-    icon: <Users className="h-5 w-5" />,
+    label: "Cobertura configurável",
+    description: "Garantia até 40x aluguel com gatilhos automáticos",
   },
   {
-    label: "Inadimplência",
-    value: "1.3%",
-    icon: <ShieldCheck className="h-5 w-5" />,
+    label: "Hierarquia premiada",
+    description: "Diretor → Cliente comissionados em tempo real",
   },
   {
-    label: "Score Médio",
-    value: "25.2",
-    icon: <BarChart3 className="h-5 w-5" />,
+    label: "IA antifraude proprietária",
+    description: "Score interno + detecção contínua",
   },
 ];
 
@@ -93,14 +83,15 @@ export default function Home() {
     <div className="min-h-screen bg-white text-slate-900">
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <Link href="#home" className="flex items-center gap-2.5">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white">
-              <ShieldCheck className="h-5 w-5" />
-            </div>
-            <div>
-              <p className="text-base font-bold text-slate-900">PAGPRO</p>
-              <p className="text-xs font-medium text-slate-500">Seguro Fiança</p>
-            </div>
+          <Link href="#home" className="flex items-center gap-3">
+            <Image
+              src="/logo-m-black.png"
+              alt="PagPro Seguro Fiança"
+              width={140}
+              height={36}
+              className="h-9 w-auto"
+              priority
+            />
           </Link>
           <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
             <Link href="#home" className="transition-colors hover:text-primary">
@@ -124,7 +115,7 @@ export default function Home() {
               <Link href="/login">Área do Cliente</Link>
             </Button>
             <Button size="sm" asChild>
-              <Link href="/register/imobiliaria">Seja Parceiro</Link>
+              <Link href="#contact">Contato comercial</Link>
             </Button>
           </div>
         </div>
@@ -147,8 +138,12 @@ export default function Home() {
                 reduza a inadimplência e acelere suas locações.
               </p>
               <div className="flex flex-wrap items-center gap-3">
-                <Button size="lg" iconRight={<ArrowRight className="h-4 w-4" />} asChild>
-                  <Link href="/register/imobiliaria">Quero ser parceiro</Link>
+                <Button
+                  size="lg"
+                  iconRight={<ArrowRight className="h-4 w-4" />}
+                  asChild
+                >
+                  <Link href="#contact">Solicitar demonstração</Link>
                 </Button>
                 <Button variant="ghost" size="lg" asChild>
                   <Link href="#products">Conheça os produtos</Link>
@@ -170,24 +165,20 @@ export default function Home() {
                   Online
                 </span>
               </div>
-              <div className="mb-5 grid grid-cols-2 gap-3">
-                {heroMetrics.map((metric) => (
+              <div className="mb-5 grid gap-3">
+                {heroHighlights.map((highlight) => (
                   <div
-                    key={metric.label}
-                    className="rounded-lg border border-slate-100 bg-slate-50 p-3"
+                    key={highlight.label}
+                    className="flex items-start gap-3 rounded-xl border border-slate-100 bg-slate-50 p-3"
                   >
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        {metric.icon}
-                      </div>
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                          {metric.label}
-                        </p>
-                        <p className="text-xl font-bold text-slate-900">
-                          {metric.value}
-                        </p>
-                      </div>
+                    <CheckCircle2 className="h-5 w-5 text-primary" />
+                    <div>
+                      <p className="text-sm font-semibold text-slate-900">
+                        {highlight.label}
+                      </p>
+                      <p className="text-xs text-slate-600">
+                        {highlight.description}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -242,7 +233,7 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <Button asChild>
-                  <Link href="/register/imobiliaria">
+                  <Link href="#contact">
                     Quero fazer parte
                     <ArrowRight className="h-4 w-4" />
                   </Link>
@@ -254,24 +245,20 @@ export default function Home() {
             </div>
             <div className="rounded-xl border border-primary/20 bg-primary/5 p-6">
               <h3 className="mb-4 text-lg font-semibold text-primary">
-                Indicadores PagPro 2025
+                Diferenciais PagPro
               </h3>
               <div className="space-y-3 text-sm text-slate-700">
                 <p>
-                  • Score médio de aprovação:{" "}
-                  <span className="font-semibold text-primary">25.2</span>
+                  • Score interno proprietário conectado a dados financeiros reais.
                 </p>
                 <p>
-                  • Taxa de inadimplência controlada em{" "}
-                  <span className="font-semibold text-primary">1.3%</span>
+                  • IA antifraude com monitoramento contínuo da carteira.
                 </p>
                 <p>
-                  • Cobertura máxima garantida:{" "}
-                  <span className="font-semibold text-primary">3x aluguel</span>
+                  • Cobertura parametrizável: do onboarding ao distrato digital.
                 </p>
                 <p>
-                  • Taxa de adesão única:{" "}
-                  <span className="font-semibold text-primary">1x aluguel</span>
+                  • Tokenização e convites seguros para toda a hierarquia de parceiros.
                 </p>
               </div>
             </div>
@@ -325,7 +312,7 @@ export default function Home() {
                 consultoria especializada.
               </p>
               <Button asChild>
-                <Link href="/register/imobiliaria">Quero participar</Link>
+                <Link href="#contact">Quero participar</Link>
               </Button>
             </div>
             <Card className="border-slate-200 bg-slate-50">
@@ -367,7 +354,7 @@ export default function Home() {
                 </li>
               </ul>
               <Link
-                href="/register/imobiliaria"
+                href="#contact"
                 className="mt-6 inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-sm font-medium text-primary transition-colors hover:bg-slate-50 hover:text-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               >
                 Quero proteger minha carteira
@@ -376,26 +363,23 @@ export default function Home() {
             <Card className="flex-1 border-0 bg-white shadow-2xl">
               <CardContent className="space-y-4 p-6">
                 <h3 className="text-lg font-semibold text-slate-900">
-                  Métricas que importam para o seu negócio
+                  Indicadores que importam
                 </h3>
-                <div className="space-y-3.5">
-                  <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                    <span className="text-sm text-slate-600">Taxa de renovação</span>
-                    <span className="text-lg font-bold text-primary">
-                      {formatPercent(0.92, 0)}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                    <span className="text-sm text-slate-600">SLA de acionamento</span>
-                    <span className="text-lg font-bold text-primary">menos de 24h</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-slate-600">Pagamento médio aos parceiros</span>
-                    <span className="text-lg font-bold text-primary">
-                      {formatCurrency(45000)} / mês
-                    </span>
-                  </div>
-                </div>
+                <ul className="space-y-2.5 text-sm text-slate-600">
+                  <li>
+                    • Renovação automatizada com alertas proativos para cada contrato.
+                  </li>
+                  <li>
+                    • SLA de acionamento operacional inferior a 24 horas, com
+                    acompanhamento humano.
+                  </li>
+                  <li>
+                    • Pagamentos disponibilizados assim que o sistema confirma a quitação.
+                  </li>
+                  <li>
+                    • Relatórios transparentes de comissionamento para toda a cadeia.
+                  </li>
+                </ul>
               </CardContent>
             </Card>
           </div>
@@ -411,9 +395,9 @@ export default function Home() {
                 Mais segurança e maior rentabilidade para sua carteira
               </h2>
               <p className="text-base leading-relaxed text-slate-600 md:text-lg">
-                Cobrança transparente: taxa de adesão única e parcelas mensais a
-                partir de {formatPercent(0.15)} do aluguel. Ativação imediata
-                após pagamento.
+                Cobrança transparente: taxa de adesão única, parcelas flexíveis
+               , ativação imediata após pagamento e liberação automática do
+                repasse aos parceiros.
               </p>
             </div>
             <Card className="border-primary/20">
@@ -425,9 +409,8 @@ export default function Home() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-sm text-slate-600">
-                  A partir de{" "}
-                  <span className="text-3xl font-bold text-primary">15%</span>{" "}
-                  do valor do aluguel ao mês
+                  Modelos sob medida para cada carteira — configuramos cobertura,
+                  taxa e forma de cobrança conforme sua estratégia.
                 </p>
                 <ul className="space-y-2.5 text-sm text-slate-600">
                   {pricingBenefits.map((benefit) => (
@@ -438,7 +421,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <Button className="w-full" asChild>
-                  <Link href="/register/imobiliaria">Solicitar proposta</Link>
+                  <Link href="#contact">Solicitar proposta</Link>
                 </Button>
               </CardContent>
             </Card>

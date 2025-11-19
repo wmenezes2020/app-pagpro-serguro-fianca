@@ -5,6 +5,8 @@ import { persist, createJSONStorage } from "zustand/middleware";
 
 export type UserRole =
   | "ADMIN"
+  | "DIRECTOR"
+  | "FRANQUEADO"
   | "IMOBILIARIA"
   | "INQUILINO"
   | "CORRETOR";
@@ -18,6 +20,8 @@ export interface AuthUser {
   imobiliariaProfile?: unknown;
   inquilinoProfile?: unknown;
   corretorProfile?: unknown;
+  franqueadoProfile?: unknown;
+  parent?: Pick<AuthUser, "id" | "role" | "fullName" | "email"> | null;
 }
 
 interface AuthState {
@@ -25,6 +29,7 @@ interface AuthState {
   accessToken: string | null;
   refreshToken: string | null;
   isAuthenticating: boolean;
+  hasHydrated: boolean;
   setAuth: (payload: {
     user: AuthUser;
     accessToken: string;
@@ -33,6 +38,7 @@ interface AuthState {
   setUser: (user: AuthUser | null) => void;
   setTokens: (tokens: { accessToken: string; refreshToken: string }) => void;
   setAuthenticating: (value: boolean) => void;
+  setHasHydrated: (value: boolean) => void;
   clearAuth: () => void;
 }
 
@@ -59,6 +65,7 @@ export const useAuthStore = create<AuthState>()(
       accessToken: null,
       refreshToken: null,
       isAuthenticating: false,
+      hasHydrated: false,
       setAuth: ({ user, accessToken, refreshToken }) =>
         set({
           user,
@@ -73,6 +80,7 @@ export const useAuthStore = create<AuthState>()(
           refreshToken,
         }),
       setAuthenticating: (value) => set({ isAuthenticating: value }),
+      setHasHydrated: (value) => set({ hasHydrated: value }),
       clearAuth: () =>
         set({
           user: null,
@@ -89,6 +97,12 @@ export const useAuthStore = create<AuthState>()(
         accessToken: state.accessToken,
         refreshToken: state.refreshToken,
       }),
+      onRehydrateStorage: () => (state) => {
+        // Marcar como hidratado após a reidratação
+        if (state) {
+          state.setHasHydrated(true);
+        }
+      },
     },
   ),
 );
