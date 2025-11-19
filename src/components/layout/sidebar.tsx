@@ -51,12 +51,12 @@ const baseNav: NavItem[] = [
     label: "Comissões",
     icon: DollarSign,
   },
-  {
-    href: "/dashboard/support",
-    label: "Suporte",
-    icon: LifeBuoy,
-    badge: "3",
-  },
+  // {
+  //   href: "/dashboard/support",
+  //   label: "Suporte",
+  //   icon: LifeBuoy,
+  //   badge: "3",
+  // },
 ];
 
 const profileNav: NavItem = {
@@ -96,6 +96,11 @@ const roleNavMap: Partial<Record<UserRole, NavItem[]>> = {
       label: "Imobiliárias",
       icon: Building2,
     },
+    {
+      href: "/dashboard/corretores",
+      label: "Corretores",
+      icon: UserCog,
+    },
   ],
   DIRECTOR: [
     {
@@ -108,6 +113,11 @@ const roleNavMap: Partial<Record<UserRole, NavItem[]>> = {
       label: "Imobiliárias",
       icon: Building2,
     },
+    {
+      href: "/dashboard/corretores",
+      label: "Corretores",
+      icon: UserCog,
+    },
   ],
   ADMIN: [
     {
@@ -119,6 +129,11 @@ const roleNavMap: Partial<Record<UserRole, NavItem[]>> = {
       href: "/dashboard/imobiliarias",
       label: "Imobiliárias",
       icon: Building2,
+    },
+    {
+      href: "/dashboard/corretores",
+      label: "Corretores",
+      icon: UserCog,
     },
     {
       href: "/dashboard/clients",

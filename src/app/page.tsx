@@ -396,7 +396,7 @@ export default function Home() {
               </h2>
               <p className="text-base leading-relaxed text-slate-600 md:text-lg">
                 Cobrança transparente: taxa de adesão única, parcelas flexíveis
-               , ativação imediata após pagamento e liberação automática do
+                , ativação imediata após pagamento e liberação automática do
                 repasse aos parceiros.
               </p>
             </div>

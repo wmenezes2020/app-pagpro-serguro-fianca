@@ -97,6 +97,11 @@ export default function DashboardHomePage() {
         href: "/dashboard/imobiliarias",
       },
       {
+        title: "Cadastrar corretor",
+        description: "Adicione corretores diretamente pelo painel",
+        href: "/dashboard/corretores",
+      },
+      {
         title: "Emitir convites tokenizados",
         description: "Gere links seguros para todo o ecossistema",
         href: "/dashboard/invitations",
@@ -112,6 +117,11 @@ export default function DashboardHomePage() {
         title: "Cadastrar imobiliária",
         description: "Cadastre parceiros direto do painel",
         href: "/dashboard/imobiliarias",
+      },
+      {
+        title: "Cadastrar corretor",
+        description: "Crie acessos para corretores associados",
+        href: "/dashboard/corretores",
       },
       {
         title: "Convidar corretores",

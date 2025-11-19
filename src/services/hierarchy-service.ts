@@ -26,6 +26,16 @@ export interface CreateImobiliariaPayload {
   postalCode?: string;
 }
 
+export interface CreateCorretorPayload {
+  fullName: string;
+  email: string;
+  password: string;
+  phone?: string;
+  cpf: string;
+  creci?: string;
+  brokerageName?: string;
+}
+
 export const createFranqueado = (payload: CreateFranqueadoPayload) =>
   request({
     method: "POST",
@@ -37,6 +47,13 @@ export const createImobiliaria = (payload: CreateImobiliariaPayload) =>
   request({
     method: "POST",
     url: "/users/imobiliarias",
+    data: payload,
+  });
+
+export const createCorretor = (payload: CreateCorretorPayload) =>
+  request({
+    method: "POST",
+    url: "/users/corretores",
     data: payload,
   });
 
