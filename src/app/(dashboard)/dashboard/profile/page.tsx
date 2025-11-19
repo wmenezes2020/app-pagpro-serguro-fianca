@@ -2,6 +2,8 @@
 
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Card,
   CardContent,
@@ -9,10 +11,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/ui/input };
 import { Button } from "@/components/ui/button";
 import { useAuthStore } from "@/store/auth-store";
 import { updateProfile } from "@/services/users-service";
+import {
+  changePassword,
+  ChangePasswordPayload,
+} from "@/services/auth-service";
 import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
 
@@ -20,6 +26,19 @@ type ProfileFormValues = {
   fullName?: string;
   phone?: string;
 };
+
+const passwordSchema = z
+  .object({
+    currentPassword: z.string().min(6, "Informe sua senha atual."),
+    newPassword: z.string().min(6, "A nova senha deve ter ao menos 6 caracteres."),
+    confirmPassword: z.string().min(6, "Confirme a nova senha."),
+  })
+  .refine((data) => data.newPassword === data.confirmPassword, {
+    message: "As senhas não coincidem.",
+    path: ["confirmPassword"],
+  });
+
+type PasswordFormValues = z.infer<typeof passwordSchema>;
 
 export default function ProfilePage() {
   const user = useAuthStore((state) => state.user);
@@ -45,6 +64,38 @@ export default function ProfilePage() {
 
   const onSubmit = async (values: ProfileFormValues) => {
     await mutateAsync(values);
+  };
+
+  const passwordForm = useForm<PasswordFormValues>({
+    resolver: zodResolver(passwordSchema),
+    defaultValues: {
+      currentPassword: "",
+      newPassword: "",
+      confirmPassword: "",
+    },
+  });
+
+  const {
+    mutateAsync: mutatePassword,
+    isPending: isChangingPassword,
+  } = useMutation({
+    mutationFn: (payload: ChangePasswordPayload) => changePassword(payload),
+    onSuccess: () => {
+      toast.success("Senha atualizada com sucesso.");
+      passwordForm.reset();
+    },
+    onError: (error: unknown) => {
+      const message =
+        error instanceof Error ? error.message : "Não foi possível alterar a senha.";
+      toast.error(message);
+    },
+  });
+
+  const handlePasswordSubmit = async (values: PasswordFormValues) => {
+    await mutatePassword({
+      currentPassword: values.currentPassword,
+      newPassword: values.newPassword,
+    });
   };
 
   return (
@@ -87,6 +138,63 @@ export default function ProfilePage() {
             <div className="md:col-span-2 flex justify-end">
               <Button type="submit" loading={isPending}>
                 Salvar alterações
+              </Button>
+            </div>
+          </form>
+        </CardContent>
+      </Card>
+
+      <Card className="border-slate-200">
+        <CardHeader>
+          <CardTitle>Alterar senha</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <form
+            onSubmit={passwordForm.handleSubmit(handlePasswordSubmit)}
+            className="grid gap-4 md:grid-cols-2"
+          >
+            <div className="space-y-2 md:col-span-2">
+              <Label htmlFor="currentPassword">Senha atual</Label>
+              <Input
+                id="currentPassword"
+                type="password"
+                {...passwordForm.register("currentPassword")}
+              />
+              {passwordForm.formState.errors.currentPassword ? (
+                <p className="text-xs text-red-500">
+                  {passwordForm.formState.errors.currentPassword.message}
+                </p>
+              ) : null}
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="newPassword">Nova senha</Label>
+              <Input
+                id="newPassword"
+                type="password"
+                {...passwordForm.register("newPassword")}
+              />
+              {passwordForm.formState.errors.newPassword ? (
+                <p className="text-xs text-red-500">
+                  {passwordForm.formState.errors.newPassword.message}
+                </p>
+              ) : null}
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="confirmPassword">Confirmar nova senha</Label>
+              <Input
+                id="confirmPassword"
+                type="password"
+                {...passwordForm.register("confirmPassword")}
+              />
+              {passwordForm.formState.errors.confirmPassword ? (
+                <p className="text-xs text-red-500">
+                  {passwordForm.formState.errors.confirmPassword.message}
+                </p>
+              ) : null}
+            </div>
+            <div className="md:col-span-2 flex justify-end">
+              <Button type="submit" loading={isChangingPassword}>
+                Atualizar senha
               </Button>
             </div>
           </form>

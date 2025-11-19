@@ -138,3 +138,15 @@ export const resetPassword = (payload: ResetPasswordPayload) =>
     data: payload,
   });
 
+export interface ChangePasswordPayload {
+  currentPassword: string;
+  newPassword: string;
+}
+
+export const changePassword = (payload: ChangePasswordPayload) =>
+  request<{ success: boolean }>({
+    method: "POST",
+    url: "/auth/change-password",
+    data: payload,
+  });
+
