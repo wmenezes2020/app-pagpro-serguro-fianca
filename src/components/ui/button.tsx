@@ -9,7 +9,8 @@ export type ButtonVariant =
   | "secondary"
   | "ghost"
   | "outline"
-  | "danger";
+  | "danger"
+  | "yellow-text";
 
 type ButtonSize = "sm" | "md" | "lg";
 
@@ -26,15 +27,17 @@ export interface ButtonProps
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-[#FFD700] text-[#0F2240] shadow-sm hover:bg-[#E6C200] focus-visible:ring-2 focus-visible:ring-[#FFD700]/40 transition-all duration-150 font-semibold",
+    "!bg-[#FFD700] !text-[#0F2240] shadow-sm hover:!bg-[#E6C200] hover:!text-[#0F2240] focus-visible:ring-2 focus-visible:ring-[#FFD700]/40 transition-all duration-150 font-semibold",
   secondary:
     "bg-[#0F2240] text-white shadow-sm hover:bg-[#0C1B33] focus-visible:ring-2 focus-visible:ring-[#0F2240]/20 transition-all duration-150 font-medium",
   ghost:
     "bg-transparent text-[#0F2240] hover:bg-gray-100 hover:text-[#0F2240] focus-visible:ring-2 focus-visible:ring-gray-300 transition-all duration-150 font-normal",
   outline:
-    "border border-[#0F2240] text-[#0F2240] bg-white hover:bg-gray-50 hover:border-[#0C1B33] focus-visible:ring-2 focus-visible:ring-[#0F2240] transition-all duration-150 font-normal",
+    "border border-[#0F2240] !text-[#0F2240] bg-white hover:bg-gray-50 hover:border-[#0C1B33] hover:!text-[#0F2240] focus-visible:ring-2 focus-visible:ring-[#0F2240] transition-all duration-150 font-normal",
   danger:
     "bg-red-600 text-white shadow-sm hover:bg-red-700 focus-visible:ring-2 focus-visible:ring-red-600/20 transition-all duration-150 font-medium",
+  "yellow-text":
+    "bg-transparent !text-[#FFD700] border-2 border-[#FFD700] shadow-[0_0_20px_rgba(255,215,0,0.2)] hover:!bg-[#FFD700] hover:!text-[#0F2240] hover:shadow-[0_0_30px_rgba(255,215,0,0.4)] focus-visible:ring-2 focus-visible:ring-[#FFD700]/40 transition-all duration-150 font-semibold",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {

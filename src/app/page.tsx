@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2, Users } from "lucide-react";
+import { ArrowRight, CheckCircle2, Users, ShieldCheck, Mail, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -17,7 +17,7 @@ const heroHighlights = [
   },
   {
     label: "Cobertura configurável",
-    description: "Garantia até 40x aluguel com gatilhos automáticos",
+    description: "Garantia até 3x aluguel com gatilhos automáticos",
   },
   {
     label: "Hierarquia premiada",
@@ -81,40 +81,56 @@ const pricingBenefits = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
-      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <Link href="#home" className="flex items-center gap-3">
-            <Image
-              src="/logo-m-black.png"
-              alt="PagPro Seguro Fiança"
-              width={140}
-              height={36}
-              className="h-9 w-auto"
-              priority
-            />
+      <header className="sticky top-0 z-50 border-b border-slate-200/40 bg-white/95 backdrop-blur-xl shadow-[0_4px_20px_-2px_rgb(15_34_64_/0.08)]">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+          <Link href="#home" className="flex items-center gap-4 group">
+            <div className="relative">
+              <Image
+                src="/logo-m-black.png"
+                alt="PagPro Seguro Fiança"
+                width={150}
+                height={40}
+                className="h-10 w-auto transition-all group-hover:scale-105"
+                priority
+              />
+            </div>
+            <div className="hidden lg:flex items-center gap-2 pl-4 border-l border-slate-200/60">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200/60 shadow-sm">
+                <div className="relative">
+                  <span className="h-2 w-2 rounded-full bg-green-500 block" />
+                  <span className="absolute inset-0 h-2 w-2 rounded-full bg-green-500 animate-ping opacity-75" />
+                </div>
+                <span className="text-xs font-bold text-green-700 tracking-wide">Plataforma Certificada</span>
+              </div>
+            </div>
           </Link>
-          <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
-            <Link href="#home" className="transition-colors hover:text-primary">
+          <nav className="hidden items-center gap-1 xl:gap-2 text-sm font-bold text-slate-800 lg:flex">
+            <Link href="#home" className="px-4 py-2 rounded-lg transition-all hover:bg-slate-100 hover:text-[#0F2240] relative group">
               Início
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[#FFD700] transition-all group-hover:w-3/4" />
             </Link>
-            <Link href="#about" className="transition-colors hover:text-primary">
+            <Link href="#about" className="px-4 py-2 rounded-lg transition-all hover:bg-slate-100 hover:text-[#0F2240] relative group">
               Quem Somos
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[#FFD700] transition-all group-hover:w-3/4" />
             </Link>
-            <Link href="#products" className="transition-colors hover:text-primary">
+            <Link href="#products" className="px-4 py-2 rounded-lg transition-all hover:bg-slate-100 hover:text-[#0F2240] relative group">
               Produtos
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[#FFD700] transition-all group-hover:w-3/4" />
             </Link>
-            <Link href="#club" className="transition-colors hover:text-primary">
+            <Link href="#club" className="px-4 py-2 rounded-lg transition-all hover:bg-slate-100 hover:text-[#0F2240] relative group">
               Clube
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[#FFD700] transition-all group-hover:w-3/4" />
             </Link>
-            <Link href="#contact" className="transition-colors hover:text-primary">
+            <Link href="#contact" className="px-4 py-2 rounded-lg transition-all hover:bg-slate-100 hover:text-[#0F2240] relative group">
               Contato
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[#FFD700] transition-all group-hover:w-3/4" />
             </Link>
           </nav>
           <div className="hidden items-center gap-3 md:flex">
-            <Button variant="ghost" size="sm" asChild>
+            <Button variant="ghost" size="sm" asChild className="font-bold text-slate-700 hover:text-[#0F2240]">
               <Link href="/login">Área do Cliente</Link>
             </Button>
-            <Button size="sm" asChild>
+            <Button size="sm" asChild className="font-bold shadow-lg shadow-[#FFD700]/20">
               <Link href="#contact">Contato comercial</Link>
             </Button>
           </div>
@@ -122,173 +138,232 @@ export default function Home() {
       </header>
 
       <main id="home" className="flex-1">
-        <section className="bg-gradient-to-b from-primary-50/50 via-white to-white py-16 md:py-20">
-          <div className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-2 md:gap-12">
-            <div className="flex flex-col justify-center gap-5">
-              <Badge variant="outline" className="w-fit border-primary-200 bg-primary-50 text-primary">
+        {/* Hero Section - Redesenhado com mais impacto */}
+        <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-primary-50/30 py-20 md:py-28">
+          {/* Background decorativo */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#FFD700]/5 to-transparent rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-primary-100/20 to-transparent rounded-full blur-3xl" />
+          </div>
+
+          <div className="relative mx-auto max-w-7xl px-6">
+            {/* Conteúdo principal centralizado */}
+            <div className="max-w-4xl mx-auto text-center space-y-8 z-10">
+              <Badge variant="outline" className="mx-auto border-primary-200/60 bg-white/90 backdrop-blur-sm text-primary shadow-sm px-4 py-2">
                 Plataforma integrada para imobiliárias
               </Badge>
-              <h1 className="text-3xl font-bold leading-tight text-slate-900 md:text-4xl lg:text-5xl">
+              <h1 className="text-5xl font-extrabold leading-[1.1] text-[#0F2240] tracking-tight md:text-6xl lg:text-7xl">
                 A garantia inteligente que sua imobiliária precisa para{" "}
-                <span className="text-primary">alugar mais e melhor</span>
+                <span className="relative inline-block">
+                  <span className="relative z-10">alugar mais e melhor</span>
+                  <span className="absolute bottom-3 left-0 right-0 h-5 bg-[#FFD700]/50 -skew-x-12 -z-10" />
+                </span>
               </h1>
-              <p className="text-base leading-relaxed text-slate-600 md:text-lg">
+              <p className="text-xl leading-relaxed text-slate-700 md:text-2xl max-w-3xl mx-auto font-medium">
                 Seguro fiança com análise inclusiva, cobertura ampliada e
                 experiência digital completa. Elimine o fiador tradicional,
                 reduza a inadimplência e acelere suas locações.
               </p>
-              <div className="flex flex-wrap items-center gap-3">
+              <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
                 <Button
                   size="lg"
-                  iconRight={<ArrowRight className="h-4 w-4" />}
+                  iconRight={<ArrowRight className="h-5 w-5" />}
                   asChild
+                  className="shadow-xl shadow-[#FFD700]/25 hover:shadow-2xl hover:shadow-[#FFD700]/35 text-base px-8 py-6"
                 >
                   <Link href="#contact">Solicitar demonstração</Link>
                 </Button>
-                <Button variant="ghost" size="lg" asChild>
+                <Button variant="outline" size="lg" asChild className="border-2 border-[#0F2240]/30 hover:border-[#0F2240]/50 hover:bg-[#0F2240] hover:text-white font-bold text-base px-8 py-6">
                   <Link href="#products">Conheça os produtos</Link>
                 </Button>
               </div>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-lg">
-              <div className="mb-5 flex items-center justify-between border-b border-slate-200 pb-4">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                    Dashboard PagPro
-                  </p>
-                  <h3 className="mt-1 text-lg font-semibold text-slate-900">
-                    Performance em tempo real
-                  </h3>
+
+            {/* Dashboard Card - Abaixo do hero, não competindo */}
+            <div className="mt-16 max-w-5xl mx-auto relative z-10">
+              <div className="professional-card p-10 bg-white/98 backdrop-blur-md border-slate-200/60 shadow-[0_25px_80px_-12px_rgb(15_34_64_/0.2)]">
+                <div className="mb-8 flex items-center justify-between border-b border-slate-200/60 pb-6">
+                  <div>
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="p-2 rounded-lg bg-gradient-to-br from-[#0F2240] to-[#0C1B33]">
+                        <ShieldCheck className="h-5 w-5 text-[#FFD700]" />
+                      </div>
+                      <p className="text-xs font-bold uppercase tracking-wider text-slate-600">
+                        Dashboard PagPro
+                      </p>
+                      <span className="px-3 py-1 rounded-full bg-green-50 border border-green-200/60 text-green-700 text-xs font-bold">
+                        <span className="h-1.5 w-1.5 rounded-full bg-green-500 inline-block mr-1.5 animate-pulse" />
+                        SSL Seguro
+                      </span>
+                    </div>
+                    <h3 className="text-2xl font-extrabold text-[#0F2240] tracking-tight">
+                      Performance em tempo real
+                    </h3>
+                  </div>
+                  <span className="flex items-center gap-2 rounded-full bg-gradient-to-r from-green-50 to-emerald-50 px-4 py-2 text-xs font-bold text-green-700 border border-green-200/60 shadow-md">
+                    <span className="h-2.5 w-2.5 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.6)]" />
+                    Online
+                  </span>
                 </div>
-                <span className="flex items-center gap-1.5 rounded-full bg-green-100 px-2.5 py-1 text-xs font-semibold text-green-700">
-                  <span className="h-1.5 w-1.5 rounded-full bg-green-600" />
-                  Online
-                </span>
-              </div>
-              <div className="mb-5 grid gap-3">
-                {heroHighlights.map((highlight) => (
-                  <div
-                    key={highlight.label}
-                    className="flex items-start gap-3 rounded-xl border border-slate-100 bg-slate-50 p-3"
-                  >
-                    <CheckCircle2 className="h-5 w-5 text-primary" />
-                    <div>
-                      <p className="text-sm font-semibold text-slate-900">
-                        {highlight.label}
-                      </p>
-                      <p className="text-xs text-slate-600">
-                        {highlight.description}
-                      </p>
+                <div className="mb-8 grid gap-4 md:grid-cols-2">
+                  {heroHighlights.map((highlight, index) => (
+                    <div
+                      key={highlight.label}
+                      className="group flex items-start gap-4 rounded-xl border-2 border-slate-200/60 bg-gradient-to-br from-white to-slate-50/50 p-5 shadow-sm hover:shadow-lg hover:border-[#FFD700]/40 transition-all duration-300 hover:-translate-y-1"
+                    >
+                      <div className="flex-shrink-0 p-2.5 rounded-xl bg-[#FFD700]/10 group-hover:bg-[#FFD700]/20 transition-all">
+                        <CheckCircle2 className="h-6 w-6 text-[#FFD700]" />
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-base font-extrabold text-[#0F2240] mb-2">
+                          {highlight.label}
+                        </p>
+                        <p className="text-sm text-slate-600 leading-relaxed font-medium">
+                          {highlight.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="rounded-2xl bg-gradient-to-br from-[#0F2240] via-[#0C1B33] to-[#091426] p-8 text-white shadow-2xl relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-40 h-40 bg-[#FFD700]/10 rounded-full blur-3xl" />
+                  <div className="relative z-10">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="p-3 rounded-xl bg-[#FFD700]/20">
+                        <ShieldCheck className="h-6 w-6 text-[#FFD700]" />
+                      </div>
+                      <div>
+                        <p className="text-base font-extrabold text-white mb-1">
+                          Cobertura garantida até{" "}
+                          <span className="text-[#FFD700] text-lg font-extrabold">3x o valor do aluguel</span>
+                        </p>
+                        <p className="text-sm text-white leading-relaxed font-bold">
+                          Monitoramento contínuo, acionamento imediato e suporte
+                          especializado para imobiliária e inquilino.
+                        </p>
+                      </div>
                     </div>
                   </div>
-                ))}
-              </div>
-              <div className="rounded-xl bg-primary/10 p-4">
-                <p className="text-sm font-medium text-primary">
-                  Cobertura garantida até{" "}
-                  <span className="font-semibold">3x o valor do aluguel</span>
-                </p>
-                <p className="mt-1.5 text-xs text-slate-600">
-                  Monitoramento contínuo, acionamento imediato e suporte
-                  especializado para imobiliária e inquilino.
-                </p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="border-b border-slate-200 bg-white py-10">
-          <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6">
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-              Imobiliárias parceiras em todo o Brasil
-            </p>
-            <div className="flex flex-wrap gap-4 text-sm font-medium text-slate-500 md:gap-6 md:text-base">
+        {/* Partners Section - Visual e Impactante */}
+        <section className="border-b border-slate-200/40 bg-white py-16">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="text-center mb-12">
+              <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-4">
+                Imobiliárias parceiras em todo o Brasil
+              </p>
+              <div className="section-divider" />
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
               {trustedBrands.map((brand) => (
-                <span
+                <div
                   key={brand}
-                  className="rounded-full border border-slate-200 px-4 py-1"
+                  className="group relative flex items-center justify-center rounded-2xl border-2 border-slate-200/60 bg-gradient-to-br from-white to-slate-50/50 px-6 py-8 shadow-sm hover:shadow-xl hover:border-[#FFD700]/40 transition-all duration-500 hover:-translate-y-2"
                 >
-                  {brand}
-                </span>
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FFD700]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <span className="text-sm font-bold text-slate-700 group-hover:text-[#0F2240] transition-colors relative z-10 text-center">
+                    {brand}
+                  </span>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="about" className="bg-white py-16 md:py-20">
-          <div className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-[1.2fr_0.8fr]">
-            <div className="flex flex-col gap-5">
-              <Badge variant="outline" className="w-fit border-slate-200 bg-white">
+        {/* About Section - Layout Centralizado */}
+        <section id="about" className="relative bg-gradient-to-b from-white via-slate-50/30 to-white py-24 md:py-32 overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(15,34,64,0.03),transparent_70%)] pointer-events-none" />
+          <div className="relative mx-auto max-w-6xl px-6 z-10">
+            <div className="text-center mb-16">
+              <Badge variant="outline" className="mx-auto border-primary-200/60 bg-white/90 backdrop-blur-sm text-primary shadow-sm px-4 py-2 mb-6">
                 O futuro do aluguel começa aqui
               </Badge>
-              <h2 className="text-2xl font-bold text-slate-900 md:text-3xl lg:text-4xl">
+              <h2 className="text-4xl font-extrabold text-[#0F2240] tracking-tight leading-[1.1] md:text-5xl lg:text-6xl mb-6">
                 Ecossistema financeiro completo para imobiliárias que querem
                 escalar com segurança
               </h2>
-              <p className="text-base leading-relaxed text-slate-600 md:text-lg">
+              <p className="text-xl leading-relaxed text-slate-700 md:text-2xl max-w-3xl mx-auto font-medium mb-8">
                 Com tecnologia proprietária e inteligência de dados, a PagPro
                 transforma o seguro fiança em um motor de crescimento. Nosso
                 score interno considera histórico bancário e capacidade real de
                 pagamento, mesmo para clientes negativados.
               </p>
-              <div className="flex flex-wrap gap-3">
-                <Button asChild>
+              <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
+                <Button asChild size="lg" className="shadow-xl shadow-[#FFD700]/25 text-base px-8 py-6">
                   <Link href="#contact">
                     Quero fazer parte
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-5 w-5" />
                   </Link>
                 </Button>
-                <Button variant="ghost" asChild>
+                <Button variant="outline" asChild size="lg" className="border-2 border-[#0F2240]/30 hover:border-[#0F2240]/50 font-bold text-base px-8 py-6">
                   <Link href="#contact">Falar com especialista</Link>
                 </Button>
               </div>
+              <div className="section-divider" />
             </div>
-            <div className="rounded-xl border border-primary/20 bg-primary/5 p-6">
-              <h3 className="mb-4 text-lg font-semibold text-primary">
-                Diferenciais PagPro
-              </h3>
-              <div className="space-y-3 text-sm text-slate-700">
-                <p>
-                  • Score interno proprietário conectado a dados financeiros reais.
-                </p>
-                <p>
-                  • IA antifraude com monitoramento contínuo da carteira.
-                </p>
-                <p>
-                  • Cobertura parametrizável: do onboarding ao distrato digital.
-                </p>
-                <p>
-                  • Tokenização e convites seguros para toda a hierarquia de parceiros.
-                </p>
-              </div>
+            
+            {/* Diferenciais em Grid */}
+            <div className="grid md:grid-cols-2 gap-8 mt-16">
+              {[
+                { icon: ShieldCheck, title: "Score interno proprietário", desc: "Conectado a dados financeiros reais" },
+                { icon: ShieldCheck, title: "IA antifraude", desc: "Monitoramento contínuo da carteira" },
+                { icon: ShieldCheck, title: "Cobertura parametrizável", desc: "Do onboarding ao distrato digital" },
+                { icon: ShieldCheck, title: "Tokenização segura", desc: "Convites seguros para toda a hierarquia" }
+              ].map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <Card key={index} className="professional-card p-8 hover:-translate-y-2 border-2 border-slate-200/60 hover:border-[#FFD700]/40 group">
+                    <div className="flex items-start gap-5">
+                      <div className="p-5 rounded-2xl bg-gradient-to-br from-[#0F2240] to-[#0C1B33] group-hover:scale-110 transition-transform shadow-xl">
+                        <Icon className="h-7 w-7 text-[#FFD700]" />
+                      </div>
+                      <div className="flex-1 pt-1">
+                        <h3 className="text-xl font-extrabold text-[#0F2240] mb-3 tracking-tight">{item.title}</h3>
+                        <p className="text-base text-slate-700 font-semibold leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  </Card>
+                );
+              })}
             </div>
           </div>
         </section>
 
-        <section id="products" className="bg-slate-50 py-16 md:py-20">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="mb-10 max-w-2xl">
-              <Badge variant="outline" className="w-fit border-primary-200 bg-white">
+        {/* Products Section - Mais impactante */}
+        <section id="products" className="relative bg-gradient-to-b from-slate-50 via-white to-white py-20 md:py-28 overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(15,34,64,0.03),transparent_50%)] pointer-events-none" />
+          <div className="relative mx-auto max-w-7xl px-6">
+            <div className="mb-12 max-w-3xl text-center mx-auto">
+              <Badge variant="outline" className="w-fit mx-auto border-primary-200/60 bg-white/80 backdrop-blur-sm text-primary shadow-sm">
                 Produtos PagPro
               </Badge>
-              <h2 className="mt-3 text-2xl font-bold text-slate-900 md:text-3xl lg:text-4xl">
+              <h2 className="mt-4 text-4xl font-extrabold text-[#0F2240] tracking-tight md:text-5xl lg:text-6xl">
                 Soluções que cobrem toda a jornada do aluguel
               </h2>
-              <p className="mt-3 text-base leading-relaxed text-slate-600 md:text-lg">
+              <p className="mt-6 text-lg leading-relaxed text-slate-700 md:text-xl max-w-2xl mx-auto font-medium">
                 Seguro fiança, score interno proprietário e proteção total
                 combinados para entregar previsibilidade, segurança e escala.
               </p>
             </div>
-            <div className="grid gap-6 md:grid-cols-3">
-              {advantages.map((advantage) => (
+            <div className="grid gap-8 md:grid-cols-3">
+              {advantages.map((advantage, index) => (
                 <Card
                   key={advantage.title}
-                  className="border-slate-200 bg-white"
+                  className="professional-card group hover:-translate-y-3 transition-all duration-500 relative overflow-hidden border-2 border-slate-200/60 hover:border-[#FFD700]/40"
                 >
-                  <CardHeader>
-                    <CardTitle className="text-lg">{advantage.title}</CardTitle>
+                  <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[#FFD700]/10 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <CardHeader className="pb-6 relative z-10">
+                    <div className="mb-6 p-4 rounded-2xl bg-gradient-to-br from-[#0F2240] to-[#0C1B33] w-fit shadow-xl group-hover:scale-110 transition-transform">
+                      <ShieldCheck className="h-8 w-8 text-[#FFD700]" />
+                    </div>
+                    <CardTitle className="text-2xl font-extrabold text-[#0F2240] tracking-tight leading-tight">{advantage.title}</CardTitle>
                   </CardHeader>
-                  <CardContent className="text-sm leading-relaxed text-slate-600">
+                  <CardContent className="text-base leading-relaxed text-slate-700 font-semibold relative z-10">
                     {advantage.description}
                   </CardContent>
                 </Card>
@@ -297,130 +372,161 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="club" className="bg-white py-16 md:py-20">
-          <div className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-[1.1fr_0.9fr]">
-            <div className="space-y-5">
-              <Badge variant="outline" className="w-fit border-secondary/40 bg-secondary/10 text-secondary">
+        {/* Club Section - Layout Vertical Centralizado */}
+        <section id="club" className="relative bg-gradient-to-b from-white via-slate-50/30 to-white py-24 md:py-32 overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(255,215,0,0.05),transparent_60%)] pointer-events-none" />
+          <div className="relative mx-auto max-w-5xl px-6 z-10">
+            <div className="text-center mb-16">
+              <Badge variant="outline" className="mx-auto border-secondary/40 bg-secondary/10 text-secondary shadow-sm px-4 py-2 mb-6">
                 Clube PagPro
               </Badge>
-              <h2 className="text-2xl font-bold text-slate-900 md:text-3xl lg:text-4xl">
+              <h2 className="text-4xl font-extrabold text-[#0F2240] tracking-tight leading-[1.1] md:text-5xl lg:text-6xl mb-6">
                 Crescimento compartilhado com benefícios exclusivos
               </h2>
-              <p className="text-base leading-relaxed text-slate-600 md:text-lg">
+              <p className="text-xl leading-relaxed text-slate-700 md:text-2xl max-w-3xl mx-auto font-medium mb-8">
                 Acesso a campanhas de marketing cooperado, materiais de apoio,
                 treinamentos para corretores, indicadores comparativos e
                 consultoria especializada.
               </p>
-              <Button asChild>
+              <Button asChild size="lg" className="shadow-xl shadow-[#FFD700]/25 text-base px-8 py-6">
                 <Link href="#contact">Quero participar</Link>
               </Button>
             </div>
-            <Card className="border-slate-200 bg-slate-50">
-              <CardContent className="space-y-5">
-                {growthPillars.map((pillar) => (
-                  <div key={pillar.title}>
-                    <h3 className="text-lg font-semibold text-slate-900">
-                      {pillar.title}
-                    </h3>
-                    <p className="mt-1 text-sm leading-relaxed text-slate-600">{pillar.copy}</p>
+            
+            {/* Cards em Grid Horizontal */}
+            <div className="grid md:grid-cols-3 gap-6">
+              {growthPillars.map((pillar, index) => (
+                <Card key={pillar.title} className="professional-card p-8 hover:-translate-y-2 border-2 border-slate-200/60 hover:border-[#FFD700]/40 group">
+                  <div className="mb-6 p-4 rounded-2xl bg-gradient-to-br from-[#FFD700]/10 to-[#FFD700]/5 w-fit group-hover:scale-110 transition-transform">
+                    <ShieldCheck className="h-6 w-6 text-[#FFD700]" />
                   </div>
-                ))}
-              </CardContent>
-            </Card>
+                  <h3 className="text-xl font-extrabold text-[#0F2240] tracking-tight mb-3">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-slate-700 font-semibold">{pillar.copy}</p>
+                </Card>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section className="relative overflow-hidden bg-gradient-to-b from-primary-600 via-primary-500 to-primary-400 py-16 md:py-20" id="protection">
-          <div className="relative mx-auto flex max-w-7xl flex-col gap-8 px-6 md:flex-row md:items-center md:gap-10">
-            <div className="flex-1 space-y-4">
-              <span className="inline-flex items-center rounded-full border border-white/40 bg-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white backdrop-blur-sm">
+        {/* Protection Section - Mais impactante */}
+        <section className="relative overflow-hidden bg-gradient-to-br from-[#0F2240] via-[#0C1B33] to-[#091426] py-20 md:py-28" id="protection">
+          {/* Background decorativo */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#FFD700]/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-400/10 rounded-full blur-3xl" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,215,0,0.05),transparent_50%)]" />
+          </div>
+          
+          <div className="relative mx-auto flex max-w-7xl flex-col gap-12 px-6 md:flex-row md:items-center md:gap-16 z-10">
+            <div className="flex-1 space-y-6">
+              <span className="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-md shadow-lg">
                 Proteção Multicamadas
               </span>
-              <h2 className="text-2xl font-bold leading-tight text-white md:text-3xl lg:text-4xl">
+              <h2 className="text-3xl font-extrabold leading-tight text-white md:text-4xl lg:text-5xl tracking-tight">
                 Sua imobiliária blindada contra fraudes e inadimplência
               </h2>
-              <ul className="space-y-3 text-sm leading-relaxed text-white">
-                <li className="flex items-start gap-2.5">
-                  <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white" />
-                  <span>Análise de crédito com IA proprietária e leitura de extratos bancários.</span>
+              <ul className="space-y-4 text-base leading-relaxed text-white md:text-lg">
+                <li className="flex items-start gap-3">
+                  <div className="flex-shrink-0 mt-1.5 p-1 rounded-full bg-[#FFD700]/20">
+                    <span className="h-2 w-2 flex-shrink-0 rounded-full bg-[#FFD700] block" />
+                  </div>
+                  <span className="font-bold text-white">Análise de crédito com IA proprietária e leitura de extratos bancários.</span>
                 </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white" />
-                  <span>Validação documental instantânea e cruzamento de dados em órgãos oficiais.</span>
+                <li className="flex items-start gap-3">
+                  <div className="flex-shrink-0 mt-1.5 p-1 rounded-full bg-[#FFD700]/20">
+                    <span className="h-2 w-2 flex-shrink-0 rounded-full bg-[#FFD700] block" />
+                  </div>
+                  <span className="font-bold text-white">Validação documental instantânea e cruzamento de dados em órgãos oficiais.</span>
                 </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white" />
-                  <span>Monitoramento da carteira e alertas proativos para tomada de decisão.</span>
+                <li className="flex items-start gap-3">
+                  <div className="flex-shrink-0 mt-1.5 p-1 rounded-full bg-[#FFD700]/20">
+                    <span className="h-2 w-2 flex-shrink-0 rounded-full bg-[#FFD700] block" />
+                  </div>
+                  <span className="font-bold text-white">Monitoramento da carteira e alertas proativos para tomada de decisão.</span>
                 </li>
               </ul>
-              <Link
-                href="#contact"
-                className="mt-6 inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-sm font-medium text-primary transition-colors hover:bg-slate-50 hover:text-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-              >
-                Quero proteger minha carteira
-              </Link>
+              <Button variant="yellow-text" size="lg" asChild className="mt-8 shadow-lg shadow-[#FFD700]/20 hover:shadow-xl hover:shadow-[#FFD700]/30">
+                <Link href="#contact">
+                  Quero proteger minha carteira
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
             </div>
-            <Card className="flex-1 border-0 bg-white shadow-2xl">
-              <CardContent className="space-y-4 p-6">
-                <h3 className="text-lg font-semibold text-slate-900">
-                  Indicadores que importam
-                </h3>
-                <ul className="space-y-2.5 text-sm text-slate-600">
-                  <li>
-                    • Renovação automatizada com alertas proativos para cada contrato.
-                  </li>
-                  <li>
-                    • SLA de acionamento operacional inferior a 24 horas, com
-                    acompanhamento humano.
-                  </li>
-                  <li>
-                    • Pagamentos disponibilizados assim que o sistema confirma a quitação.
-                  </li>
-                  <li>
-                    • Relatórios transparentes de comissionamento para toda a cadeia.
-                  </li>
+            <Card className="flex-1 border-0 bg-white/95 backdrop-blur-sm shadow-2xl">
+              <CardContent className="space-y-5 p-8">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="p-2 rounded-lg bg-[#FFD700]/20">
+                    <ShieldCheck className="h-5 w-5 text-[#0F2240]" />
+                  </div>
+                  <h3 className="text-xl font-extrabold text-[#0F2240] tracking-tight">
+                    Indicadores que importam
+                  </h3>
+                </div>
+                <ul className="space-y-3.5 text-sm text-slate-700">
+                  {[
+                    "Renovação automatizada com alertas proativos para cada contrato.",
+                    "SLA de acionamento operacional inferior a 24 horas, com acompanhamento humano.",
+                    "Pagamentos disponibilizados assim que o sistema confirma a quitação.",
+                    "Relatórios transparentes de comissionamento para toda a cadeia."
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start gap-3 group">
+                      <div className="flex-shrink-0 mt-1 p-1 rounded-full bg-[#FFD700]/10 group-hover:bg-[#FFD700]/20 transition-colors">
+                        <CheckCircle2 className="h-4 w-4 text-[#FFD700]" />
+                      </div>
+                      <span className="font-medium leading-relaxed group-hover:text-[#0F2240] transition-colors">{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </CardContent>
             </Card>
           </div>
         </section>
 
-        <section className="bg-white py-16 md:py-20" id="pricing">
-          <div className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-[1.1fr_0.9fr]">
-            <div className="space-y-4">
-              <Badge variant="outline" className="w-fit border-slate-200 bg-white">
+        {/* Pricing Section - Layout Centralizado */}
+        <section className="relative bg-white py-24 md:py-32 overflow-hidden" id="pricing">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/3 via-transparent to-primary-50/20 pointer-events-none" />
+          <div className="relative mx-auto max-w-5xl px-6 z-10">
+            <div className="text-center mb-16">
+              <Badge variant="outline" className="mx-auto border-slate-200/60 bg-white/90 backdrop-blur-sm text-primary shadow-sm px-4 py-2 mb-6">
                 Condições exclusivas
               </Badge>
-              <h2 className="text-2xl font-bold text-slate-900 md:text-3xl lg:text-4xl">
+              <h2 className="text-4xl font-extrabold text-[#0F2240] tracking-tight leading-[1.1] md:text-5xl lg:text-6xl mb-6">
                 Mais segurança e maior rentabilidade para sua carteira
               </h2>
-              <p className="text-base leading-relaxed text-slate-600 md:text-lg">
+              <p className="text-xl leading-relaxed text-slate-700 md:text-2xl max-w-3xl mx-auto font-medium">
                 Cobrança transparente: taxa de adesão única, parcelas flexíveis
                 , ativação imediata após pagamento e liberação automática do
                 repasse aos parceiros.
               </p>
             </div>
-            <Card className="border-primary/20">
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <CardTitle>Plano PagPro</CardTitle>
-                  <Badge variant="default">Maior cobertura do mercado</Badge>
+            <Card className="relative border-2 border-[#FFD700]/40 bg-gradient-to-br from-white via-primary-50/30 to-white shadow-2xl overflow-hidden max-w-2xl mx-auto">
+              <div className="absolute top-0 right-0 w-80 h-80 bg-[#FFD700]/5 rounded-full blur-3xl" />
+              <CardHeader className="border-b border-slate-200/60 pb-8 pt-8 px-8 relative z-10">
+                <div className="flex items-center justify-between mb-4">
+                  <CardTitle className="text-3xl font-extrabold text-[#0F2240] tracking-tight">Plano PagPro</CardTitle>
+                  <Badge variant="default" className="bg-[#FFD700] text-[#0F2240] font-bold shadow-lg px-4 py-2 text-sm">
+                    Maior cobertura do mercado
+                  </Badge>
                 </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-sm text-slate-600">
+                <p className="text-base text-slate-700 leading-relaxed font-semibold mt-4">
                   Modelos sob medida para cada carteira — configuramos cobertura,
                   taxa e forma de cobrança conforme sua estratégia.
                 </p>
-                <ul className="space-y-2.5 text-sm text-slate-600">
-                  {pricingBenefits.map((benefit) => (
-                    <li key={benefit} className="flex items-start gap-2.5">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-                      <span>{benefit}</span>
+              </CardHeader>
+              <CardContent className="space-y-4 pt-8 px-8 pb-8 relative z-10">
+                <ul className="space-y-4 text-base text-[#0F2240]">
+                  {pricingBenefits.map((benefit, index) => (
+                    <li key={benefit} className="flex items-start gap-4 group">
+                      <div className="flex-shrink-0 p-2 rounded-xl bg-[#FFD700]/10 group-hover:bg-[#FFD700]/20 transition-all group-hover:scale-110">
+                        <CheckCircle2 className="h-5 w-5 text-[#FFD700]" />
+                      </div>
+                      <span className="font-bold text-[#0F2240] leading-relaxed group-hover:text-[#0F2240] transition-colors pt-0.5">{benefit}</span>
                     </li>
                   ))}
                 </ul>
-                <Button className="w-full" asChild>
+                <Button variant="primary" className="w-full mt-10 bg-[#FFD700] text-[#0F2240] shadow-xl shadow-[#FFD700]/25 hover:bg-[#E6C200] hover:text-[#0F2240] hover:shadow-2xl hover:shadow-[#FFD700]/35 text-base py-6 font-bold" size="lg" asChild>
                   <Link href="#contact">Solicitar proposta</Link>
                 </Button>
               </CardContent>
@@ -428,88 +534,164 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="bg-slate-50 py-16 md:py-20">
-          <div className="mx-auto grid max-w-7xl gap-6 px-6 md:grid-cols-2">
-            <Card className="border-slate-200 bg-white">
-              <CardHeader>
-                <CardTitle>Contato e suporte</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3.5 text-sm text-slate-600">
-                <p>
-                  <span className="font-semibold text-slate-900">
-                    Imobiliárias:
-                  </span>{" "}
-                  imobiliarias@pagproseguro.com.br
-                </p>
-                <p>
-                  <span className="font-semibold text-slate-900">
-                    Inquilinos:
-                  </span>{" "}
-                  inquilino@pagproseguro.com.br
-                </p>
-                <p>
-                  <span className="font-semibold text-slate-900">
-                    Telefone:
-                  </span>{" "}
-                  (11) 0000-0000
-                </p>
-                <p>
-                  <span className="font-semibold text-slate-900">
-                    Horário de atendimento:
-                  </span>{" "}
-                  Segunda a sexta-feira: 8h às 18h | Sábado: 8h às 13h
-                </p>
-              </CardContent>
-            </Card>
+        {/* Contact Section - Layout Centralizado */}
+        <section id="contact" className="relative bg-white py-24 md:py-32 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-50/20 via-transparent to-[#FFD700]/5 pointer-events-none" />
+          <div className="relative mx-auto max-w-6xl px-6 z-10">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-extrabold text-[#0F2240] tracking-tight leading-[1.1] md:text-5xl lg:text-6xl mb-6">
+                Fale Conosco
+              </h2>
+              <p className="text-xl leading-relaxed text-slate-700 md:text-2xl max-w-3xl mx-auto font-medium">
+                Estamos prontos para transformar a gestão de aluguéis da sua imobiliária
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="professional-card p-10 hover:-translate-y-2 border-2 border-slate-200/60 hover:border-[#FFD700]/40">
+                <CardHeader className="pb-8">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="p-4 rounded-2xl bg-gradient-to-br from-[#0F2240] to-[#0C1B33] shadow-lg">
+                      <Users className="h-6 w-6 text-[#FFD700]" />
+                    </div>
+                    <CardTitle className="text-2xl font-extrabold text-[#0F2240] tracking-tight">Contato e suporte</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-6 text-base">
+                  <div className="flex items-start gap-4 group">
+                    <div className="p-3 rounded-xl bg-[#FFD700]/10 group-hover:bg-[#FFD700]/20 transition-all group-hover:scale-110">
+                      <Mail className="h-5 w-5 text-[#0F2240]" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-extrabold text-[#0F2240] text-xs uppercase tracking-wider mb-2">Imobiliárias:</p>
+                      <a href="mailto:imobiliarias@pagproseguro.com.br" className="text-[#0F2240] font-bold hover:text-[#FFD700] transition-colors text-lg">
+                        imobiliarias@pagproseguro.com.br
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4 group">
+                    <div className="p-3 rounded-xl bg-[#FFD700]/10 group-hover:bg-[#FFD700]/20 transition-all group-hover:scale-110">
+                      <Mail className="h-5 w-5 text-[#0F2240]" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-extrabold text-[#0F2240] text-xs uppercase tracking-wider mb-2">Inquilinos:</p>
+                      <a href="mailto:inquilino@pagproseguro.com.br" className="text-[#0F2240] font-bold hover:text-[#FFD700] transition-colors text-lg">
+                        inquilino@pagproseguro.com.br
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4 group">
+                    <div className="p-3 rounded-xl bg-[#FFD700]/10 group-hover:bg-[#FFD700]/20 transition-all group-hover:scale-110">
+                      <Phone className="h-5 w-5 text-[#0F2240]" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-extrabold text-[#0F2240] text-xs uppercase tracking-wider mb-2">Telefone:</p>
+                      <a href="tel:+5511942204240" className="text-[#0F2240] font-bold hover:text-[#FFD700] transition-colors text-lg">
+                        (11) 94220-4240
+                      </a>
+                    </div>
+                  </div>
+                  <div className="pt-6 border-t-2 border-slate-200/60">
+                    <p className="font-extrabold text-[#0F2240] text-xs uppercase tracking-wider mb-3">Horário de atendimento:</p>
+                    <p className="text-slate-700 font-bold text-base">
+                      Segunda a sexta-feira: 8h às 18h<br />
+                      Sábado: 8h às 13h
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
 
-            <Card className="border-slate-200 bg-white">
-              <CardHeader>
-                <CardTitle>Endereço</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3.5 text-sm text-slate-600">
-                <p>
-                  <span className="font-semibold text-slate-900">
-                    São Paulo
-                  </span>
-                  <br />
-                  Alameda Jaú, 1177, Andar 4 - Jardim Paulista
-                  <br />
-                  São Paulo - SP, 01420-903
-                </p>
-              </CardContent>
-            </Card>
+              <Card className="professional-card p-10 hover:-translate-y-2 border-2 border-slate-200/60 hover:border-[#FFD700]/40">
+                <CardHeader className="pb-8">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="p-4 rounded-2xl bg-gradient-to-br from-[#0F2240] to-[#0C1B33] shadow-lg">
+                      <MapPin className="h-6 w-6 text-[#FFD700]" />
+                    </div>
+                    <CardTitle className="text-2xl font-extrabold text-[#0F2240] tracking-tight">Endereço</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4 text-base">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-xl bg-[#FFD700]/10">
+                      <MapPin className="h-5 w-5 text-[#0F2240]" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-extrabold text-[#0F2240] text-xs uppercase tracking-wider mb-3">São Paulo</p>
+                      <p className="text-[#0F2240] font-bold leading-relaxed text-lg">
+                        Alameda Jaú, 1177, Andar 4<br />
+                        Jardim Paulista<br />
+                        São Paulo - SP, 01420-903
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-slate-200 bg-white py-10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="font-medium text-slate-700">
-              2025 © PagPro Seguro Fiança
-            </p>
-            <p className="mt-1">
-              Grupo Life Company Soluções e Tecnologia LTDA · CNPJ
-              50.206.225/0001-77
+      <footer className="border-t-2 border-slate-200/40 bg-gradient-to-b from-white via-slate-50/50 to-white py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
+            <div className="md:col-span-2 space-y-6">
+              <div className="flex items-center gap-4">
+                <Image
+                  src="/logo-m-black.png"
+                  alt="PagPro Seguro Fiança"
+                  width={160}
+                  height={42}
+                  className="h-10 w-auto"
+                />
+              </div>
+              <p className="text-base font-extrabold text-[#0F2240]">
+                2025 © PagPro Seguro Fiança
+              </p>
+              <p className="text-sm text-slate-600 leading-relaxed max-w-md font-medium">
+                Grupo Life Company Soluções e Tecnologia LTDA<br />
+                CNPJ: 50.206.225/0001-77
+              </p>
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <div className="flex items-center gap-2.5 px-5 py-3 rounded-xl bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200/60 shadow-md">
+                  <ShieldCheck className="h-5 w-5 text-green-700" />
+                  <span className="text-sm font-extrabold text-green-700">Seguro e Confiável</span>
+                </div>
+                <div className="flex items-center gap-2.5 px-5 py-3 rounded-xl bg-gradient-to-r from-slate-50 to-slate-100 border-2 border-slate-200/60 shadow-md">
+                  <span className="h-2.5 w-2.5 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.6)]" />
+                  <span className="text-sm font-extrabold text-slate-700">SSL Certificado</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h5 className="text-sm font-extrabold text-[#0F2240] uppercase tracking-wider mb-4">Empresa</h5>
+              <nav className="flex flex-col gap-3 text-sm font-bold text-slate-700">
+                <Link href="#about" className="transition-colors hover:text-[#FFD700] w-fit">
+                  Quem Somos
+                </Link>
+                <Link href="#products" className="transition-colors hover:text-[#FFD700] w-fit">
+                  Produtos
+                </Link>
+                <Link href="#pricing" className="transition-colors hover:text-[#FFD700] w-fit">
+                  Planos
+                </Link>
+              </nav>
+            </div>
+            <div>
+              <h5 className="text-sm font-extrabold text-[#0F2240] uppercase tracking-wider mb-4">Suporte</h5>
+              <nav className="flex flex-col gap-3 text-sm font-bold text-slate-700">
+                <Link href="#contact" className="transition-colors hover:text-[#FFD700] w-fit">
+                  Contato
+                </Link>
+                <Link href="/login" className="transition-colors hover:text-[#FFD700] w-fit">
+                  Área do Cliente
+                </Link>
+              </nav>
+            </div>
+          </div>
+          <div className="pt-8 border-t-2 border-slate-200/60">
+            <p className="text-xs text-slate-500 text-center font-medium">
+              Todos os direitos reservados. PagPro é uma marca registrada do Grupo Life Company.
             </p>
           </div>
-          <nav className="flex flex-wrap items-center gap-4 text-sm font-medium text-slate-500">
-            <Link href="#about" className="transition-colors hover:text-primary">
-              Quem Somos
-            </Link>
-            <Link href="#products" className="transition-colors hover:text-primary">
-              Produtos
-            </Link>
-            <Link href="#pricing" className="transition-colors hover:text-primary">
-              Planos
-            </Link>
-            <Link href="#contact" className="transition-colors hover:text-primary">
-              Contato
-            </Link>
-            <Link href="/login" className="transition-colors hover:text-primary">
-              Área do Cliente
-            </Link>
-          </nav>
         </div>
       </footer>
     </div>

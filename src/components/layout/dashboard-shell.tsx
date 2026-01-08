@@ -13,7 +13,7 @@ export function DashboardShell({ children }: DashboardShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen bg-gradient-to-b from-[#f6f8fb] via-[#eef2f8] to-[#e7edf7]">
       <div
         className={cn(
           "fixed inset-y-0 left-0 z-30 w-64 md:static md:z-auto",
@@ -32,7 +32,9 @@ export function DashboardShell({ children }: DashboardShellProps) {
       ) : null}
       <div className="flex flex-1 flex-col md:ml-0">
         <Topbar onToggleSidebar={() => setSidebarOpen((prev) => !prev)} />
-        <main className="flex-1 bg-white p-8 overflow-auto">{children}</main>
+        <main className="flex-1 p-6 md:p-10 overflow-auto">
+          <div className="mx-auto w-full max-w-7xl space-y-8">{children}</div>
+        </main>
       </div>
     </div>
   );

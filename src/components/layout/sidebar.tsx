@@ -217,19 +217,19 @@ export function Sidebar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200",
+                  "group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200",
                   isActive
-                    ? "bg-white text-gray-900 shadow-[0_15px_30px_rgba(0,0,0,0.25)]"
-                    : "text-white/70 hover:bg-white/5 hover:text-white",
+                    ? "bg-[#FFD700] text-[#0F2240] shadow-[0_8px_20px_rgba(255,215,0,0.3)]"
+                    : "text-white/70 hover:bg-white/10 hover:text-white",
                 )}
               >
                 {isActive ? (
-                  <span className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-full bg-[#FFD700]" />
+                  <span className="absolute left-0 top-1/2 h-8 w-1 -translate-y-1/2 rounded-full bg-[#0F2240]" />
                 ) : null}
                 <Icon
                   className={cn(
                     "h-5 w-5 flex-shrink-0",
-                    isActive ? "text-gray-900" : "text-white/50 group-hover:text-white",
+                    isActive ? "text-[#0F2240]" : "text-white/60 group-hover:text-white",
                   )}
                 />
                 <span>{item.label}</span>
