@@ -5,6 +5,7 @@ import {
   ArrowUpRight,
   BarChart3,
   CheckCircle2,
+  ChevronDown,
   PieChart,
   ShieldCheck,
   Users,
@@ -13,12 +14,17 @@ import {
 import {
   BarChart,
   Bar,
+  LineChart,
+  Line,
+  Area,
+  AreaChart,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
   Legend,
   ResponsiveContainer,
+  Cell,
 } from "recharts";
 import Link from "next/link";
 import { fetchDashboardMetrics } from "@/services/applications-service";
@@ -250,382 +256,207 @@ export default function DashboardHomePage() {
     status: commission.status,
   }));
 
+  // Dados para o gráfico de linha (Taxa de entrega)
+  const deliveryRateData = [
+    { month: "Jan", value: 1200 },
+    { month: "Fev", value: 1400 },
+    { month: "Mar", value: 1600 },
+    { month: "Abr", value: 1750 },
+    { month: "Mai", value: 1877 },
+  ];
+
+  // Dados para o gráfico de barras (Sinistro em risco)
+  const riskData = [
+    { month: "Nov", value: 25 },
+    { month: "Dez", value: 35 },
+    { month: "Jan", value: 45 },
+    { month: "Fev", value: 75 },
+  ];
+
+  // Features cards data
+  const features = [
+    {
+      label: "Fiador 100% digital",
+      description: "Onboarding tokenizado e assinatura eletrônica",
+    },
+    {
+      label: "Cobertura configurável",
+      description: "Garantia até 3x aluguel com gatilhos automáticos",
+    },
+    {
+      label: "Hierarquia premiada",
+      description: "Diretor → Cliente comissionados em tempo real",
+    },
+    {
+      label: "IA antifraude proprietária",
+      description: "Score interno + detecção contínua",
+    },
+  ];
+
   return (
-      <div className="space-y-10">
-        <div className="space-y-3">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#0F2240]/10 px-3 py-1 text-xs font-semibold text-[#0F2240]">
-            <span className="h-2 w-2 rounded-full bg-[#FFD700] animate-pulse" />
-            Performance em tempo real
-          </div>
-          <div className="flex flex-col gap-2">
-            <h2 className="text-4xl font-extrabold text-[#0F2240] sm:text-5xl tracking-tight leading-tight">
-              Performance, risco e receitas em um cockpit único
-            </h2>
-            <p className="max-w-3xl text-lg font-medium text-slate-700 leading-relaxed">
-              Acompanhe cobrança inteligente, score interno proprietário, convites tokenizados e cobertura financeira
-              com a identidade visual e a autoridade PagPro.
-            </p>
-          </div>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            {
-              label: "Tempo médio de aprovação",
-              value: "1h 24min",
-              color: "bg-white/80 border border-[#dfe6f3]",
-            },
-            {
-              label: "Status operacional",
-              value: "Operação estável",
-              color: "bg-emerald-50 border border-emerald-200 text-emerald-700",
-            },
-            {
-              label: "Cobertura garantida",
-              value: formatCurrency(validatingAmount || 0),
-              color: "bg-[#f7f3e0] border border-[#f0e3a8] text-[#0F2240]",
-            },
-            {
-              label: "Comissões em tempo real",
-              value: formatCurrency(paidAmount || 0),
-              color: "bg-[#e8f2ff] border border-[#d3e4ff] text-[#0F2240]",
-            },
-          ].map((item) => (
-            <div
-              key={item.label}
-              className={`rounded-2xl px-5 py-4 text-sm shadow-[0_8px_24px_-4px_rgb(15_34_64_/0.12),0_0_0_1px_rgb(15_34_64_/0.06)] border transition-all hover:shadow-[0_12px_32px_-4px_rgb(15_34_64_/0.16)] ${item.color}`}
+    <div className="space-y-8">
+      {/* Header Section */}
+      <div className="space-y-4">
+        <div className="inline-flex items-center gap-2 rounded-full bg-[#0F2240]/10 px-3 py-1 text-xs font-semibold text-[#0F2240]">
+          <span className="h-2 w-2 rounded-full bg-[#FFD700] animate-pulse" />
+          Performance em tempo real
+        </div>
+        <h2 className="text-3xl font-extrabold text-[#0F2240] sm:text-4xl tracking-tight leading-tight">
+          Performance em tempo real
+        </h2>
+      </div>
+
+      {/* Main Layout: Left Column (Charts) + Right Column (Features) */}
+      <div className="grid gap-6 lg:grid-cols-[1.5fr_1fr]">
+        {/* Left Column - Charts */}
+        <div className="space-y-6">
+          {/* Card grande com gráfico de linha - Taxa de entrega */}
+          <Card className="border border-slate-200/60 bg-white shadow-[0_8px_24px_-4px_rgb(15_34_64_/0.12)]">
+            <CardHeader className="pb-4">
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-lg font-semibold text-[#0F2240] flex items-center gap-2">
+                  Taxa de entrega
+                  <ChevronDown className="h-4 w-4 text-gray-400" />
+                </CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="mb-4">
+                <p className="text-3xl font-extrabold text-[#0F2240] tracking-tight">
+                  {formatCurrency(1877.09)}
+                </p>
+              </div>
+              <ResponsiveContainer width="100%" height={200}>
+                <AreaChart data={deliveryRateData}>
+                  <defs>
+                    <linearGradient id="colorDelivery" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#FFD700" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="#FFD700" stopOpacity={0.05} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis
+                    dataKey="month"
+                    stroke="#9ca3af"
+                    style={{ fontSize: '12px', fontWeight: 400 }}
+                    tick={{ fill: '#6b7280' }}
+                  />
+                  <YAxis
+                    stroke="#9ca3af"
+                    style={{ fontSize: '12px', fontWeight: 400 }}
+                    tick={{ fill: '#6b7280' }}
+                    domain={[0, 2000]}
+                    ticks={[0, 500, 1000, 1500, 2000]}
+                  />
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: 'white',
+                      border: '1px solid #e5e7eb',
+                      borderRadius: '6px',
+                      boxShadow: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
+                      fontSize: '12px'
+                    }}
+                  />
+                  <Area
+                    type="monotone"
+                    dataKey="value"
+                    stroke="#FFD700"
+                    strokeWidth={2}
+                    fill="url(#colorDelivery)"
+                  />
+                </AreaChart>
+              </ResponsiveContainer>
+            </CardContent>
+          </Card>
+
+          {/* Card com gráfico de barras - Sinistro em risco */}
+          <Card className="border border-slate-200/60 bg-white shadow-[0_8px_24px_-4px_rgb(15_34_64_/0.12)]">
+            <CardHeader className="pb-4">
+              <CardTitle className="text-lg font-semibold text-[#0F2240]">
+                Sinistro em risco
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ResponsiveContainer width="100%" height={200}>
+                <BarChart data={riskData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis
+                    dataKey="month"
+                    stroke="#9ca3af"
+                    style={{ fontSize: '12px', fontWeight: 400 }}
+                    tick={{ fill: '#6b7280' }}
+                  />
+                  <YAxis
+                    stroke="#9ca3af"
+                    style={{ fontSize: '12px', fontWeight: 400 }}
+                    tick={{ fill: '#6b7280' }}
+                    domain={[0, 100]}
+                    ticks={[0, 25, 50, 75, 100]}
+                  />
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: 'white',
+                      border: '1px solid #e5e7eb',
+                      borderRadius: '6px',
+                      boxShadow: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
+                      fontSize: '12px'
+                    }}
+                  />
+                  <Bar
+                    dataKey="value"
+                    radius={[4, 4, 0, 0]}
+                  >
+                    {riskData.map((entry, index) => (
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={index === riskData.length - 1 ? "#FFD700" : "#9ca3af"}
+                      />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Right Column - Features Cards */}
+        <div className="space-y-4">
+          {features.map((feature, index) => (
+            <Card
+              key={feature.label}
+              className="border border-slate-200/60 bg-white shadow-sm hover:shadow-md transition-all"
             >
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#0F2240]/70 mb-2">{item.label}</p>
-              <p className="text-xl font-extrabold text-[#0F2240] tracking-tight">{item.value}</p>
-            </div>
+              <CardContent className="p-5">
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="h-5 w-5 text-[#FFD700]" />
+                  </div>
+                  <div>
+                    <p className="text-base font-bold text-[#0F2240] mb-1">
+                      {feature.label}
+                    </p>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           ))}
-        </div>
-      </div>
 
-      <section className="grid gap-6 lg:grid-cols-[1.7fr_1fr] xl:grid-cols-[2.1fr_1.1fr]">
-        <div className="overflow-hidden rounded-2xl border border-slate-200/60 bg-white shadow-[0_8px_24px_-4px_rgb(15_34_64_/0.12),0_0_0_1px_rgb(15_34_64_/0.06)]">
-          <div className="flex flex-col gap-4 bg-gradient-to-br from-[#0F2240] via-[#0C1B33] to-[#091426] px-8 py-8 text-white lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <div className="flex items-center gap-2 mb-3">
-                <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#FFD700]">
-                  Carteira PagPro
-                </p>
-                <span className="security-indicator bg-white/10 border-white/20 text-white">
-                  <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
-                  Protegido
-                </span>
-              </div>
-              <p className="mt-2 text-4xl font-extrabold sm:text-5xl text-white tracking-tight">
-                {formatCurrency(totalDownlineAmount)}
-              </p>
-              <p className="text-sm font-medium text-white/90 mt-2">Atualizado há poucos minutos</p>
-            </div>
-            <div className="flex flex-col gap-3 text-right">
-              <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-white/90">
-                  Limite disponível
-                </p>
-                <p className="text-2xl font-semibold text-white">
-                  {formatCurrency(validatingAmount)}
-                </p>
-              </div>
-              <div className="flex items-center justify-end gap-2 text-xs text-white/90">
-                <ShieldCheck className="h-4 w-4" />
-                Cobertura garantida
-              </div>
-              <Button variant="primary" className="justify-center shadow-lg shadow-[#FFD700]/30" asChild>
-                <Link href="/dashboard/commissions">Ver extrato financeiro</Link>
-              </Button>
-            </div>
-          </div>
-          <div className="grid gap-4 border-t border-[#eef2f7] bg-white px-6 py-6 sm:grid-cols-2 lg:grid-cols-3">
-            {heroStats.map((stat) => (
-              <div key={stat.label}>
-                <p className="text-xs uppercase tracking-[0.3em] text-gray-400">
-                  {stat.label}
-                </p>
-                <p className="mt-1 text-lg font-semibold text-gray-900">{stat.value}</p>
-                <p className="text-sm text-gray-500">{stat.helper}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="professional-card p-8">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.3em] text-slate-600 mb-2">
-                Fluxo financeiro
-              </p>
-              <h3 className="text-2xl font-extrabold text-[#0F2240] tracking-tight">
-                Entrada de comissões
+          {/* Card destacado amarelo */}
+          <Card className="border-2 border-[#FFD700]/40 bg-gradient-to-br from-[#FFD700]/20 via-[#FFD700]/10 to-[#FFD700]/5 shadow-lg">
+            <CardContent className="p-6">
+              <h3 className="text-lg font-extrabold text-[#0F2240] mb-3">
+                Cobertura apropriada sob medida
               </h3>
-            </div>
-            <span className="text-xs font-semibold text-slate-500 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200/60">Atualizado às 14:20</span>
-          </div>
-          <div className="mt-6 space-y-4">
-            {receivableSummary.map((item) => (
-              <div
-                key={item.label}
-                className="flex flex-col gap-4 rounded-2xl border border-slate-200/60 bg-gradient-to-br from-white to-slate-50/50 px-5 py-4 text-sm shadow-sm hover:shadow-md transition-all sm:flex-row sm:items-center sm:justify-between"
-              >
-                <div className="flex-1">
-                  <p className="text-xs font-bold uppercase tracking-[0.25em] text-slate-600 mb-2">
-                    {item.label}
-                  </p>
-                  <p className="mt-1 text-2xl font-extrabold text-[#0F2240] tracking-tight">
-                    {formatCurrency(item.amount)}
-                  </p>
-                  <p className="text-xs font-medium text-slate-600 mt-1">{item.detail}</p>
-                </div>
-                <Badge variant={item.status === "Liberado" ? "success" : "warning"} className="font-bold">
-                  {item.status}
-                </Badge>
-              </div>
-            ))}
-          </div>
-          <Button variant="primary" className="mt-6 w-full" asChild>
-            <Link href="/dashboard/commissions">Acessar extrato de comissões</Link>
-          </Button>
+              <p className="text-sm text-slate-700 leading-relaxed">
+                Monitoramento contínuo, acionamento imediato e suporte especializado para imobiliária e inquilino.
+              </p>
+            </CardContent>
+          </Card>
         </div>
-      </section>
-
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        <KpiCard
-          label="Solicitações aprovadas"
-          value={data?.approvals ?? 0}
-          icon={<CheckCircle2 className="h-5 w-5" />}
-          description="Seguro fiança aprovado nos últimos 30 dias."
-        />
-        <KpiCard
-          label="Total de solicitações"
-          value={data?.totalApplications ?? 0}
-          icon={<BarChart3 className="h-5 w-5" />}
-          description="Análises em todas as etapas do funil."
-        />
-        <KpiCard
-          label="Clientes ativos"
-          value={data?.clients ?? 0}
-          icon={<Users className="h-5 w-5" />}
-          description="Imobiliárias e inquilinos com seguro vigente."
-        />
-        <KpiCard
-          label="Taxa de Aprovação"
-          value={data?.totalApplications ? Number(((data?.approvals ?? 0) / data.totalApplications) * 100) : 0}
-          formatter="percent"
-          icon={<CheckCircle2 className="h-5 w-5" />}
-          description="Percentual de solicitações aprovadas."
-        />
-        <KpiCard
-          label="Inadimplência"
-          value={Number((data?.defaultRate ?? 0) * 100)}
-          formatter="percent"
-          icon={<PieChart className="h-5 w-5" />}
-          description="Proporção de parcelas em atraso."
-        />
-        {data?.averageScore !== null && data?.averageScore !== undefined && (
-          <KpiCard
-            label="Score Médio"
-            value={data.averageScore}
-            icon={<Star className="h-5 w-5" />}
-            description="Score médio das análises de crédito."
-          />
-        )}
       </div>
-
-      <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
-        <Card className="border-gray-200 bg-white">
-          <CardHeader className="flex flex-col gap-3">
-            <CardTitle className="text-xl font-semibold text-gray-900">Visão geral da carteira</CardTitle>
-            <p className="text-sm font-normal text-gray-600 leading-relaxed">
-              Acompanhe a distribuição das solicitações por status e identifique
-              oportunidades de ação rápida.
-            </p>
-          </CardHeader>
-          <CardContent>
-            <ResponsiveContainer width="100%" height={320}>
-              <BarChart
-                data={[
-                  {
-                    name: "Aprovadas",
-                    value: data?.approvals ?? 0,
-                  },
-                  {
-                    name: "Total",
-                    value: data?.totalApplications ?? 0,
-                  },
-                  {
-                    name: "Clientes",
-                    value: data?.clients ?? 0,
-                  },
-                ]}
-              >
-                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                <XAxis
-                  dataKey="name"
-                  stroke="#9ca3af"
-                  style={{ fontSize: '12px', fontWeight: 400 }}
-                  tick={{ fill: '#6b7280' }}
-                />
-                <YAxis
-                  stroke="#9ca3af"
-                  style={{ fontSize: '12px', fontWeight: 400 }}
-                  tick={{ fill: '#6b7280' }}
-                />
-                <Tooltip
-                  contentStyle={{
-                    backgroundColor: 'white',
-                    border: '1px solid #e5e7eb',
-                    borderRadius: '6px',
-                    boxShadow: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
-                    fontSize: '12px'
-                  }}
-                />
-                <Legend wrapperStyle={{ fontSize: '12px', paddingTop: '20px' }} />
-                <Bar
-                  dataKey="value"
-                  fill="#FFD700"
-                  radius={[4, 4, 0, 0]}
-                />
-              </BarChart>
-            </ResponsiveContainer>
-          </CardContent>
-        </Card>
-
-        <Card className="gradient-card hover-lift">
-          <CardHeader>
-            <div className="flex items-center justify-between gap-3">
-              <CardTitle className="text-xl font-semibold text-[#0F2240]">Ações rápidas</CardTitle>
-              <Badge className="bg-[#FFD700] text-[#0F2240] shadow-sm">Fluxo prioritário</Badge>
-            </div>
-            <p className="text-sm text-gray-600">
-              Cadastre operações, convites tokenizados e acione suporte dedicado em poucos cliques.
-            </p>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            {quickActions.map((action) => (
-              <Link
-                key={action.title}
-                href={action.href}
-                className="group flex flex-col gap-1 rounded-2xl border border-gray-100 px-4 py-3 transition-all hover:border-[#0F2240]/20 hover:bg-[#0F2240]/5 sm:flex-row sm:items-center sm:justify-between"
-              >
-                <div>
-                  <p className="text-sm font-semibold text-[#0F2240]">{action.title}</p>
-                  <p className="text-xs text-gray-500">{action.description}</p>
-                </div>
-                <ArrowUpRight className="h-4 w-4 text-[#FFD700] transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </Link>
-            ))}
-            {primaryCta ? (
-              <Button className="w-full shadow-md shadow-[#FFD700]/30" asChild>
-                <Link href={primaryCta.href}>{primaryCta.label}</Link>
-              </Button>
-            ) : null}
-          </CardContent>
-        </Card>
-      </div>
-
-      <div className="grid gap-6 lg:grid-cols-2">
-        <Card className="glass-panel">
-          <CardHeader>
-            <CardTitle className="text-xl font-semibold text-[#0F2240]">Últimas atualizações</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4 text-sm font-normal text-gray-700 leading-relaxed">
-            <div className="flex gap-3">
-              <div className="flex h-2 w-2 rounded-full bg-[#FFD700] mt-2 flex-shrink-0" />
-              <p>
-                Cobertura máxima de acordo com o score interno atualizada
-                automaticamente após análise de crédito.
-              </p>
-            </div>
-            <div className="flex gap-3">
-              <div className="flex h-2 w-2 rounded-full bg-[#FFD700] mt-2 flex-shrink-0" />
-              <p>
-                Monitoramento contínuo de pagamentos com alerta de inadimplência
-                em tempo real.
-              </p>
-            </div>
-            <div className="flex gap-3">
-              <div className="flex h-2 w-2 rounded-full bg-[#FFD700] mt-2 flex-shrink-0" />
-              <p>
-                Acesso ao histórico de cada solicitação, incluindo documentos,
-                notas internas e decisões da análise.
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="glass-panel">
-          <CardHeader>
-            <CardTitle className="text-xl font-semibold text-[#0F2240]">Status operacional</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {operationalTimeline.map((event) => (
-              <div key={event.title} className="rounded-2xl border border-[#e5eaf3] bg-white/70 px-4 py-3 shadow-sm">
-                <div className="flex items-center justify-between">
-                  <p className="text-sm font-semibold text-[#0F2240]">{event.title}</p>
-                  <Badge
-                    variant={
-                      event.status === "Ativo" || event.status === "Disponível"
-                        ? "success"
-                        : event.status === "Automático"
-                          ? "default"
-                          : "warning"
-                    }
-                  >
-                    {event.status}
-                  </Badge>
-                </div>
-                <p className="text-xs text-gray-500">{event.description}</p>
-              </div>
-            ))}
-            <Button variant="ghost" asChild className="justify-start px-0 w-fit h-auto py-0 text-[#f5c437] hover:text-[#f1b60d]">
-              <Link href="/dashboard/support">Acessar central de suporte →</Link>
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
-
-      <Card className="gradient-card">
-        <CardHeader className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <CardTitle className="text-xl font-semibold text-gray-900">
-            Movimentações recentes
-          </CardTitle>
-          <Button variant="outline" asChild className="h-10 px-4 text-sm font-medium">
-            <Link href="/dashboard/applications">Ver extrato completo</Link>
-          </Button>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {recentTransactions.length === 0 ? (
-            <p className="text-sm text-gray-500">
-              Nenhuma movimentação registrada até o momento.
-            </p>
-          ) : (
-            recentTransactions.map((transaction) => (
-              <div
-                key={transaction.id}
-                className="flex flex-col gap-3 border-b border-gray-100 pb-4 last:border-none last:pb-0 sm:flex-row sm:items-center sm:justify-between"
-              >
-                <div>
-                  <p className="text-sm font-semibold text-gray-900">{transaction.description}</p>
-                  <p className="text-xs text-gray-500">
-                    {transaction.reference} • {transaction.date}
-                  </p>
-                </div>
-                <div className="text-left sm:text-right">
-                  <p
-                    className={cn(
-                      "text-sm font-semibold",
-                      transaction.status === "PAID" ? "text-emerald-600" : "text-gray-600",
-                    )}
-                  >
-                    {formatCurrency(transaction.amount)}
-                  </p>
-                  <p className="text-xs text-gray-500">{transaction.status}</p>
-                </div>
-              </div>
-            ))
-          )}
-        </CardContent>
-      </Card>
     </div>
   );
 }
