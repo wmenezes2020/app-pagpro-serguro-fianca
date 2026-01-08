@@ -80,7 +80,7 @@ const pricingBenefits = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="min-h-screen bg-white" style={{ backgroundColor: '#FFFFFF', color: '#0F2240' }}>
       <header className="sticky top-0 z-50 border-b border-slate-200/40 bg-white/95 backdrop-blur-xl shadow-[0_4px_20px_-2px_rgb(15_34_64_/0.08)]">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
           <Link href="#home" className="flex items-center gap-4 group">
@@ -233,10 +233,9 @@ export default function Home() {
                         <ShieldCheck className="h-6 w-6 text-[#FFD700]" />
                       </div>
                       <div>
-                        <p className="text-base font-extrabold text-white mb-1">
-                          Cobertura garantida até{" "}
-                          <span className="text-[#FFD700] text-lg font-extrabold">3x o valor do aluguel</span>
-                        </p>
+                        <h3 className="text-base font-extrabold text-white mb-1">
+                          Cobertura garantida até{" "}3x o valor do aluguel
+                        </h3>
                         <p className="text-sm text-white leading-relaxed font-bold">
                           Monitoramento contínuo, acionamento imediato e suporte
                           especializado para imobiliária e inquilino.
@@ -306,7 +305,7 @@ export default function Home() {
               </div>
               <div className="section-divider" />
             </div>
-            
+
             {/* Diferenciais em Grid */}
             <div className="grid md:grid-cols-2 gap-8 mt-16">
               {[
@@ -392,7 +391,7 @@ export default function Home() {
                 <Link href="#contact">Quero participar</Link>
               </Button>
             </div>
-            
+
             {/* Cards em Grid Horizontal */}
             <div className="grid md:grid-cols-3 gap-6">
               {growthPillars.map((pillar, index) => (
@@ -418,33 +417,33 @@ export default function Home() {
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-400/10 rounded-full blur-3xl" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,215,0,0.05),transparent_50%)]" />
           </div>
-          
+
           <div className="relative mx-auto flex max-w-7xl flex-col gap-12 px-6 md:flex-row md:items-center md:gap-16 z-10">
             <div className="flex-1 space-y-6">
-              <span className="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-md shadow-lg">
+              <span className="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-wider backdrop-blur-md shadow-lg" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.3)', backgroundColor: 'rgba(255,255,255,0.1)' }}>
                 Proteção Multicamadas
               </span>
-              <h2 className="text-3xl font-extrabold leading-tight text-white md:text-4xl lg:text-5xl tracking-tight">
+              <h2 className="text-3xl font-extrabold leading-tight md:text-4xl lg:text-5xl tracking-tight" style={{ color: 'white' }}>
                 Sua imobiliária blindada contra fraudes e inadimplência
               </h2>
-              <ul className="space-y-4 text-base leading-relaxed text-white md:text-lg">
+              <ul className="space-y-4 text-base leading-relaxed md:text-lg" style={{ color: 'white' }}>
                 <li className="flex items-start gap-3">
                   <div className="flex-shrink-0 mt-1.5 p-1 rounded-full bg-[#FFD700]/20">
                     <span className="h-2 w-2 flex-shrink-0 rounded-full bg-[#FFD700] block" />
                   </div>
-                  <span className="font-bold text-white">Análise de crédito com IA proprietária e leitura de extratos bancários.</span>
+                  <span className="font-bold" style={{ color: 'white', fontWeight: 'bold' }}>Análise de crédito com IA proprietária e leitura de extratos bancários.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="flex-shrink-0 mt-1.5 p-1 rounded-full bg-[#FFD700]/20">
                     <span className="h-2 w-2 flex-shrink-0 rounded-full bg-[#FFD700] block" />
                   </div>
-                  <span className="font-bold text-white">Validação documental instantânea e cruzamento de dados em órgãos oficiais.</span>
+                  <span className="font-bold" style={{ color: 'white', fontWeight: 'bold' }}>Validação documental instantânea e cruzamento de dados em órgãos oficiais.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="flex-shrink-0 mt-1.5 p-1 rounded-full bg-[#FFD700]/20">
                     <span className="h-2 w-2 flex-shrink-0 rounded-full bg-[#FFD700] block" />
                   </div>
-                  <span className="font-bold text-white">Monitoramento da carteira e alertas proativos para tomada de decisão.</span>
+                  <span className="font-bold" style={{ color: 'white', fontWeight: 'bold' }}>Monitoramento da carteira e alertas proativos para tomada de decisão.</span>
                 </li>
               </ul>
               <Button variant="yellow-text" size="lg" asChild className="mt-8 shadow-lg shadow-[#FFD700]/20 hover:shadow-xl hover:shadow-[#FFD700]/30">
@@ -454,33 +453,92 @@ export default function Home() {
                 </Link>
               </Button>
             </div>
-            <Card className="flex-1 border-0 bg-white/95 backdrop-blur-sm shadow-2xl">
-              <CardContent className="space-y-5 p-8">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="p-2 rounded-lg bg-[#FFD700]/20">
-                    <ShieldCheck className="h-5 w-5 text-[#0F2240]" />
+            <div
+              style={{
+                flex: '1',
+                borderRadius: '1rem',
+                borderWidth: '2px',
+                borderStyle: 'solid',
+                borderColor: '#CBD5E1',
+                backgroundColor: '#FFFFFF',
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                padding: '2rem',
+                color: '#0F2240'
+              }}
+            >
+              <div style={{ color: '#0F2240 !important' as any }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                  <div style={{
+                    padding: '0.75rem',
+                    borderRadius: '0.75rem',
+                    background: 'linear-gradient(to bottom right, #0F2240, #0C1B33)',
+                    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
+                  }}>
+                    <ShieldCheck className="h-5 w-5" style={{ color: '#FFD700 !important' as any }} />
                   </div>
-                  <h3 className="text-xl font-extrabold text-[#0F2240] tracking-tight">
+                  <h3
+                    style={{
+                      color: '#0F2240 !important' as any,
+                      fontWeight: '800',
+                      fontSize: '1.25rem',
+                      margin: 0,
+                      lineHeight: '1.2'
+                    }}
+                  >
                     Indicadores que importam
                   </h3>
                 </div>
-                <ul className="space-y-3.5 text-sm text-slate-700">
+                <ul
+                  style={{
+                    listStyle: 'none',
+                    padding: 0,
+                    margin: 0,
+                    color: '#0F2240 !important' as any
+                  }}
+                >
                   {[
                     "Renovação automatizada com alertas proativos para cada contrato.",
                     "SLA de acionamento operacional inferior a 24 horas, com acompanhamento humano.",
                     "Pagamentos disponibilizados assim que o sistema confirma a quitação.",
                     "Relatórios transparentes de comissionamento para toda a cadeia."
                   ].map((item, index) => (
-                    <li key={index} className="flex items-start gap-3 group">
-                      <div className="flex-shrink-0 mt-1 p-1 rounded-full bg-[#FFD700]/10 group-hover:bg-[#FFD700]/20 transition-colors">
-                        <CheckCircle2 className="h-4 w-4 text-[#FFD700]" />
+                    <li
+                      key={index}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: '1rem',
+                        marginBottom: '1rem',
+                        color: '#0F2240 !important' as any
+                      }}
+                    >
+                      <div style={{
+                        flexShrink: 0,
+                        marginTop: '0.125rem',
+                        padding: '0.625rem',
+                        borderRadius: '0.75rem',
+                        background: 'linear-gradient(to bottom right, #0F2240, #0C1B33)',
+                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                      }}>
+                        <CheckCircle2 className="h-5 w-5" style={{ color: '#FFD700 !important' as any }} />
                       </div>
-                      <span className="font-medium leading-relaxed group-hover:text-[#0F2240] transition-colors">{item}</span>
+                      <span
+                        style={{
+                          color: '#0F2240 !important' as any,
+                          fontWeight: 'bold',
+                          fontSize: '1rem',
+                          display: 'block',
+                          lineHeight: '1.6',
+                          paddingTop: '0.125rem'
+                        }}
+                      >
+                        {item}
+                      </span>
                     </li>
                   ))}
                 </ul>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -563,7 +621,7 @@ export default function Home() {
                     </div>
                     <div className="flex-1">
                       <p className="font-extrabold text-[#0F2240] text-xs uppercase tracking-wider mb-2">Imobiliárias:</p>
-                      <a href="mailto:imobiliarias@pagproseguro.com.br" className="text-[#0F2240] font-bold hover:text-[#FFD700] transition-colors text-lg">
+                      <a href="mailto:imobiliarias@pagproseguro.com.br" className="text-[#0F2240] font-bold hover:text-[#0C1B33] transition-colors text-lg">
                         imobiliarias@pagproseguro.com.br
                       </a>
                     </div>
@@ -585,7 +643,7 @@ export default function Home() {
                     </div>
                     <div className="flex-1">
                       <p className="font-extrabold text-[#0F2240] text-xs uppercase tracking-wider mb-2">Telefone:</p>
-                      <a href="tel:+5511942204240" className="text-[#0F2240] font-bold hover:text-[#FFD700] transition-colors text-lg">
+                      <a href="tel:+5511942204240" className="text-[#0F2240] font-bold hover:text-[#0C1B33] transition-colors text-lg">
                         (11) 94220-4240
                       </a>
                     </div>
@@ -664,13 +722,13 @@ export default function Home() {
             <div>
               <h5 className="text-sm font-extrabold text-[#0F2240] uppercase tracking-wider mb-4">Empresa</h5>
               <nav className="flex flex-col gap-3 text-sm font-bold text-slate-700">
-                <Link href="#about" className="transition-colors hover:text-[#FFD700] w-fit">
+                <Link href="#about" className="transition-colors hover:text-[#0C1B33] w-fit">
                   Quem Somos
                 </Link>
-                <Link href="#products" className="transition-colors hover:text-[#FFD700] w-fit">
+                <Link href="#products" className="transition-colors hover:text-[#0C1B33] w-fit">
                   Produtos
                 </Link>
-                <Link href="#pricing" className="transition-colors hover:text-[#FFD700] w-fit">
+                <Link href="#pricing" className="transition-colors hover:text-[#0C1B33] w-fit">
                   Planos
                 </Link>
               </nav>
@@ -678,10 +736,10 @@ export default function Home() {
             <div>
               <h5 className="text-sm font-extrabold text-[#0F2240] uppercase tracking-wider mb-4">Suporte</h5>
               <nav className="flex flex-col gap-3 text-sm font-bold text-slate-700">
-                <Link href="#contact" className="transition-colors hover:text-[#FFD700] w-fit">
+                <Link href="#contact" className="transition-colors hover:text-[#0C1B33] w-fit">
                   Contato
                 </Link>
-                <Link href="/login" className="transition-colors hover:text-[#FFD700] w-fit">
+                <Link href="/login" className="transition-colors hover:text-[#0C1B33] w-fit">
                   Área do Cliente
                 </Link>
               </nav>

@@ -96,6 +96,64 @@ h6 {
   line-height: 1.1;
 }
 
+/* FORÇAR: Títulos em fundos azul escuro DEVEM ser brancos */
+section[class*="from-[#0F2240]"] h1,
+section[class*="from-[#0F2240]"] h2,
+section[class*="from-[#0F2240]"] h3,
+section[class*="from-[#0F2240]"] h4,
+section[class*="from-[#0F2240]"] h5,
+section[class*="from-[#0F2240]"] h6,
+section[class*="via-[#0C1B33]"] h1,
+section[class*="via-[#0C1B33]"] h2,
+section[class*="via-[#0C1B33]"] h3,
+section[class*="via-[#0C1B33]"] h4,
+section[class*="via-[#0C1B33]"] h5,
+section[class*="via-[#0C1B33]"] h6,
+section[class*="to-[#091426]"] h1,
+section[class*="to-[#091426]"] h2,
+section[class*="to-[#091426]"] h3,
+section[class*="to-[#091426]"] h4,
+section[class*="to-[#091426]"] h5,
+section[class*="to-[#091426]"] h6,
+[class*="from-[#0F2240]"] h1,
+[class*="from-[#0F2240]"] h2,
+[class*="from-[#0F2240]"] h3,
+[class*="from-[#0F2240]"] h4,
+[class*="from-[#0F2240]"] h5,
+[class*="from-[#0F2240]"] h6,
+[class*="via-[#0C1B33]"] h1,
+[class*="via-[#0C1B33]"] h2,
+[class*="via-[#0C1B33]"] h3,
+[class*="via-[#0C1B33]"] h4,
+[class*="via-[#0C1B33]"] h5,
+[class*="via-[#0C1B33]"] h6,
+[class*="to-[#091426]"] h1,
+[class*="to-[#091426]"] h2,
+[class*="to-[#091426]"] h3,
+[class*="to-[#091426]"] h4,
+[class*="to-[#091426]"] h5,
+[class*="to-[#091426]"] h6,
+[class*="bg-[#0F2240]"] h1,
+[class*="bg-[#0F2240]"] h2,
+[class*="bg-[#0F2240]"] h3,
+[class*="bg-[#0F2240]"] h4,
+[class*="bg-[#0F2240]"] h5,
+[class*="bg-[#0F2240]"] h6,
+[class*="bg-[#0C1B33]"] h1,
+[class*="bg-[#0C1B33]"] h2,
+[class*="bg-[#0C1B33]"] h3,
+[class*="bg-[#0C1B33]"] h4,
+[class*="bg-[#0C1B33]"] h5,
+[class*="bg-[#0C1B33]"] h6,
+[class*="bg-[#091426]"] h1,
+[class*="bg-[#091426]"] h2,
+[class*="bg-[#091426]"] h3,
+[class*="bg-[#091426]"] h4,
+[class*="bg-[#091426]"] h5,
+[class*="bg-[#091426]"] h6 {
+  color: white !important;
+}
+
 h1 {
   @apply text-4xl md:text-5xl lg:text-6xl;
   font-weight: 800; /* Extrabold conforme especificação */
@@ -117,25 +175,202 @@ p {
   line-height: 1.75;
 }
 
+/* Links padrão - texto escuro, hover azul escuro (NUNCA amarelo em fundo branco) */
 a {
-  @apply text-[#0F2240] transition-all duration-200 hover:text-[#FFD700];
+  @apply text-[#0F2240] transition-all duration-200;
+}
+
+a:hover {
+  @apply text-[#0C1B33];
 }
 
 /* Links dentro de botões não devem herdar estilos globais */
 button a,
 [role="button"] a,
-a[role="button"] {
-  @apply text-inherit hover:text-inherit;
+a[role="button"],
+button a:hover,
+[role="button"] a:hover,
+a[role="button"]:hover {
+  @apply text-inherit;
+}
+
+/* FORÇAR: Textos em fundos azul escuro DEVEM ser brancos */
+[class*="from-[#0F2240]"],
+[class*="via-[#0C1B33]"],
+[class*="to-[#091426]"],
+[class*="bg-[#0F2240]"],
+[class*="bg-[#0C1B33]"],
+[class*="bg-[#091426]"] {
+  color: white !important;
+}
+
+[class*="from-[#0F2240]"] *:not(button):not([role="button"]):not(.text-\[#FFD700\]):not(.text-yellow),
+[class*="via-[#0C1B33]"] *:not(button):not([role="button"]):not(.text-\[#FFD700\]):not(.text-yellow),
+[class*="to-[#091426]"] *:not(button):not([role="button"]):not(.text-\[#FFD700\]):not(.text-yellow),
+[class*="bg-[#0F2240]"] *:not(button):not([role="button"]):not(.text-\[#FFD700\]):not(.text-yellow),
+[class*="bg-[#0C1B33]"] *:not(button):not([role="button"]):not(.text-\[#FFD700\]):not(.text-yellow),
+[class*="bg-[#091426]"] *:not(button):not([role="button"]):not(.text-\[#FFD700\]):not(.text-yellow) {
+  color: white !important;
 }
 
 /* Links em fundos escuros devem ter texto amarelo */
-.bg-primary-600 a:not(button a):not([role="button"] a),
-.bg-primary-500 a:not(button a):not([role="button"] a),
-.bg-primary-400 a:not(button a):not([role="button"] a),
-[class*="from-primary"] a:not(button a):not([role="button"] a),
-[class*="via-primary"] a:not(button a):not([role="button"] a),
-[class*="to-primary"] a:not(button a):not([role="button"] a) {
-  @apply text-[#FFD700] hover:text-white;
+[class*="from-[#0F2240]"] a:not(button a):not([role="button"] a),
+[class*="via-[#0C1B33]"] a:not(button a):not([role="button"] a),
+[class*="to-[#091426]"] a:not(button a):not([role="button"] a),
+[class*="bg-[#0F2240]"] a:not(button a):not([role="button"] a),
+[class*="bg-[#0C1B33]"] a:not(button a):not([role="button"] a),
+[class*="bg-[#091426]"] a:not(button a):not([role="button"] a) {
+  color: #FFD700 !important;
+}
+
+[class*="from-[#0F2240]"] a:not(button a):not([role="button"] a):hover,
+[class*="via-[#0C1B33]"] a:not(button a):not([role="button"] a):hover,
+[class*="to-[#091426]"] a:not(button a):not([role="button"] a):hover,
+[class*="bg-[#0F2240]"] a:not(button a):not([role="button"] a):hover,
+[class*="bg-[#0C1B33]"] a:not(button a):not([role="button"] a):hover,
+[class*="bg-[#091426]"] a:not(button a):not([role="button"] a):hover {
+  color: white !important;
+}
+
+/* FORÇAR: Textos amarelos NUNCA em fundos brancos */
+.bg-white .text-\[#FFD700\],
+.bg-white .text-yellow,
+[class*="bg-white"] .text-\[#FFD700\],
+[class*="bg-white"] .text-yellow {
+  color: #0F2240 !important;
+}
+
+/* FORÇAR: Textos em cards brancos DEVEM ser escuros */
+.bg-white h1,
+.bg-white h2,
+.bg-white h3,
+.bg-white h4,
+.bg-white h5,
+.bg-white h6,
+.bg-white p,
+.bg-white span:not([style*="color"]),
+.bg-white li,
+[class*="bg-white"] h1,
+[class*="bg-white"] h2,
+[class*="bg-white"] h3,
+[class*="bg-white"] h4,
+[class*="bg-white"] h5,
+[class*="bg-white"] h6,
+[class*="bg-white"] p,
+[class*="bg-white"] span:not(.text-\[#FFD700\]):not(.text-yellow):not([style*="color"]),
+[class*="bg-white"] li {
+  color: #0F2240 !important;
+}
+
+/* FORÇAR ABSOLUTO: Qualquer elemento com backgroundColor white deve ter texto escuro */
+div[style*="backgroundColor"][style*="#FFFFFF"] *,
+div[style*="background-color"][style*="#FFFFFF"] *,
+div[style*="backgroundColor"][style*="'#FFFFFF'"] *,
+div[style*="background-color"][style*="'#FFFFFF'"] * {
+  color: #0F2240 !important;
+}
+
+/* EXCEÇÃO: Ícones amarelos em fundos escuros */
+div[style*="backgroundColor"][style*="#FFFFFF"] [style*="color: '#FFD700'"],
+div[style*="background-color"][style*="#FFFFFF"] [style*="color: '#FFD700'"],
+div[style*="backgroundColor"][style*="#FFFFFF"] [style*="color: #FFD700"],
+div[style*="background-color"][style*="#FFFFFF"] [style*="color: #FFD700"] {
+  color: #FFD700 !important;
+}
+
+/* FORÇA MÁXIMA: Card "Indicadores que importam" - TODOS os textos devem ser escuros */
+div[style*="backgroundColor"][style*="#FFFFFF"] h3,
+div[style*="backgroundColor"][style*="#FFFFFF"] ul,
+div[style*="backgroundColor"][style*="#FFFFFF"] li,
+div[style*="backgroundColor"][style*="#FFFFFF"] span:not([style*="color: '#FFD700'"]):not([style*="color: #FFD700"]),
+div[style*="backgroundColor"][style*="#FFFFFF"] div:not([style*="background"]) {
+  color: #0F2240 !important;
+}
+
+/* FORÇA MÁXIMA: Qualquer texto dentro de div com fundo branco */
+div[style*="backgroundColor: '#FFFFFF'"] *,
+div[style*="backgroundColor: #FFFFFF"] *,
+div[style*="background-color: '#FFFFFF'"] *,
+div[style*="background-color: #FFFFFF"] * {
+  color: #0F2240 !important;
+}
+
+/* EXCEÇÃO: Ícones amarelos dentro de divs com fundo escuro (dentro do card branco) */
+div[style*="backgroundColor: '#FFFFFF'"] [style*="background: linear-gradient"],
+div[style*="backgroundColor: #FFFFFF"] [style*="background: linear-gradient"],
+div[style*="background-color: '#FFFFFF'"] [style*="background: linear-gradient"],
+div[style*="background-color: #FFFFFF"] [style*="background: linear-gradient"] {
+  background: linear-gradient(to bottom right, #0F2240, #0C1B33) !important;
+}
+
+div[style*="backgroundColor: '#FFFFFF'"] [style*="background: linear-gradient"] svg,
+div[style*="backgroundColor: #FFFFFF"] [style*="background: linear-gradient"] svg,
+div[style*="background-color: '#FFFFFF'"] [style*="background: linear-gradient"] svg,
+div[style*="background-color: #FFFFFF"] [style*="background: linear-gradient"] svg {
+  color: #FFD700 !important;
+}
+
+/* CLASSE ESPECÍFICA PARA O CARD - FORÇA MÁXIMA COM !important */
+.card-indicadores,
+.card-indicadores *,
+.card-indicadores h3,
+.card-indicadores ul,
+.card-indicadores li,
+.card-indicadores span {
+  color: #0F2240 !important;
+}
+
+/* EXCEÇÃO: Ícones amarelos dentro do card */
+.card-indicadores [style*="background: linear-gradient"] svg,
+.card-indicadores svg[style*="color: '#FFD700'"],
+.card-indicadores svg[style*="color: #FFD700"] {
+  color: #FFD700 !important;
+}
+
+/* FORÇAR: Card branco com texto escuro */
+div[class*="bg-white"],
+div[style*="backgroundColor: '#FFFFFF'"],
+div[style*="backgroundColor: \"#FFFFFF\""],
+div[style*="background-color: #FFFFFF"],
+div[style*="background-color: '#FFFFFF'"] {
+  background-color: #FFFFFF !important;
+}
+
+div[class*="bg-white"] *:not([class*="bg-[#0F2240]"]):not([class*="from-[#0F2240]"]):not([style*="color: #FFD700"]):not([style*="color: white"]):not([style*="color: '#FFD700'"]):not([style*="color: '#FFD700'"]):not([style*="color: \"#FFD700\""]),
+div[style*="backgroundColor: '#FFFFFF'"] *:not([style*="color: #FFD700"]):not([style*="color: white"]):not([style*="color: '#FFD700'"]),
+div[style*="background-color: #FFFFFF"] *:not([style*="color: #FFD700"]):not([style*="color: white"]) {
+  color: #0F2240 !important;
+}
+
+/* FORÇAR: Todos os textos em divs brancas */
+div[style*="backgroundColor: '#FFFFFF'"] span,
+div[style*="background-color: #FFFFFF"] span,
+div[style*="backgroundColor: '#FFFFFF'"] p,
+div[style*="background-color: #FFFFFF"] p,
+div[style*="backgroundColor: '#FFFFFF'"] li,
+div[style*="background-color: #FFFFFF"] li,
+div[style*="backgroundColor: '#FFFFFF'"] h1,
+div[style*="background-color: #FFFFFF"] h1,
+div[style*="backgroundColor: '#FFFFFF'"] h2,
+div[style*="background-color: #FFFFFF"] h2,
+div[style*="backgroundColor: '#FFFFFF'"] h3,
+div[style*="background-color: #FFFFFF"] h3 {
+  color: #0F2240 !important;
+}
+
+/* FORÇAR: Links amarelos em fundos brancos devem ser escuros */
+.bg-white a.text-\[#FFD700\],
+.bg-white a.text-yellow,
+[class*="bg-white"] a.text-\[#FFD700\],
+[class*="bg-white"] a.text-yellow {
+  color: #0F2240 !important;
+}
+
+.bg-white a.text-\[#FFD700\]:hover,
+.bg-white a.text-yellow:hover,
+[class*="bg-white"] a.text-\[#FFD700\]:hover,
+[class*="bg-white"] a.text-yellow:hover {
+  color: #0C1B33 !important;
 }
 
 /* Efeitos de glass morphism */
