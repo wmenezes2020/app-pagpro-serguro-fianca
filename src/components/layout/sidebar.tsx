@@ -205,7 +205,7 @@ export function Sidebar() {
       </div>
 
       <div className="flex-1 overflow-y-auto pt-4">
-        <p className="text-[11px] uppercase tracking-[0.35em] text-white/40">Menu principal</p>
+        <p className="text-[11px] uppercase tracking-[0.35em] text-white/70 mb-4">Menu principal</p>
         <nav className="mt-4 space-y-1.5">
           {navItems.map((item) => {
             const Icon = item.icon;
@@ -220,7 +220,7 @@ export function Sidebar() {
                   "group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200",
                   isActive
                     ? "bg-[#FFD700] text-[#0F2240] shadow-[0_8px_20px_rgba(255,215,0,0.3)]"
-                    : "text-white/70 hover:bg-white/10 hover:text-white",
+                    : "text-white hover:bg-white/20 hover:text-white",
                 )}
               >
                 {isActive ? (
@@ -229,7 +229,7 @@ export function Sidebar() {
                 <Icon
                   className={cn(
                     "h-5 w-5 flex-shrink-0",
-                    isActive ? "text-[#0F2240]" : "text-white/60 group-hover:text-white",
+                    isActive ? "text-[#0F2240]" : "text-white/90 group-hover:text-white",
                   )}
                 />
                 <span>{item.label}</span>
@@ -262,9 +262,9 @@ export function Sidebar() {
       <div className="mt-6 border-t border-white/10 pt-4">
         <button
           onClick={handleLogout}
-          className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-white/70 transition-all duration-200 hover:bg-white/5 hover:text-white"
+          className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-white/90 transition-all duration-200 hover:bg-white/20 hover:text-white"
         >
-          <LogOut className="h-4 w-4" />
+          <LogOut className="h-4 w-4 text-white/90" />
           Sair
         </button>
       </div>
