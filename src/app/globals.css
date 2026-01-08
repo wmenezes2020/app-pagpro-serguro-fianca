@@ -8,26 +8,30 @@
 @theme inline {
   --font-sans: var(--font-inter);
 
-  /* Paleta C6 Bank - Preto e Luxo */
-  --color-primary-50: #f8f9fa;
-  --color-primary-100: #e9ecef;
-  --color-primary-200: #dee2e6;
-  --color-primary-300: #ced4da;
-  --color-primary-400: #adb5bd;
-  --color-primary-500: #6c757d;
-  --color-primary-600: #495057;
-  --color-primary-700: #343a40;
-  --color-primary-800: #212529;
-  --color-primary-900: #000000;
-  --color-primary: var(--color-primary-900);
+  /* Cores Primárias - Azul Escuro Profissional PagPro */
+  --color-primary-50: #E8EDF5;
+  --color-primary-100: #D1DBEB;
+  --color-primary-200: #A3B7D7;
+  --color-primary-300: #7593C3;
+  --color-primary-400: #476FAF;
+  --color-primary-500: #0F2240;
+  --color-primary-600: #0C1B33;
+  --color-primary-700: #091426;
+  --color-primary-800: #060D1A;
+  --color-primary-900: #03060D;
+  --color-primary: #0F2240;
   --color-primary-foreground: #ffffff;
 
-  /* Accent C6 Bank - Dourado/Luxo */
-  --color-accent: #ffd700;
-  --color-accent-50: #fffef5;
-  --color-accent-100: #fff9cc;
-  --color-accent-600: #ffd700;
-  --color-accent-700: #e6c200;
+  /* Cor de Destaque - Amarelo Vibrante PagPro */
+  --color-accent: #FFD700;
+  --color-accent-50: #FFFEF5;
+  --color-accent-100: #FFF9CC;
+  --color-accent-200: #FFF399;
+  --color-accent-300: #FFED66;
+  --color-accent-400: #FFE733;
+  --color-accent-500: #FFD700;
+  --color-accent-600: #E6C200;
+  --color-accent-700: #CCAD00;
 
   /* Verde para sucesso */
   --color-secondary: #28a745;
@@ -41,15 +45,15 @@
   --color-danger: #dc3545;
   --color-success: #28a745;
 
-  /* Superfícies C6 Bank - Preto e Cinza Escuro */
-  --color-surface: #000000;
-  --color-surface-elevated: #0a0a0a;
-  --color-surface-card: #1a1a1a;
-  --color-muted: #2a2a2a;
-  --color-border: #333333;
-  --color-border-subtle: #2a2a2a;
-  --color-body: #ffffff;
-  --color-body-muted: #cccccc;
+  /* Superfícies PagPro - Branco e Cinza Claro */
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #F8F9FA;
+  --color-surface-card: #FFFFFF;
+  --color-muted: #6C757D;
+  --color-border: #DEE2E6;
+  --color-border-subtle: #E9ECEF;
+  --color-body: #FFFFFF;
+  --color-body-muted: #6C757D;
 
   /* Sombras elegantes */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -67,7 +71,7 @@
 }
 
 body {
-  @apply bg-[#f5f4ef] text-[#0f172a] font-sans antialiased;
+  @apply bg-white text-[#0F2240] font-sans antialiased;
 }
 
 ::selection {
@@ -102,7 +106,7 @@ p {
 }
 
 a {
-  @apply text-[#f5c437] transition-all duration-200 hover:text-[#f1b60d];
+  @apply text-[#FFD700] transition-all duration-200 hover:text-[#E6C200];
 }
 
 /* Efeitos de glass morphism */
@@ -158,9 +162,9 @@ a {
 }
 
 
-/* Gradientes de banco digital/financeira */
+/* Gradientes PagPro */
 .bank-gradient-primary {
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
+  background: linear-gradient(135deg, #0F2240 0%, #0C1B33 50%, #091426 100%);
 }
 
 .bank-gradient-secondary {
@@ -168,7 +172,7 @@ a {
 }
 
 .bank-gradient-surface {
-  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+  background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 50%, #E8EDF5 100%);
 }
 
 /* Efeitos de IA/Tecnologia */
@@ -183,11 +187,11 @@ a {
   background-size: 20px 20px;
 }
 
-/* Cards C6 Bank - Preto e Luxo */
+/* Cards PagPro */
 .financial-card {
   position: relative;
-  border-top: 3px solid #ffd700;
-  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  border-top: 3px solid #FFD700;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
 }
 
 .financial-card::before {
@@ -198,14 +202,14 @@ a {
   width: 8rem;
   height: 8rem;
   opacity: 0.05;
-  background: radial-gradient(circle, #ffd700 0%, transparent 70%);
+  background: radial-gradient(circle, #FFD700 0%, transparent 70%);
   transform: translate(30%, -30%);
   pointer-events: none;
 }
 
-/* Sidebar C6 Bank */
+/* Sidebar PagPro */
 .financial-sidebar {
-  @apply bg-gradient-to-b from-black via-gray-900 to-black;
+  @apply bg-gradient-to-b from-[#0F2240] via-[#0C1B33] to-[#091426];
   border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -218,20 +222,20 @@ a {
   border: 1px solid rgba(255, 215, 0, 0.2);
 }
 
-/* Scrollbar C6 Bank */
+/* Scrollbar PagPro */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-black;
+  @apply bg-gray-100;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-700 rounded-full;
+  @apply bg-gray-300 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-accent-600;
+  @apply bg-[#FFD700];
 }

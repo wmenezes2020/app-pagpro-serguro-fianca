@@ -192,7 +192,7 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="flex h-full flex-col bg-gradient-to-b from-[#080808] via-[#0f0f12] to-[#050505] p-4 sm:p-6 text-white shadow-[0_25px_60px_rgba(0,0,0,0.65)] md:h-screen">
+    <aside className="flex h-full flex-col bg-gradient-to-b from-[#0F2240] via-[#0C1B33] to-[#091426] p-4 sm:p-6 text-white shadow-[0_25px_60px_rgba(15,34,64,0.65)] md:h-screen">
       <div className="border-b border-white/10 pb-4">
         <Image
           src="/logo-m-white.png"
@@ -224,7 +224,7 @@ export function Sidebar() {
                 )}
               >
                 {isActive ? (
-                  <span className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-full bg-[#f5c437]" />
+                  <span className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-full bg-[#FFD700]" />
                 ) : null}
                 <Icon
                   className={cn(
