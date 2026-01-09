@@ -40,7 +40,7 @@ export function Topbar({ onToggleSidebar, className }: TopbarProps) {
             />
           </div>
         </div>
-        <div className="hidden lg:flex flex-wrap items-center gap-3 text-xs">
+        <div className="hidden lg:flex flex-wrap items-center gap-3 text-xs d-none">
           <div className="rounded-xl bg-gradient-to-br from-[#FFD700] to-[#FFD700]/90 px-4 py-2.5 shadow-lg shadow-[#FFD700]/20 border border-[#FFD700]/30">
             <p className="uppercase tracking-[0.15em] text-[#0F2240]/80 text-[10px] font-bold mb-0.5">
               TEMPO MÉDIO
@@ -75,7 +75,7 @@ export function Topbar({ onToggleSidebar, className }: TopbarProps) {
             <Menu className="h-5 w-5" />
           </button>
         ) : null}
-        
+
         {/* Ícones de notificações e configurações */}
         <div className="hidden md:flex items-center gap-2">
           <button
