@@ -6,7 +6,7 @@ import { useForm, useWatch } from "react-hook-form";
 import { useState } from "react";
 import { createApplication } from "@/services/applications-service";
 import { listProperties } from "@/services/properties-service";
-import { listUsers } from "@/services/users-service";
+import { listUsers, createInquilino, CreateInquilinoPayload } from "@/services/users-service";
 import { uploadApplicationDocument } from "@/services/documents-service";
 import { useAuthStore } from "@/store/auth-store";
 import {
@@ -23,13 +23,16 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { LoadingScreen } from "@/components/layout/loading-screen";
-import { Upload, X, FileText } from "lucide-react";
+import { Upload, X, FileText, Plus } from "lucide-react";
 
 type ApplicationFormValues = {
   propertyId: string;
   applicantId?: string;
   brokerId?: string;
   monthlyIncome: number;
+  monthlyRentValue?: number;
+  contractType?: "COMERCIAL" | "RESIDENCIAL";
+  tenantType?: "PF" | "PJ";
   hasNegativeRecords: boolean;
   employmentStatus?: string;
   notes?: string;
@@ -48,6 +51,16 @@ export default function NewApplicationPage() {
   const isBroker = authState.user?.role === "CORRETOR";
   const [documents, setDocuments] = useState<DocumentFile[]>([]);
   const [documentDescriptions, setDocumentDescriptions] = useState<Record<number, string>>({});
+  const [showNewTenantForm, setShowNewTenantForm] = useState(false);
+  const [newTenantData, setNewTenantData] = useState<Partial<CreateInquilinoPayload>>({
+    fullName: "",
+    email: "",
+    password: "",
+    phone: "",
+    cpf: "",
+    monthlyIncome: 0,
+    employmentStatus: "",
+  });
 
   const form = useForm<ApplicationFormValues>({
     defaultValues: {
@@ -55,6 +68,9 @@ export default function NewApplicationPage() {
       applicantId: isTenant ? authState.user?.id : "",
       brokerId: isBroker ? authState.user?.id : "",
       monthlyIncome: 0,
+      monthlyRentValue: undefined,
+      contractType: undefined,
+      tenantType: undefined,
       hasNegativeRecords: false,
       employmentStatus: "",
       notes: "",
@@ -111,7 +127,29 @@ export default function NewApplicationPage() {
     },
   });
 
-  const isPending = isCreating || isUploading;
+  const { mutateAsync: createTenant, isPending: isCreatingTenant } = useMutation({
+    mutationFn: createInquilino,
+    onSuccess: (newTenant) => {
+      toast.success("Inquilino cadastrado com sucesso!");
+      form.setValue("applicantId", newTenant.id);
+      setShowNewTenantForm(false);
+      setNewTenantData({
+        fullName: "",
+        email: "",
+        password: "",
+        phone: "",
+        cpf: "",
+        monthlyIncome: 0,
+        employmentStatus: "",
+      });
+      queryClient.invalidateQueries({ queryKey: ["users", "tenants"] });
+    },
+    onError: () => {
+      toast.error("Erro ao cadastrar inquilino.");
+    },
+  });
+
+  const isPending = isCreating || isUploading || isCreatingTenant;
 
   if (loadingProperties) {
     return <LoadingScreen />;
@@ -188,21 +226,159 @@ export default function NewApplicationPage() {
           </div>
 
           {!isTenant ? (
-            <div className="space-y-2">
-              <Label>Inquilino</Label>
-              <Select
-                value={applicantId}
-                onChange={(event) =>
-                  form.setValue("applicantId", event.target.value)
-                }
-                options={[
-                  { value: "", label: "Selecione um inquilino" },
-                  ...(tenants ?? []).map((tenant) => ({
-                    value: tenant.id,
-                    label: tenant.fullName ?? tenant.email,
-                  })),
-                ]}
-              />
+            <div className="space-y-2 md:col-span-2">
+              <div className="flex items-center justify-between">
+                <Label>Inquilino</Label>
+                {!showNewTenantForm && (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setShowNewTenantForm(true)}
+                    className="bg-[#FFD700] text-[#0F2240] hover:bg-[#FFD700]/90"
+                  >
+                    <Plus className="h-4 w-4 mr-2" />
+                    Cadastrar novo
+                  </Button>
+                )}
+              </div>
+              {showNewTenantForm ? (
+                <Card className="border border-slate-200 bg-slate-50 p-4">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <h4 className="font-medium text-sm text-[#0F2240]">Novo Inquilino</h4>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => {
+                          setShowNewTenantForm(false);
+                          setNewTenantData({
+                            fullName: "",
+                            email: "",
+                            password: "",
+                            phone: "",
+                            cpf: "",
+                            monthlyIncome: 0,
+                            employmentStatus: "",
+                          });
+                        }}
+                      >
+                        <X className="h-4 w-4" />
+                      </Button>
+                    </div>
+                    <div className="grid gap-3 md:grid-cols-2">
+                      <div className="space-y-1">
+                        <Label className="text-xs">Nome completo *</Label>
+                        <Input
+                          value={newTenantData.fullName}
+                          onChange={(e) => setNewTenantData({ ...newTenantData, fullName: e.target.value })}
+                          placeholder="Nome e sobrenome"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <Label className="text-xs">E-mail *</Label>
+                        <Input
+                          type="email"
+                          value={newTenantData.email}
+                          onChange={(e) => setNewTenantData({ ...newTenantData, email: e.target.value })}
+                          placeholder="email@exemplo.com"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <Label className="text-xs">CPF *</Label>
+                        <Input
+                          value={newTenantData.cpf}
+                          onChange={(e) => setNewTenantData({ ...newTenantData, cpf: e.target.value.replace(/\D/g, "") })}
+                          placeholder="00000000000"
+                          maxLength={11}
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <Label className="text-xs">Telefone</Label>
+                        <Input
+                          value={newTenantData.phone}
+                          onChange={(e) => setNewTenantData({ ...newTenantData, phone: e.target.value })}
+                          placeholder="(11) 00000-0000"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <Label className="text-xs">Renda mensal</Label>
+                        <Input
+                          type="number"
+                          step="0.01"
+                          value={newTenantData.monthlyIncome || ""}
+                          onChange={(e) => setNewTenantData({ ...newTenantData, monthlyIncome: parseFloat(e.target.value) || 0 })}
+                          placeholder="0.00"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <Label className="text-xs">Senha provisória *</Label>
+                        <Input
+                          type="password"
+                          value={newTenantData.password}
+                          onChange={(e) => setNewTenantData({ ...newTenantData, password: e.target.value })}
+                          placeholder="Mínimo 6 caracteres"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex justify-end gap-2">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        onClick={() => {
+                          setShowNewTenantForm(false);
+                          setNewTenantData({
+                            fullName: "",
+                            email: "",
+                            password: "",
+                            phone: "",
+                            cpf: "",
+                            monthlyIncome: 0,
+                            employmentStatus: "",
+                          });
+                        }}
+                      >
+                        Cancelar
+                      </Button>
+                      <Button
+                        type="button"
+                        size="sm"
+                        onClick={async () => {
+                          if (!newTenantData.fullName || !newTenantData.email || !newTenantData.password || !newTenantData.cpf) {
+                            toast.error("Preencha todos os campos obrigatórios.");
+                            return;
+                          }
+                          if (newTenantData.cpf.length !== 11) {
+                            toast.error("CPF deve conter 11 dígitos.");
+                            return;
+                          }
+                          await createTenant(newTenantData as CreateInquilinoPayload);
+                        }}
+                        loading={isCreatingTenant}
+                        className="bg-[#FFD700] text-[#0F2240] hover:bg-[#FFD700]/90"
+                      >
+                        Cadastrar
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
+              ) : (
+                <Select
+                  value={applicantId}
+                  onChange={(event) =>
+                    form.setValue("applicantId", event.target.value)
+                  }
+                  options={[
+                    { value: "", label: "Selecione um inquilino" },
+                    ...(tenants ?? []).map((tenant) => ({
+                      value: tenant.id,
+                      label: tenant.fullName ?? tenant.email,
+                    })),
+                  ]}
+                />
+              )}
             </div>
           ) : null}
 
@@ -229,7 +405,7 @@ export default function NewApplicationPage() {
           ) : null}
 
           <div className="space-y-2">
-            <Label htmlFor="monthlyIncome">Renda mensal</Label>
+            <Label htmlFor="monthlyIncome">Renda mensal *</Label>
             <Input
               id="monthlyIncome"
               type="number"
@@ -238,6 +414,49 @@ export default function NewApplicationPage() {
                 valueAsNumber: true,
                 required: true,
               })}
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="monthlyRentValue">Valor do aluguel mensal *</Label>
+            <Input
+              id="monthlyRentValue"
+              type="number"
+              step="0.01"
+              {...form.register("monthlyRentValue", {
+                valueAsNumber: true,
+                required: true,
+              })}
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="contractType">Tipo de contrato *</Label>
+            <Select
+              value={form.watch("contractType") || ""}
+              onChange={(event) =>
+                form.setValue("contractType", event.target.value as "COMERCIAL" | "RESIDENCIAL" | undefined)
+              }
+              options={[
+                { value: "", label: "Selecione o tipo" },
+                { value: "RESIDENCIAL", label: "Residencial" },
+                { value: "COMERCIAL", label: "Comercial" },
+              ]}
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="tenantType">Tipo de inquilino *</Label>
+            <Select
+              value={form.watch("tenantType") || ""}
+              onChange={(event) =>
+                form.setValue("tenantType", event.target.value as "PF" | "PJ" | undefined)
+              }
+              options={[
+                { value: "", label: "Selecione o tipo" },
+                { value: "PF", label: "Pessoa Física (PF)" },
+                { value: "PJ", label: "Pessoa Jurídica (PJ)" },
+              ]}
             />
           </div>
 
@@ -275,6 +494,9 @@ export default function NewApplicationPage() {
 
           <div className="space-y-2 md:col-span-2">
             <Label>Documentos do cliente (opcional)</Label>
+            <p className="text-xs text-slate-500 mb-2">
+              Envie o contrato de locação e outros documentos relevantes.
+            </p>
             <div className="space-y-3">
               <div className="flex items-center gap-2">
                 <Input

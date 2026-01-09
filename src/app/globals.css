@@ -1,5 +1,62 @@
 @import "tailwindcss";
 
+/* FORÇAR ABSOLUTO: Itens do menu sidebar DEVEM ser brancos */
+.sidebar-nav nav a:not([class*="bg-[#FFD700]"]) {
+  color: #FFFFFF !important;
+}
+
+.sidebar-nav nav a:not([class*="bg-[#FFD700]"]) span {
+  color: #FFFFFF !important;
+}
+
+.sidebar-nav nav a:not([class*="bg-[#FFD700]"]) svg {
+  color: #FFFFFF !important;
+}
+
+.sidebar-nav nav a:not([class*="bg-[#FFD700]"]):hover {
+  color: #FFFFFF !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.sidebar-nav nav a:not([class*="bg-[#FFD700]"]):hover span {
+  color: #FFFFFF !important;
+}
+
+.sidebar-nav nav a:not([class*="bg-[#FFD700]"]):hover svg {
+  color: #FFFFFF !important;
+}
+
+/* FORÇAR ABSOLUTO: Botão Sair do sidebar */
+.sidebar-nav button {
+  color: #FFFFFF !important;
+}
+
+.sidebar-nav button span {
+  color: #FFFFFF !important;
+}
+
+.sidebar-nav button svg {
+  color: #FFFFFF !important;
+}
+
+.sidebar-nav button:hover {
+  color: #FFFFFF !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* FORÇAR: Todos os textos brancos no sidebar */
+.sidebar-nav {
+  color: #FFFFFF !important;
+}
+
+.sidebar-nav *:not([class*="bg-[#FFD700]"]) {
+  color: inherit;
+}
+
+.sidebar-nav nav a:not([class*="bg-[#FFD700]"]) * {
+  color: #FFFFFF !important;
+}
+
 :root {
   color-scheme: light;
   --content-width: 1200px;

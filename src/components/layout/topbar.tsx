@@ -32,31 +32,36 @@ export function Topbar({ onToggleSidebar, className }: TopbarProps) {
         {/* Barra de busca centralizada */}
         <div className="hidden md:flex flex-1 max-w-md mx-8">
           <div className="relative w-full">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
             <input
               type="search"
               placeholder="Buscar..."
-              className="w-full rounded-lg border border-gray-200 bg-white py-2 pl-10 pr-4 text-sm text-gray-900 placeholder:text-gray-400 focus:border-[#FFD700] focus:outline-none focus:ring-2 focus:ring-[#FFD700]/20"
+              className="w-full rounded-xl border border-slate-200 bg-white/80 backdrop-blur-sm py-2.5 pl-10 pr-4 text-sm font-medium text-slate-900 placeholder:text-slate-400 shadow-sm transition-all focus:border-[#FFD700] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#FFD700]/20 focus:shadow-md"
             />
           </div>
         </div>
-        <div className="hidden lg:flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-600">
-          <div className="rounded-xl bg-[#f7f3e0] px-3 py-2 shadow-sm">
-            <p className="uppercase tracking-[0.18em] text-[#0F2240]/70">Tempo médio</p>
-            <p className="text-sm font-semibold text-[#0F2240]">1h 24min</p>
-          </div>
-          <div className="h-10 w-px bg-gray-200" />
-          <div className="rounded-xl bg-white px-3 py-2 shadow-sm ring-1 ring-[#0F2240]/8">
-            <p className="uppercase tracking-[0.18em] text-[#0F2240]/70">Próxima atualização</p>
-            <p className="text-sm font-semibold text-[#0F2240]">Hoje, 16h</p>
-          </div>
-          <div className="h-10 w-px bg-gray-200" />
-          <div className="rounded-xl bg-[#e8f2ff] px-3 py-2 shadow-sm ring-1 ring-[#0F2240]/10">
-            <p className="uppercase tracking-[0.18em] text-[#0F2240]/70">Status</p>
-            <p className="flex items-center gap-2 text-sm font-semibold text-emerald-600">
-              <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_0_4px_rgba(16,185,129,0.15)]" />
-              Operação estável
+        <div className="hidden lg:flex flex-wrap items-center gap-3 text-xs">
+          <div className="rounded-xl bg-gradient-to-br from-[#FFD700] to-[#FFD700]/90 px-4 py-2.5 shadow-lg shadow-[#FFD700]/20 border border-[#FFD700]/30">
+            <p className="uppercase tracking-[0.15em] text-[#0F2240]/80 text-[10px] font-bold mb-0.5">
+              TEMPO MÉDIO
             </p>
+            <p className="text-lg font-extrabold text-[#0F2240]">1h 24min</p>
+          </div>
+          <div className="rounded-xl bg-white px-4 py-2.5 shadow-md border border-slate-200/60">
+            <p className="uppercase tracking-[0.15em] text-slate-600 text-[10px] font-bold mb-0.5">
+              PRÓXIMA ATUALIZAÇÃO
+            </p>
+            <p className="text-lg font-extrabold text-[#0F2240]">Hoje, 16h</p>
+          </div>
+          <div className="rounded-xl bg-gradient-to-br from-blue-50 to-blue-100/50 px-4 py-2.5 shadow-md border border-blue-200/60">
+            <p className="uppercase tracking-[0.15em] text-slate-600 text-[10px] font-bold mb-0.5 flex items-center gap-2">
+              STATUS
+              <span className="relative">
+                <span className="h-2 w-2 rounded-full bg-green-500 block"></span>
+                <span className="absolute inset-0 h-2 w-2 rounded-full bg-green-500 animate-ping opacity-75"></span>
+              </span>
+            </p>
+            <p className="text-lg font-extrabold text-[#0F2240]">Operação estável</p>
           </div>
         </div>
       </div>
@@ -75,15 +80,15 @@ export function Topbar({ onToggleSidebar, className }: TopbarProps) {
         <div className="hidden md:flex items-center gap-2">
           <button
             type="button"
-            className="relative inline-flex h-9 w-9 items-center justify-center rounded-md text-gray-600 hover:bg-gray-100 transition-all duration-200"
+            className="relative inline-flex h-9 w-9 items-center justify-center rounded-lg text-slate-600 hover:bg-slate-100 hover:text-[#0F2240] transition-all duration-200"
             aria-label="Notificações"
           >
             <Bell className="h-5 w-5" />
-            <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-[#FFD700] ring-2 ring-white" />
+            <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-[#FFD700] ring-2 ring-white shadow-sm" />
           </button>
           <button
             type="button"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md text-gray-600 hover:bg-gray-100 transition-all duration-200"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-slate-600 hover:bg-slate-100 hover:text-[#0F2240] transition-all duration-200"
             aria-label="Configurações"
           >
             <Settings className="h-5 w-5" />
@@ -106,8 +111,9 @@ export function Topbar({ onToggleSidebar, className }: TopbarProps) {
               {user?.fullName ?? user?.email}
             </p>
           </div>
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#0F2240] to-[#0C1B33] text-white font-semibold text-sm shadow-lg">
+          <div className="relative flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#0F2240] to-[#0C1B33] text-white font-bold text-sm shadow-lg ring-2 ring-white">
             {user?.fullName?.[0]?.toUpperCase() ?? user?.email?.[0]?.toUpperCase()}
+            <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-green-500 border-2 border-white"></span>
           </div>
         </div>
       </div>

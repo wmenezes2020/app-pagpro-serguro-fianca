@@ -113,6 +113,15 @@ export interface DashboardMetrics {
   clients: number;
   defaultRate: number;
   averageScore: number | null;
+  approvalRate: number; // Taxa de aprovação em %
+  totalDeliveries: number; // Total de entregas em valor financeiro
+  monthlyTrends: Array<{
+    month: string;
+    approvalRate: number;
+    defaultRate: number;
+    totalApplications: number;
+    approvals: number;
+  }>;
 }
 
 export interface PaginatedResponse<T> {

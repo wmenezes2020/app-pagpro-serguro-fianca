@@ -13,6 +13,8 @@ import {
   Mail,
   Calendar,
   IdCard,
+  Plus,
+  X,
 } from "lucide-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -55,6 +57,8 @@ const createSchema = z
 export default function CorretoresPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
+  const [showForm, setShowForm] = useState(false);
+  const [editingId, setEditingId] = useState<string | null>(null);
   const user = useAuthStore((state) => state.user);
   const canManage =
     user?.role === "ADMIN" ||
@@ -109,6 +113,8 @@ export default function CorretoresPage() {
     onSuccess: () => {
       toast.success("Corretor cadastrado com sucesso.");
       form.reset();
+      setShowForm(false);
+      setEditingId(null);
       refetch();
     },
     onError: (error: unknown) => {
@@ -133,19 +139,43 @@ export default function CorretoresPage() {
     await handleCreate(payload);
   };
 
+  const handleCancel = () => {
+    setShowForm(false);
+    setEditingId(null);
+    form.reset();
+  };
+
+  const handleNewClick = () => {
+    setShowForm(true);
+    setEditingId(null);
+    form.reset();
+  };
+
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Corretores</h1>
-        <p className="text-sm text-gray-600 mt-1">
+        <h1 className="text-2xl font-bold text-[#0F2240]">Corretores</h1>
+        <p className="text-sm text-slate-600 mt-1">
           Gerencie os corretores vinculados à sua rede PagPro.
         </p>
       </div>
 
-      {canManage ? (
-        <Card>
+      {canManage && showForm ? (
+        <Card className="border border-slate-200/60 bg-white shadow-lg">
           <CardHeader>
-            <CardTitle>Adicionar corretor</CardTitle>
+            <div className="flex items-center justify-between">
+              <CardTitle className="text-xl font-extrabold text-[#0F2240]">
+                {editingId ? "Editar corretor" : "Adicionar corretor"}
+              </CardTitle>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handleCancel}
+                className="h-8 w-8 p-0"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
           </CardHeader>
           <CardContent>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -243,9 +273,21 @@ export default function CorretoresPage() {
                   ) : null}
                 </div>
               </div>
-              <div className="flex justify-end">
-                <Button type="submit" loading={isPending}>
-                  Cadastrar corretor
+              <div className="flex justify-end gap-3">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={handleCancel}
+                  disabled={isPending}
+                >
+                  Cancelar
+                </Button>
+                <Button
+                  type="submit"
+                  loading={isPending}
+                  className="bg-[#FFD700] text-[#0F2240] hover:bg-[#FFD700]/90"
+                >
+                  {editingId ? "Salvar alterações" : "Cadastrar corretor"}
                 </Button>
               </div>
             </form>
@@ -253,21 +295,34 @@ export default function CorretoresPage() {
         </Card>
       ) : null}
 
-      <Card>
+      <Card className="border border-slate-200/60 bg-white shadow-lg">
         <CardHeader>
           <div className="flex items-center justify-between">
-            <CardTitle>Lista de Corretores</CardTitle>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => refetch()}
-              disabled={isFetching}
-            >
+            <CardTitle className="text-xl font-extrabold text-[#0F2240]">
+              Lista de Corretores
+            </CardTitle>
+            <div className="flex items-center gap-2">
+              {canManage && !showForm && (
+                <Button
+                  onClick={handleNewClick}
+                  className="bg-[#FFD700] text-[#0F2240] hover:bg-[#FFD700]/90 font-bold"
+                >
+                  <Plus className="h-4 w-4 mr-2" />
+                  Cadastrar novo
+                </Button>
+              )}
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => refetch()}
+                disabled={isFetching}
+              >
               <RefreshCw
                 className={`h-4 w-4 mr-2 ${isFetching ? "animate-spin" : ""}`}
               />
               Atualizar
             </Button>
+            </div>
           </div>
         </CardHeader>
         <CardContent>

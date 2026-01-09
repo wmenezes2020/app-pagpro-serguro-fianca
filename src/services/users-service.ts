@@ -20,3 +20,21 @@ export const listUsers = (role?: string) =>
     params: role ? { role } : undefined,
   });
 
+export interface CreateInquilinoPayload {
+  fullName: string;
+  email: string;
+  password: string;
+  phone?: string;
+  cpf: string;
+  birthDate?: string;
+  monthlyIncome?: number;
+  employmentStatus?: string;
+}
+
+export const createInquilino = (payload: CreateInquilinoPayload) =>
+  request<AuthUser>({
+    method: "POST",
+    url: "/users/inquilinos",
+    data: payload,
+  });
+

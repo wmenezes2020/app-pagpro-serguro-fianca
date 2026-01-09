@@ -11,6 +11,9 @@ export interface CreateApplicationPayload {
   applicantId?: string;
   brokerId?: string;
   monthlyIncome: number;
+  monthlyRentValue?: number;
+  contractType?: "COMERCIAL" | "RESIDENCIAL";
+  tenantType?: "PF" | "PJ";
   hasNegativeRecords: boolean;
   employmentStatus?: string;
   documents?: Record<string, string>;

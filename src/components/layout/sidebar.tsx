@@ -13,6 +13,7 @@ import {
   LifeBuoy,
   Link2,
   LogOut,
+  Receipt,
   ShieldCheck,
   UserRoundCog,
   Users,
@@ -50,6 +51,11 @@ const baseNav: NavItem[] = [
     href: "/dashboard/commissions",
     label: "Comissões",
     icon: DollarSign,
+  },
+  {
+    href: "/dashboard/invoices",
+    label: "Faturas",
+    icon: Receipt,
   },
   // {
   //   href: "/dashboard/support",
@@ -192,7 +198,7 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="flex h-full flex-col bg-gradient-to-b from-[#0F2240] via-[#0C1B33] to-[#091426] p-4 sm:p-6 text-white shadow-[0_25px_60px_rgba(15,34,64,0.65)] md:h-screen">
+    <aside className="sidebar-nav flex h-full flex-col bg-gradient-to-b from-[#0F2240] via-[#0C1B33] to-[#091426] p-4 sm:p-6 text-white shadow-[0_25px_60px_rgba(15,34,64,0.65)] md:h-screen">
       <div className="border-b border-white/10 pb-4">
         <Image
           src="/logo-m-white.png"
@@ -205,7 +211,7 @@ export function Sidebar() {
       </div>
 
       <div className="flex-1 overflow-y-auto pt-4">
-        <p className="text-[11px] uppercase tracking-[0.35em] text-white/70 mb-4">Menu principal</p>
+        <p className="text-[11px] uppercase tracking-[0.35em] mb-4" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Menu principal</p>
         <nav className="mt-4 space-y-1.5">
           {navItems.map((item) => {
             const Icon = item.icon;
@@ -220,8 +226,9 @@ export function Sidebar() {
                   "group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200",
                   isActive
                     ? "bg-[#FFD700] text-[#0F2240] shadow-[0_8px_20px_rgba(255,215,0,0.3)]"
-                    : "text-white hover:bg-white/20 hover:text-white",
+                    : "hover:bg-white/20",
                 )}
+                style={!isActive ? { color: '#FFFFFF' } : undefined}
               >
                 {isActive ? (
                   <span className="absolute left-0 top-1/2 h-8 w-1 -translate-y-1/2 rounded-full bg-[#0F2240]" />
@@ -229,12 +236,13 @@ export function Sidebar() {
                 <Icon
                   className={cn(
                     "h-5 w-5 flex-shrink-0",
-                    isActive ? "text-[#0F2240]" : "text-white/90 group-hover:text-white",
+                    isActive ? "text-[#0F2240]" : "",
                   )}
+                  style={!isActive ? { color: '#FFFFFF' } : undefined}
                 />
-                <span>{item.label}</span>
+                <span style={!isActive ? { color: '#FFFFFF' } : undefined}>{item.label}</span>
                 {item.badge ? (
-                  <span className="ml-auto rounded-full bg-red-500/90 px-2 py-0.5 text-[10px] font-semibold text-white">
+                  <span className="ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-red-500 to-red-600 px-1.5 py-0.5 text-[10px] font-bold text-white shadow-md ring-2 ring-white/20">
                     {item.badge}
                   </span>
                 ) : null}
@@ -262,10 +270,11 @@ export function Sidebar() {
       <div className="mt-6 border-t border-white/10 pt-4">
         <button
           onClick={handleLogout}
-          className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-white/90 transition-all duration-200 hover:bg-white/20 hover:text-white"
+          className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200 hover:bg-white/20"
+          style={{ color: '#FFFFFF' }}
         >
-          <LogOut className="h-4 w-4 text-white/90" />
-          Sair
+          <LogOut className="h-4 w-4" style={{ color: '#FFFFFF' }} />
+          <span>Sair</span>
         </button>
       </div>
     </aside>

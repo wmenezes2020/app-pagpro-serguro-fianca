@@ -9,9 +9,8 @@ export default function LoginPage() {
       description="Utilize suas credenciais para acompanhar solicitações, análises e apólices em tempo real."
       footer={
         <p className="text-sm text-muted-foreground">
-          Precisa de acesso? Solicite um convite ao seu diretor, franqueado ou
-          parceiro responsável. Cada cadastro PagPro é tokenizado para manter a
-          conformidade e a rastreabilidade da operação.
+          Precisa de acesso? Solicite um convite um
+          parceiro responsável pela sua imobiliária.
         </p>
       }
     >

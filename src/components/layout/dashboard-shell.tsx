@@ -13,7 +13,7 @@ export function DashboardShell({ children }: DashboardShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-b from-[#f6f8fb] via-[#eef2f8] to-[#e7edf7]">
+    <div className="flex min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50/50">
       <div
         className={cn(
           "fixed inset-y-0 left-0 z-30 w-64 md:static md:z-auto",

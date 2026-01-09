@@ -13,6 +13,8 @@ import {
   Mail,
   Calendar,
   MapPin,
+  Plus,
+  X,
 } from "lucide-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -63,6 +65,7 @@ const createSchema = z
 export default function ImobiliariasPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
+  const [showForm, setShowForm] = useState(false);
   const user = useAuthStore((state) => state.user);
   const canManage =
     user?.role === "ADMIN" ||
@@ -109,36 +112,63 @@ export default function ImobiliariasPage() {
         </p>
       </div>
 
-      {canManage ? (
-        <Card>
+      {canManage && showForm ? (
+        <Card className="border border-slate-200/60 bg-white shadow-lg">
           <CardHeader>
-            <CardTitle>Adicionar imobiliária</CardTitle>
+            <div className="flex items-center justify-between">
+              <CardTitle className="text-xl font-extrabold text-[#0F2240]">
+                Adicionar imobiliária
+              </CardTitle>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setShowForm(false)}
+                className="h-8 w-8 p-0"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
           </CardHeader>
           <CardContent>
             <ImobiliariaForm
               onSuccess={() => {
                 refetch();
+                setShowForm(false);
               }}
+              onCancel={() => setShowForm(false)}
             />
           </CardContent>
         </Card>
       ) : null}
 
-      <Card>
+      <Card className="border border-slate-200/60 bg-white shadow-lg">
         <CardHeader>
           <div className="flex items-center justify-between">
-            <CardTitle>Lista de Imobiliárias</CardTitle>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => refetch()}
-              disabled={isFetching}
-            >
-              <RefreshCw
-                className={`h-4 w-4 mr-2 ${isFetching ? "animate-spin" : ""}`}
-              />
-              Atualizar
-            </Button>
+            <CardTitle className="text-xl font-extrabold text-[#0F2240]">
+              Lista de Imobiliárias
+            </CardTitle>
+            <div className="flex items-center gap-2">
+              {canManage && !showForm && (
+                <Button
+                  onClick={() => setShowForm(true)}
+                  className="bg-[#FFD700] text-[#0F2240] hover:bg-[#FFD700]/90 font-bold"
+                >
+                  <Plus className="h-4 w-4 mr-2" />
+                  Cadastrar novo
+                </Button>
+              )}
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => refetch()}
+                disabled={isFetching}
+              >
+                <RefreshCw
+                  className={`h-4 w-4 mr-2 ${isFetching ? "animate-spin" : ""}`}
+                />
+                Atualizar
+              </Button>
+            </div>
           </div>
         </CardHeader>
         <CardContent>
@@ -269,7 +299,13 @@ export default function ImobiliariasPage() {
   );
 }
 
-function ImobiliariaForm({ onSuccess }: { onSuccess: () => void }) {
+function ImobiliariaForm({
+  onSuccess,
+  onCancel,
+}: {
+  onSuccess: () => void;
+  onCancel?: () => void;
+}) {
   const form = useForm<z.infer<typeof createSchema>>({
     resolver: zodResolver(createSchema),
     defaultValues: {
@@ -421,8 +457,22 @@ function ImobiliariaForm({ onSuccess }: { onSuccess: () => void }) {
           ) : null}
         </div>
       </div>
-      <div className="flex justify-end">
-        <Button type="submit" loading={isPending}>
+      <div className="flex justify-end gap-3">
+        {onCancel && (
+          <Button
+            type="button"
+            variant="outline"
+            onClick={onCancel}
+            disabled={isPending}
+          >
+            Cancelar
+          </Button>
+        )}
+        <Button
+          type="submit"
+          loading={isPending}
+          className="bg-[#FFD700] text-[#0F2240] hover:bg-[#FFD700]/90"
+        >
           Cadastrar imobiliária
         </Button>
       </div>
