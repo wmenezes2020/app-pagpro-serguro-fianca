@@ -77,7 +77,7 @@ export function Topbar({ onToggleSidebar, className }: TopbarProps) {
         ) : null}
 
         {/* Ícones de notificações e configurações */}
-        <div className="hidden md:flex items-center gap-2">
+        {/* <div className="hidden md:flex items-center gap-2">
           <button
             type="button"
             className="relative inline-flex h-9 w-9 items-center justify-center rounded-lg text-slate-600 hover:bg-slate-100 hover:text-[#0F2240] transition-all duration-200"
@@ -93,13 +93,13 @@ export function Topbar({ onToggleSidebar, className }: TopbarProps) {
           >
             <Settings className="h-5 w-5" />
           </button>
-        </div>
+        </div> */}
 
         {/* Indicador de status Online */}
-        <div className="hidden lg:flex items-center gap-2 rounded-full bg-green-100 px-3 py-1.5">
+        {/* <div className="hidden lg:flex items-center gap-2 rounded-full bg-green-100 px-3 py-1.5">
           <span className="h-2 w-2 rounded-full bg-green-600 animate-pulse" />
           <span className="text-xs font-semibold text-green-700">Online</span>
-        </div>
+        </div> */}
 
         {/* Perfil do usuário */}
         <div className="flex items-center gap-3">
