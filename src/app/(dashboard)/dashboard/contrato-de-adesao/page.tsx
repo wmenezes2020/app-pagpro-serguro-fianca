@@ -26,7 +26,7 @@ export default function DashboardContratoDeAdesaoPage() {
           <section className="mb-8">
             <h3 className="text-2xl font-bold text-[#0F2240] mb-4">CONTRATO DE ADESÃO À PROTEÇÃO LOCATÍCIA PAGPRO</h3>
             <p className="text-slate-700 mb-4">
-              <strong>CONTRATANTE:</strong> Grupo Life Company, pessoa jurídica de direito privado, inscrita no CNPJ sob o nº [CNPJ], com sede em [Endereço], doravante denominada <strong>"PAGPRO"</strong> ou <strong>"CONTRATADA"</strong>.
+              <strong>CONTRATANTE:</strong> Grupo Life Company, pessoa jurídica de direito privado, inscrita no CNPJ sob o nº 50.206.225/0001-77, com sede em Alameda Jau, 1177, Andar 4 - Jardim Paulista, São Paulo - SP, doravante denominada <strong>"PAGPRO"</strong> ou <strong>"CONTRATADA"</strong>.
             </p>
             <p className="text-slate-700 mb-4">
               <strong>CONTRATADO:</strong> Usuário da plataforma PagPro Seguro Fiança, pessoa física ou jurídica, que adere aos termos deste contrato mediante utilização da plataforma, doravante denominado <strong>"CONTRATANTE"</strong> ou <strong>"USUÁRIO"</strong>.
@@ -244,7 +244,7 @@ export default function DashboardContratoDeAdesaoPage() {
               <strong>Grupo Life Company</strong> - Proprietária da marca PagPro Seguro Fiança
             </p>
             <p className="text-xs text-slate-500 text-center">
-              CNPJ: [CNPJ] | Endereço: [Endereço] | Contato: contato@pagproseguro.com.br
+              CNPJ: 50.206.225/0001-77 | Endereço: Alameda Jau, 1177, Andar 4 - Jardim Paulista, São Paulo - SP | Contato: contato@pagproseguro.com.br
             </p>
           </div>
         </div>
