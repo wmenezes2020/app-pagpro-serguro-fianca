@@ -30,7 +30,7 @@ export function Topbar({ onToggleSidebar, className }: TopbarProps) {
           priority
         />
         {/* Barra de busca centralizada */}
-        <div className="hidden md:flex flex-1 max-w-md mx-8">
+        {/* <div className="hidden md:flex flex-1 max-w-md mx-8">
           <div className="relative w-full">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
             <input
@@ -40,7 +40,7 @@ export function Topbar({ onToggleSidebar, className }: TopbarProps) {
             />
           </div>
         </div>
-        <div className="hidden lg:flex flex-wrap items-center gap-3 text-xs d-none">
+        <div className="hidden lg:flex flex-wrap items-center gap-3 text-xs">
           <div className="rounded-xl bg-gradient-to-br from-[#FFD700] to-[#FFD700]/90 px-4 py-2.5 shadow-lg shadow-[#FFD700]/20 border border-[#FFD700]/30">
             <p className="uppercase tracking-[0.15em] text-[#0F2240]/80 text-[10px] font-bold mb-0.5">
               TEMPO MÉDIO
@@ -63,7 +63,7 @@ export function Topbar({ onToggleSidebar, className }: TopbarProps) {
             </p>
             <p className="text-lg font-extrabold text-[#0F2240]">Operação estável</p>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="flex items-center gap-3">
         {onToggleSidebar ? (
