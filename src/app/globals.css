@@ -213,17 +213,20 @@ section[class*="to-[#091426]"] h6,
 
 h1 {
   @apply text-4xl md:text-5xl lg:text-6xl;
-  font-weight: 800; /* Extrabold conforme especificação */
+  font-weight: 800;
+  /* Extrabold conforme especificação */
 }
 
 h2 {
   @apply text-3xl md:text-4xl;
-  font-weight: 700; /* Bold conforme especificação */
+  font-weight: 700;
+  /* Bold conforme especificação */
 }
 
 h3 {
   @apply text-2xl md:text-3xl;
-  font-weight: 600; /* Semibold conforme especificação */
+  font-weight: 600;
+  /* Semibold conforme especificação */
 }
 
 p {
@@ -453,7 +456,7 @@ div[style*="background-color: #FFFFFF"] h3 {
   pointer-events: none;
 }
 
-.gradient-card > * {
+.gradient-card>* {
   @apply relative z-10;
 }
 
@@ -472,6 +475,7 @@ div[style*="background-color: #FFFFFF"] h3 {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -483,6 +487,7 @@ div[style*="background-color: #FFFFFF"] h3 {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -490,9 +495,12 @@ div[style*="background-color: #FFFFFF"] h3 {
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -502,6 +510,7 @@ div[style*="background-color: #FFFFFF"] h3 {
   0% {
     background-position: -1000px 0;
   }
+
   100% {
     background-position: 1000px 0;
   }
@@ -521,12 +530,10 @@ div[style*="background-color: #FFFFFF"] h3 {
 
 /* Efeito shimmer para elementos premium */
 .shimmer {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%);
   background-size: 1000px 100%;
   animation: shimmer 3s infinite;
 }
@@ -551,7 +558,7 @@ div[style*="background-color: #FFFFFF"] h3 {
 }
 
 .ai-pattern {
-  background-image: 
+  background-image:
     linear-gradient(90deg, transparent 0%, rgba(37, 99, 235, 0.03) 50%, transparent 100%),
     linear-gradient(0deg, transparent 0%, rgba(37, 99, 235, 0.02) 50%, transparent 100%);
   background-size: 20px 20px;
@@ -668,6 +675,7 @@ div[style*="background-color: #FFFFFF"] h3 {
   0% {
     background-position: 0% 50%;
   }
+
   100% {
     background-position: 100% 50%;
   }

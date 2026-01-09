@@ -18,6 +18,9 @@ import {
   UserRoundCog,
   Users,
   UserCog,
+  FileText,
+  Shield,
+  FileCheck,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuthStore, UserRole } from "@/store/auth-store";
@@ -265,16 +268,49 @@ export function Sidebar() {
             Falar com especialista →
           </button>
         </div> */}
+
+        <div className="mt-8 pt-4 border-t border-white/10">
+          <p className="text-[11px] uppercase tracking-[0.35em] mb-4" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Documentos Legais</p>
+          <nav className="space-y-1.5">
+            {[
+              { href: "/dashboard/termos-de-uso", label: "Termos de Uso", icon: FileText },
+              { href: "/dashboard/politica-de-privacidade", label: "Política de Privacidade", icon: Shield },
+              { href: "/dashboard/contrato-de-adesao", label: "Contrato de Adesão", icon: FileCheck },
+            ].map((item) => {
+              const Icon = item.icon;
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "group relative flex items-center gap-3 rounded-xl px-3 py-2 text-xs font-medium transition-all duration-200",
+                    isActive
+                      ? "bg-[#FFD700] text-[#0F2240]"
+                      : "hover:bg-white/10",
+                  )}
+                  style={!isActive ? { color: '#FFFFFF' } : undefined}
+                >
+                  <Icon
+                    className="h-4 w-4 flex-shrink-0"
+                    style={!isActive ? { color: '#FFFFFF' } : undefined}
+                  />
+                  <span style={!isActive ? { color: '#FFFFFF' } : undefined}>{item.label}</span>
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
       </div>
 
       <div className="mt-6 border-t border-white/10 pt-4">
         <button
           onClick={handleLogout}
           className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200 hover:bg-white/20"
-          style={{ color: '#FFFFFF' }}
+          style={{ color: '#FFFFFF !important' }}
         >
-          <LogOut className="h-4 w-4" style={{ color: '#FFFFFF' }} />
-          <span>Sair</span>
+          <LogOut className="h-4 w-4" style={{ color: '#FFFFFF !important' }} />
+          <span style={{ color: '#FFFFFF !important' }}>Sair</span>
         </button>
       </div>
     </aside>

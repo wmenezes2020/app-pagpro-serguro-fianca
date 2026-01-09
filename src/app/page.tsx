@@ -744,6 +744,20 @@ export default function Home() {
                 </Link>
               </nav>
             </div>
+            <div>
+              <h5 className="text-sm font-extrabold text-[#0F2240] uppercase tracking-wider mb-4">Legal</h5>
+              <nav className="flex flex-col gap-3 text-sm font-bold text-slate-700">
+                <Link href="/termos-de-uso" className="transition-colors hover:text-[#0C1B33] w-fit">
+                  Termos de Uso
+                </Link>
+                <Link href="/politica-de-privacidade" className="transition-colors hover:text-[#0C1B33] w-fit">
+                  Política de Privacidade
+                </Link>
+                <Link href="/contrato-de-adesao" className="transition-colors hover:text-[#0C1B33] w-fit">
+                  Contrato de Adesão
+                </Link>
+              </nav>
+            </div>
           </div>
           <div className="pt-8 border-t-2 border-slate-200/60">
             <p className="text-xs text-slate-500 text-center font-medium">
