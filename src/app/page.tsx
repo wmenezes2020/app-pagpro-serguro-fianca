@@ -149,16 +149,16 @@ export default function Home() {
           <div className="relative mx-auto max-w-7xl px-6">
             {/* Conteúdo principal centralizado */}
             <div className="max-w-4xl mx-auto text-center space-y-8 z-10">
-              <Badge variant="outline" className="mx-auto border-primary-200/60 bg-white/90 backdrop-blur-sm text-primary shadow-sm px-4 py-2">
+              <h1 className="mx-auto border-primary-200/60 bg-white/90 backdrop-blur-sm text-primary shadow-sm px-4 py-2">
                 Plataforma integrada para imobiliárias
-              </Badge>
-              <h1 className="text-5xl font-extrabold leading-[1.1] text-[#0F2240] tracking-tight md:text-6xl lg:text-7xl">
+              </h1>
+              <h2 className="text-5xl font-extrabold leading-[1.1] text-[#0F2240] tracking-tight md:text-6xl lg:text-7xl">
                 A garantia inteligente que sua imobiliária precisa para{" "}
                 <span className="relative inline-block">
                   <span className="relative z-10">alugar mais e melhor</span>
                   <span className="absolute bottom-3 left-0 right-0 h-5 bg-[#FFD700]/50 -skew-x-12 -z-10" />
                 </span>
-              </h1>
+              </h2>
               <p className="text-xl leading-relaxed text-slate-700 md:text-2xl max-w-3xl mx-auto font-medium">
                 Seguro fiança com análise inclusiva, cobertura ampliada e
                 experiência digital completa. Elimine o fiador tradicional,
@@ -191,19 +191,19 @@ export default function Home() {
                       <p className="text-xs font-bold uppercase tracking-wider text-slate-600">
                         Dashboard PagPro
                       </p>
-                      <span className="px-3 py-1 rounded-full bg-green-50 border border-green-200/60 text-green-700 text-xs font-bold">
+                      {/* <span className="px-3 py-1 rounded-full bg-green-50 border border-green-200/60 text-green-700 text-xs font-bold">
                         <span className="h-1.5 w-1.5 rounded-full bg-green-500 inline-block mr-1.5 animate-pulse" />
                         SSL Seguro
-                      </span>
+                      </span> */}
                     </div>
                     <h3 className="text-2xl font-extrabold text-[#0F2240] tracking-tight">
                       Performance em tempo real
                     </h3>
                   </div>
-                  <span className="flex items-center gap-2 rounded-full bg-gradient-to-r from-green-50 to-emerald-50 px-4 py-2 text-xs font-bold text-green-700 border border-green-200/60 shadow-md">
+                  {/* <span className="flex items-center gap-2 rounded-full bg-gradient-to-r from-green-50 to-emerald-50 px-4 py-2 text-xs font-bold text-green-700 border border-green-200/60 shadow-md">
                     <span className="h-2.5 w-2.5 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.6)]" />
                     Online
-                  </span>
+                  </span> */}
                 </div>
                 <div className="mb-8 grid gap-4 md:grid-cols-2">
                   {heroHighlights.map((highlight, index) => (
@@ -279,9 +279,9 @@ export default function Home() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(15,34,64,0.03),transparent_70%)] pointer-events-none" />
           <div className="relative mx-auto max-w-6xl px-6 z-10">
             <div className="text-center mb-16">
-              <Badge variant="outline" className="mx-auto border-primary-200/60 bg-white/90 backdrop-blur-sm text-primary shadow-sm px-4 py-2 mb-6">
+              <h1 className="mx-auto border-primary-200/60 bg-white/90 backdrop-blur-sm text-primary shadow-sm px-4 py-2 mb-6">
                 O futuro do aluguel começa aqui
-              </Badge>
+              </h1>
               <h2 className="text-4xl font-extrabold text-[#0F2240] tracking-tight leading-[1.1] md:text-5xl lg:text-6xl mb-6">
                 Ecossistema financeiro completo para imobiliárias que querem
                 escalar com segurança
@@ -338,9 +338,9 @@ export default function Home() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(15,34,64,0.03),transparent_50%)] pointer-events-none" />
           <div className="relative mx-auto max-w-7xl px-6">
             <div className="mb-12 max-w-3xl text-center mx-auto">
-              <Badge variant="outline" className="w-fit mx-auto border-primary-200/60 bg-white/80 backdrop-blur-sm text-primary shadow-sm">
+              <h1 className="w-fit mx-auto border-primary-200/60 bg-white/80 backdrop-blur-sm text-primary shadow-sm">
                 Produtos PagPro
-              </Badge>
+              </h1>
               <h2 className="mt-4 text-4xl font-extrabold text-[#0F2240] tracking-tight md:text-5xl lg:text-6xl">
                 Soluções que cobrem toda a jornada do aluguel
               </h2>
@@ -376,9 +376,9 @@ export default function Home() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(255,215,0,0.05),transparent_60%)] pointer-events-none" />
           <div className="relative mx-auto max-w-5xl px-6 z-10">
             <div className="text-center mb-16">
-              <Badge variant="outline" className="mx-auto border-secondary/40 bg-secondary/10 text-secondary shadow-sm px-4 py-2 mb-6">
+              <h1 className="mx-auto px-4 py-2 mb-6">
                 Clube PagPro
-              </Badge>
+              </h1>
               <h2 className="text-4xl font-extrabold text-[#0F2240] tracking-tight leading-[1.1] md:text-5xl lg:text-6xl mb-6">
                 Crescimento compartilhado com benefícios exclusivos
               </h2>
@@ -584,9 +584,12 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <Button variant="primary" className="w-full mt-10 bg-[#FFD700] text-[#0F2240] shadow-xl shadow-[#FFD700]/25 hover:bg-[#E6C200] hover:text-[#0F2240] hover:shadow-2xl hover:shadow-[#FFD700]/35 text-base py-6 font-bold" size="lg" asChild>
-                  <Link href="#contact">Solicitar proposta</Link>
-                </Button>
+
+                <Link href="#contact" className="text-center" style={{ color: '#FFFFFF !important' as any }}>
+                  <Badge variant="default" className="bg-[#0f2240] text-[#FFFFFF] font-bold shadow-lg px-4 py-2 text-sm text-center">
+                    <b style={{ color: '#FFFFFF !important' as any }}>Solicitar proposta</b>
+                  </Badge>
+                </Link>
               </CardContent>
             </Card>
           </div>
@@ -604,8 +607,8 @@ export default function Home() {
                 Estamos prontos para transformar a gestão de aluguéis da sua imobiliária
               </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card className="professional-card p-10 hover:-translate-y-2 border-2 border-slate-200/60 hover:border-[#FFD700]/40">
+            <div className="grid md:grid-cols-1 gap-8 justify-center">
+              <Card className="professional-card p-10 hover:-translate-y-2 border-2 border-slate-200/60 hover:border-[#FFD700]/40 mx-auto">
                 <CardHeader className="pb-8">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="p-4 rounded-2xl bg-gradient-to-br from-[#0F2240] to-[#0C1B33] shadow-lg">
@@ -615,6 +618,17 @@ export default function Home() {
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-6 text-base">
+                  <div className="flex items-start gap-4 group">
+                    <div className="p-3 rounded-xl bg-[#FFD700]/10 group-hover:bg-[#FFD700]/20 transition-all group-hover:scale-110">
+                      <Mail className="h-5 w-5 text-[#0F2240]" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-extrabold text-[#0F2240] text-xs uppercase tracking-wider mb-2">Licenciamento:</p>
+                      <a href="mailto:licenciamento@pagproseguro.com.br" className="text-[#0F2240] font-bold hover:text-[#0C1B33] transition-colors text-lg">
+                        licenciamento@pagproseguro.com.br
+                      </a>
+                    </div>
+                  </div>
                   <div className="flex items-start gap-4 group">
                     <div className="p-3 rounded-xl bg-[#FFD700]/10 group-hover:bg-[#FFD700]/20 transition-all group-hover:scale-110">
                       <Mail className="h-5 w-5 text-[#0F2240]" />
@@ -637,7 +651,7 @@ export default function Home() {
                       </a>
                     </div>
                   </div>
-                  <div className="flex items-start gap-4 group">
+                  {/* <div className="flex items-start gap-4 group">
                     <div className="p-3 rounded-xl bg-[#FFD700]/10 group-hover:bg-[#FFD700]/20 transition-all group-hover:scale-110">
                       <Phone className="h-5 w-5 text-[#0F2240]" />
                     </div>
@@ -647,10 +661,10 @@ export default function Home() {
                         (11) 94220-4240
                       </a>
                     </div>
-                  </div>
-                  <div className="pt-6 border-t-2 border-slate-200/60">
+                  </div> */}
+                  <div className="pt-6 border-t-2 border-slate-200/60 text-center">
                     <p className="font-extrabold text-[#0F2240] text-xs uppercase tracking-wider mb-3">Horário de atendimento:</p>
-                    <p className="text-slate-700 font-bold text-base">
+                    <p className="text-slate-700 font-bold text-base text-center">
                       Segunda a sexta-feira: 8h às 18h<br />
                       Sábado: 8h às 13h
                     </p>
@@ -658,7 +672,7 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card className="professional-card p-10 hover:-translate-y-2 border-2 border-slate-200/60 hover:border-[#FFD700]/40">
+              {/* <Card className="professional-card p-10 hover:-translate-y-2 border-2 border-slate-200/60 hover:border-[#FFD700]/40">
                 <CardHeader className="pb-8">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="p-4 rounded-2xl bg-gradient-to-br from-[#0F2240] to-[#0C1B33] shadow-lg">
@@ -682,7 +696,7 @@ export default function Home() {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
+              </Card> */}
             </div>
           </div>
         </section>
@@ -690,8 +704,8 @@ export default function Home() {
 
       <footer className="border-t-2 border-slate-200/40 bg-gradient-to-b from-white via-slate-50/50 to-white py-16">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            <div className="md:col-span-2 space-y-6">
+          <div className="grid md:grid-cols-4 gap-12 mb-12 justify-center">
+            <div className="md:col-span space-y-6">
               <div className="flex items-center gap-4">
                 <Image
                   src="/logo-m-black.png"
@@ -702,67 +716,68 @@ export default function Home() {
                 />
               </div>
               <p className="text-base font-extrabold text-[#0F2240]">
-                2025 © PagPro Seguro Fiança
+                2026 © PagPro Seguro Fiança
               </p>
-              <p className="text-sm text-slate-600 leading-relaxed max-w-md font-medium">
-                Grupo Life Company Soluções e Tecnologia LTDA<br />
-                CNPJ: 50.206.225/0001-77
-              </p>
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <div className="flex items-center gap-2.5 px-5 py-3 rounded-xl bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200/60 shadow-md">
-                  <ShieldCheck className="h-5 w-5 text-green-700" />
-                  <span className="text-sm font-extrabold text-green-700">Seguro e Confiável</span>
-                </div>
-                <div className="flex items-center gap-2.5 px-5 py-3 rounded-xl bg-gradient-to-r from-slate-50 to-slate-100 border-2 border-slate-200/60 shadow-md">
-                  <span className="h-2.5 w-2.5 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.6)]" />
-                  <span className="text-sm font-extrabold text-slate-700">SSL Certificado</span>
-                </div>
-              </div>
             </div>
             <div>
               <h5 className="text-sm font-extrabold text-[#0F2240] uppercase tracking-wider mb-4">Empresa</h5>
               <nav className="flex flex-col gap-3 text-sm font-bold text-slate-700">
-                <Link href="#about" className="transition-colors hover:text-[#0C1B33] w-fit">
-                  Quem Somos
+                <Link href="#about" className="transition-colors hover:text-[#0C1B33] w-fit flex items-center gap-2">
+                  <ArrowRight className="h-4 w-4" /> Quem Somos
                 </Link>
-                <Link href="#products" className="transition-colors hover:text-[#0C1B33] w-fit">
-                  Produtos
+                <Link href="#products" className="transition-colors hover:text-[#0C1B33] w-fit flex items-center gap-2">
+                  <ArrowRight className="h-4 w-4" /> Produtos
                 </Link>
-                <Link href="#pricing" className="transition-colors hover:text-[#0C1B33] w-fit">
-                  Planos
+                <Link href="#pricing" className="transition-colors hover:text-[#0C1B33] w-fit flex items-center gap-2">
+                  <ArrowRight className="h-4 w-4" /> Planos
                 </Link>
               </nav>
             </div>
             <div>
               <h5 className="text-sm font-extrabold text-[#0F2240] uppercase tracking-wider mb-4">Suporte</h5>
               <nav className="flex flex-col gap-3 text-sm font-bold text-slate-700">
-                <Link href="#contact" className="transition-colors hover:text-[#0C1B33] w-fit">
-                  Contato
+                <Link href="#contact" className="transition-colors hover:text-[#0C1B33] w-fit flex items-center gap-2">
+                  <ArrowRight className="h-4 w-4" /> Contato
                 </Link>
-                <Link href="/login" className="transition-colors hover:text-[#0C1B33] w-fit">
-                  Área do Cliente
+                <Link href="/login" className="transition-colors hover:text-[#0C1B33] w-fit flex items-center gap-2">
+                  <ArrowRight className="h-4 w-4" /> Área do Cliente
                 </Link>
               </nav>
             </div>
             <div>
               <h5 className="text-sm font-extrabold text-[#0F2240] uppercase tracking-wider mb-4">Legal</h5>
               <nav className="flex flex-col gap-3 text-sm font-bold text-slate-700">
-                <Link href="/termos-de-uso" className="transition-colors hover:text-[#0C1B33] w-fit">
-                  Termos de Uso
+                <Link href="/termos-de-uso" className="transition-colors hover:text-[#0C1B33] w-fit flex items-center gap-2">
+                  <ArrowRight className="h-4 w-4" /> Termos de Uso
                 </Link>
-                <Link href="/politica-de-privacidade" className="transition-colors hover:text-[#0C1B33] w-fit">
-                  Política de Privacidade
+                <Link href="/politica-de-privacidade" className="transition-colors hover:text-[#0C1B33] w-fit flex items-center gap-2">
+                  <ArrowRight className="h-4 w-4" /> Política de Privacidade
                 </Link>
-                <Link href="/contrato-de-adesao" className="transition-colors hover:text-[#0C1B33] w-fit">
-                  Contrato de Adesão
-                </Link>
+                {/* <Link href="/contrato-de-adesao" className="transition-colors hover:text-[#0C1B33] w-fit flex items-center gap-2">
+                  <ArrowRight className="h-4 w-4" /> Contrato de Adesão
+                </Link> */}
               </nav>
             </div>
           </div>
-          <div className="pt-8 border-t-2 border-slate-200/60">
+          <div className="pt-8 border-t-2 border-slate-200/60 text-center">
             <p className="text-xs text-slate-500 text-center font-medium">
-              Todos os direitos reservados. PagPro é uma marca registrada do Grupo Life Company.
+              Todos os direitos reservados. PagPro é uma marca registrada do
             </p>
+            <p className="text-sm text-slate-600 leading-relaxed font-medium text-center">
+              Grupo Life Company Soluções e Tecnologia LTDA<br />
+              CNPJ: 50.206.225/0001-77
+            </p>
+            <p>&nbsp;</p>
+            <div className="flex flex-wrap items-center gap-4 pt-2 justify-center w-full">
+              <div className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200/60 shadow-md">
+                <ShieldCheck className="h-5 w-5 text-green-700" />
+                <span className="text-sm font-extrabold text-green-700">Seguro e Confiável</span>
+              </div>
+              <div className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-gradient-to-r from-slate-50 to-slate-100 border-2 border-slate-200/60 shadow-md">
+                <span className="h-2.5 w-2.5 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.6)]" />
+                <span className="text-sm font-extrabold text-slate-700">SSL Seguro</span>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
