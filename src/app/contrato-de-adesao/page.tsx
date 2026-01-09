@@ -44,36 +44,39 @@ export default function ContratoDeAdesaoPage() {
               </p>
             </section>
 
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-[#0F2240] mb-4">CLÁUSULA SEGUNDA - DA COBERTURA</h2>
-              <h3 className="text-xl font-semibold text-[#0F2240] mb-3">2.1. Escopo da Proteção</h3>
-              <p className="text-slate-700 mb-4">
-                A proteção locatícia oferecida pela PAGPRO cobre o pagamento de até <strong>3 (três) aluguéis mensais</strong> em caso de inadimplência do locatário, desde que atendidas as condições estabelecidas neste contrato.
-              </p>
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold text-[#0F2240] mb-4">CLÁUSULA SEGUNDA - DA COBERTURA</h2>
+            <h3 className="text-xl font-semibold text-[#0F2240] mb-3">2.1. Escopo da Proteção</h3>
+            <p className="text-slate-700 mb-4">
+              A proteção locatícia oferecida pela PAGPRO cobre o pagamento de até <strong>3 (três) aluguéis mensais</strong> em caso de inadimplência do locatário, desde que atendidas as condições estabelecidas neste contrato.
+            </p>
 
-              <h3 className="text-xl font-semibold text-[#0F2240] mb-3">2.2. Condições para Ativação da Cobertura</h3>
-              <p className="text-slate-700 mb-4">
-                A cobertura será ativada <strong>apenas</strong> se os seguintes requisitos forem cumpridos:
-              </p>
-              <ul className="list-disc pl-6 text-slate-700 space-y-2 mb-4">
-                <li><strong>Período de carência:</strong> A proteção só será efetiva após <strong>6 (seis) meses</strong> de vigência do contrato de locação;</li>
-                <li><strong>Pagamento pela plataforma:</strong> <strong>OBRIGATORIAMENTE</strong>, todos os pagamentos dos aluguéis devem ser processados através da plataforma PagPro, exclusivamente por meio de <strong>PIX ou Boleto Bancário</strong>;</li>
-                <li><strong>Inadimplência comprovada:</strong> Ocorrência de inadimplência do locatário após o período de carência;</li>
-                <li><strong>Quebra de contrato:</strong> Rescisão do contrato de locação por inadimplência do locatário.</li>
-              </ul>
+            <h3 className="text-xl font-semibold text-[#0F2240] mb-3">2.2. Condições para Ativação da Cobertura</h3>
+            <p className="text-slate-700 mb-4">
+              A cobertura será ativada <strong>apenas</strong> se os seguintes requisitos forem cumpridos:
+            </p>
+            <ul className="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+              <li><strong>Período de carência:</strong> A proteção só será efetiva após <strong>6 (seis) meses</strong> de vigência do contrato de locação;</li>
+              <li><strong>Pagamento das mensalidades em dia:</strong> <strong>OBRIGATORIAMENTE</strong>, todas as mensalidades de proteção locatícia (equivalente a <strong>15% do valor do aluguel</strong>) devem estar em dia e pagas através da plataforma PagPro;</li>
+              <li><strong>Inadimplência comprovada:</strong> Ocorrência de inadimplência do locatário após o período de carência;</li>
+              <li><strong>Quebra de contrato:</strong> Rescisão do contrato de locação por inadimplência do locatário.</li>
+            </ul>
 
-              <div className="bg-yellow-50 border-l-4 border-[#FFD700] p-4 my-6">
-                <p className="text-slate-800 font-semibold mb-2">⚠️ ATENÇÃO:</p>
-                <p className="text-slate-700">
-                  <strong>A cobertura NÃO será ativada</strong> se os pagamentos dos aluguéis não forem realizados através da plataforma PagPro por meio de PIX ou Boleto. Pagamentos realizados por outras formas (transferência bancária direta, dinheiro, cheque, etc.) não serão considerados para fins de ativação da proteção.
-                </p>
-              </div>
-            </section>
+            <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-6">
+              <p className="text-slate-800 font-semibold mb-2">ℹ️ INFORMAÇÃO IMPORTANTE:</p>
+              <p className="text-slate-700 mb-2">
+                Os pagamentos dos <strong>aluguéis podem ser realizados diretamente à imobiliária e/ou ao proprietário</strong>, conforme acordado no contrato de locação. A forma de pagamento do aluguel não afeta a proteção locatícia oferecida pela PAGPRO.
+              </p>
+              <p className="text-slate-700">
+                <strong>No entanto, para que a proteção esteja ativa e em vigor</strong>, é necessário que as <strong>mensalidades de proteção locatícia (15% do valor do aluguel)</strong> estejam em dia e sejam pagas através da plataforma PagPro.
+              </p>
+            </div>
+          </section>
 
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-[#0F2240] mb-4">CLÁUSULA TERCEIRA - DO PERÍODO DE CARÊNCIA</h2>
               <p className="text-slate-700 mb-4">
-                A proteção locatícia terá início após <strong>6 (seis) meses</strong> de vigência do contrato de locação, contados a partir da data de assinatura do contrato de locação e início efetivo do pagamento dos aluguéis através da plataforma.
+                A proteção locatícia terá início após <strong>6 (seis) meses</strong> de vigência do contrato de locação, contados a partir da data de assinatura do contrato de locação e início efetivo do pagamento das mensalidades de proteção através da plataforma.
               </p>
               <p className="text-slate-700 mb-4">
                 Durante o período de carência, a PAGPRO não se obriga ao pagamento de aluguéis em caso de inadimplência do locatário.
@@ -90,30 +93,32 @@ export default function ContratoDeAdesaoPage() {
               </p>
             </section>
 
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-[#0F2240] mb-4">CLÁUSULA QUINTA - DAS OBRIGAÇÕES DO CONTRATANTE</h2>
-              <p className="text-slate-700 mb-4">O CONTRATANTE se obriga a:</p>
-              <ul className="list-disc pl-6 text-slate-700 space-y-2">
-                <li>Fornecer informações verdadeiras, precisas e atualizadas;</li>
-                <li>Processar <strong>todos</strong> os pagamentos de aluguel através da plataforma PagPro, exclusivamente por meio de PIX ou Boleto;</li>
-                <li>Manter atualizados os dados cadastrais e financeiros;</li>
-                <li>Comunicar imediatamente qualquer alteração relevante ao contrato de locação;</li>
-                <li>Pagar pontualmente as taxas e valores devidos à PAGPRO;</li>
-                <li>Cumprir todas as regras e condições estabelecidas neste contrato e na plataforma.</li>
-              </ul>
-            </section>
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold text-[#0F2240] mb-4">CLÁUSULA QUINTA - DAS OBRIGAÇÕES DO CONTRATANTE</h2>
+            <p className="text-slate-700 mb-4">O CONTRATANTE se obriga a:</p>
+            <ul className="list-disc pl-6 text-slate-700 space-y-2">
+              <li>Fornecer informações verdadeiras, precisas e atualizadas;</li>
+              <li>Pagar pontualmente as <strong>mensalidades de proteção locatícia</strong> (equivalente a 15% do valor do aluguel), que serão geradas automaticamente pela plataforma PagPro no vencimento mensal;</li>
+              <li>Manter atualizados os dados cadastrais e financeiros;</li>
+              <li>Comunicar imediatamente qualquer alteração relevante ao contrato de locação, especialmente alterações no valor do aluguel;</li>
+              <li>Pagar pontualmente todas as taxas e valores devidos à PAGPRO;</li>
+              <li>Cumprir todas as regras e condições estabelecidas neste contrato e na plataforma.</li>
+            </ul>
+          </section>
 
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-[#0F2240] mb-4">CLÁUSULA SEXTA - DAS OBRIGAÇÕES DA CONTRATADA</h2>
-              <p className="text-slate-700 mb-4">A PAGPRO se obriga a:</p>
-              <ul className="list-disc pl-6 text-slate-700 space-y-2">
-                <li>Manter a plataforma funcionando de forma adequada e segura;</li>
-                <li>Processar os pagamentos de aluguel através da plataforma;</li>
-                <li>Efetuar o pagamento da cobertura quando atendidas todas as condições estabelecidas;</li>
-                <li>Manter sigilo sobre as informações dos usuários, conforme Política de Privacidade;</li>
-                <li>Prestar suporte adequado aos usuários da plataforma.</li>
-              </ul>
-            </section>
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold text-[#0F2240] mb-4">CLÁUSULA SEXTA - DAS OBRIGAÇÕES DA CONTRATADA</h2>
+            <p className="text-slate-700 mb-4">A PAGPRO se obriga a:</p>
+            <ul className="list-disc pl-6 text-slate-700 space-y-2">
+              <li>Manter a plataforma funcionando de forma adequada e segura;</li>
+              <li><strong>Gerar automaticamente, todos os meses, no vencimento mensal, a cobrança da mensalidade de proteção locatícia</strong> (equivalente a 15% do valor do aluguel) para cada inquilino protegido;</li>
+              <li>Disponibilizar sistema de monitoramento para franqueados, imobiliárias e corretores acompanharem as cobranças e confirmações de pagamento das mensalidades, garantindo transparência;</li>
+              <li>Permitir que franqueados, imobiliárias e corretores reenviem manualmente as mensalidades aos clientes/inquilinos, de forma opcional, para agilizar e reforçar a cobrança;</li>
+              <li>Efetuar o pagamento da cobertura quando atendidas todas as condições estabelecidas;</li>
+              <li>Manter sigilo sobre as informações dos usuários, conforme Política de Privacidade;</li>
+              <li>Prestar suporte adequado aos usuários da plataforma.</li>
+            </ul>
+          </section>
 
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-[#0F2240] mb-4">CLÁUSULA SÉTIMA - DA LEI DO INQUILINATO</h2>
@@ -154,20 +159,21 @@ export default function ContratoDeAdesaoPage() {
               </ul>
             </section>
 
-            <section className="mb-8">
-              <h2 className="text-2xl font-bold text-[#0F2240] mb-4">CLÁUSULA DÉCIMA - DAS EXCLUSÕES</h2>
-              <p className="text-slate-700 mb-4">
-                A proteção locatícia <strong>NÃO</strong> cobre:
-              </p>
-              <ul className="list-disc pl-6 text-slate-700 space-y-2">
-                <li>Inadimplência ocorrida antes do período de carência de 6 meses;</li>
-                <li>Aluguéis cujos pagamentos não foram processados através da plataforma PagPro por PIX ou Boleto;</li>
-                <li>Danos materiais ao imóvel;</li>
-                <li>Multas e penalidades contratuais;</li>
-                <li>Despesas extras não relacionadas ao aluguel;</li>
-                <li>Casos de fraude comprovada do CONTRATANTE.</li>
-              </ul>
-            </section>
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold text-[#0F2240] mb-4">CLÁUSULA DÉCIMA - DAS EXCLUSÕES</h2>
+            <p className="text-slate-700 mb-4">
+              A proteção locatícia <strong>NÃO</strong> cobre:
+            </p>
+            <ul className="list-disc pl-6 text-slate-700 space-y-2">
+              <li>Inadimplência ocorrida antes do período de carência de 6 meses;</li>
+              <li><strong>Mensalidades de proteção locatícia em atraso:</strong> Se as mensalidades de proteção (15% do aluguel) não estiverem em dia, a proteção não estará ativa;</li>
+              <li>Danos materiais ao imóvel;</li>
+              <li>Multas e penalidades contratuais;</li>
+              <li>Despesas extras não relacionadas ao aluguel;</li>
+              <li>Casos de fraude comprovada do CONTRATANTE;</li>
+              <li>Inadimplência do locatário quando a proteção não estiver ativa por falta de pagamento das mensalidades.</li>
+            </ul>
+          </section>
 
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-[#0F2240] mb-4">CLÁUSULA DÉCIMA PRIMEIRA - DA ADESÃO</h2>
@@ -201,16 +207,20 @@ export default function ContratoDeAdesaoPage() {
               </p>
             </section>
 
-            <div className="bg-slate-50 p-6 rounded-lg my-8">
-              <p className="text-slate-800 font-semibold mb-2">📋 RESUMO DAS REGRAS DE NEGÓCIO:</p>
-              <ul className="list-disc pl-6 text-slate-700 space-y-2">
-                <li>Cobertura de até <strong>3 aluguéis</strong> em caso de inadimplência;</li>
-                <li>Período de carência de <strong>6 meses</strong>;</li>
-                <li>Pagamentos <strong>OBRIGATORIAMENTE</strong> através da plataforma por <strong>PIX ou Boleto</strong>;</li>
-                <li>Proteção Locatícia - <strong>NÃO é seguro</strong>;</li>
-                <li>Serviço prestado pelo <strong>Grupo Life Company</strong>.</li>
-              </ul>
-            </div>
+          <div className="bg-slate-50 p-6 rounded-lg my-8">
+            <p className="text-slate-800 font-semibold mb-2">📋 RESUMO DAS REGRAS DE NEGÓCIO:</p>
+            <ul className="list-disc pl-6 text-slate-700 space-y-2">
+              <li>Cobertura de até <strong>3 aluguéis</strong> em caso de inadimplência;</li>
+              <li>Período de carência de <strong>6 meses</strong>;</li>
+              <li>Mensalidade de proteção: <strong>15% do valor do aluguel</strong>, gerada automaticamente pela plataforma;</li>
+              <li>Mensalidades devem estar <strong>em dia</strong> para manter a proteção ativa;</li>
+              <li>Aluguéis podem ser pagos diretamente à imobiliária/proprietário;</li>
+              <li>Monitoramento transparente para franqueados, imobiliárias e corretores;</li>
+              <li>Reenvio opcional de cobranças pelos parceiros;</li>
+              <li>Proteção Locatícia - <strong>NÃO é seguro</strong>;</li>
+              <li>Serviço prestado pelo <strong>Grupo Life Company</strong>.</li>
+            </ul>
+          </div>
 
             <div className="mt-12 pt-8 border-t border-slate-200">
               <p className="text-sm text-slate-600 text-center mb-2">

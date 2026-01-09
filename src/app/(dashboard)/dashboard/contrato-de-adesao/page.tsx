@@ -56,15 +56,18 @@ export default function DashboardContratoDeAdesaoPage() {
             </p>
             <ul className="list-disc pl-6 text-slate-700 space-y-2 mb-4">
               <li><strong>Período de carência:</strong> A proteção só será efetiva após <strong>6 (seis) meses</strong> de vigência do contrato de locação;</li>
-              <li><strong>Pagamento pela plataforma:</strong> <strong>OBRIGATORIAMENTE</strong>, todos os pagamentos dos aluguéis devem ser processados através da plataforma PagPro, exclusivamente por meio de <strong>PIX ou Boleto Bancário</strong>;</li>
+              <li><strong>Pagamento das mensalidades em dia:</strong> <strong>OBRIGATORIAMENTE</strong>, todas as mensalidades de proteção locatícia (equivalente a <strong>15% do valor do aluguel</strong>) devem estar em dia e pagas através da plataforma PagPro;</li>
               <li><strong>Inadimplência comprovada:</strong> Ocorrência de inadimplência do locatário após o período de carência;</li>
               <li><strong>Quebra de contrato:</strong> Rescisão do contrato de locação por inadimplência do locatário.</li>
             </ul>
 
-            <div className="bg-yellow-50 border-l-4 border-[#FFD700] p-4 my-6">
-              <p className="text-slate-800 font-semibold mb-2">⚠️ ATENÇÃO:</p>
+            <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-6">
+              <p className="text-slate-800 font-semibold mb-2">ℹ️ INFORMAÇÃO IMPORTANTE:</p>
+              <p className="text-slate-700 mb-2">
+                Os pagamentos dos <strong>aluguéis podem ser realizados diretamente à imobiliária e/ou ao proprietário</strong>, conforme acordado no contrato de locação. A forma de pagamento do aluguel não afeta a proteção locatícia oferecida pela PAGPRO.
+              </p>
               <p className="text-slate-700">
-                <strong>A cobertura NÃO será ativada</strong> se os pagamentos dos aluguéis não forem realizados através da plataforma PagPro por meio de PIX ou Boleto. Pagamentos realizados por outras formas (transferência bancária direta, dinheiro, cheque, etc.) não serão considerados para fins de ativação da proteção.
+                <strong>No entanto, para que a proteção esteja ativa e em vigor</strong>, é necessário que as <strong>mensalidades de proteção locatícia (15% do valor do aluguel)</strong> estejam em dia e sejam pagas através da plataforma PagPro.
               </p>
             </div>
           </section>
@@ -94,10 +97,10 @@ export default function DashboardContratoDeAdesaoPage() {
             <p className="text-slate-700 mb-4">O CONTRATANTE se obriga a:</p>
             <ul className="list-disc pl-6 text-slate-700 space-y-2">
               <li>Fornecer informações verdadeiras, precisas e atualizadas;</li>
-              <li>Processar <strong>todos</strong> os pagamentos de aluguel através da plataforma PagPro, exclusivamente por meio de PIX ou Boleto;</li>
+              <li>Pagar pontualmente as <strong>mensalidades de proteção locatícia</strong> (equivalente a 15% do valor do aluguel), que serão geradas automaticamente pela plataforma PagPro no vencimento mensal;</li>
               <li>Manter atualizados os dados cadastrais e financeiros;</li>
-              <li>Comunicar imediatamente qualquer alteração relevante ao contrato de locação;</li>
-              <li>Pagar pontualmente as taxas e valores devidos à PAGPRO;</li>
+              <li>Comunicar imediatamente qualquer alteração relevante ao contrato de locação, especialmente alterações no valor do aluguel;</li>
+              <li>Pagar pontualmente todas as taxas e valores devidos à PAGPRO;</li>
               <li>Cumprir todas as regras e condições estabelecidas neste contrato e na plataforma.</li>
             </ul>
           </section>
@@ -107,7 +110,9 @@ export default function DashboardContratoDeAdesaoPage() {
             <p className="text-slate-700 mb-4">A PAGPRO se obriga a:</p>
             <ul className="list-disc pl-6 text-slate-700 space-y-2">
               <li>Manter a plataforma funcionando de forma adequada e segura;</li>
-              <li>Processar os pagamentos de aluguel através da plataforma;</li>
+              <li><strong>Gerar automaticamente, todos os meses, no vencimento mensal, a cobrança da mensalidade de proteção locatícia</strong> (equivalente a 15% do valor do aluguel) para cada inquilino protegido;</li>
+              <li>Disponibilizar sistema de monitoramento para franqueados, imobiliárias e corretores acompanharem as cobranças e confirmações de pagamento das mensalidades, garantindo transparência;</li>
+              <li>Permitir que franqueados, imobiliárias e corretores reenviem manualmente as mensalidades aos clientes/inquilinos, de forma opcional, para agilizar e reforçar a cobrança;</li>
               <li>Efetuar o pagamento da cobertura quando atendidas todas as condições estabelecidas;</li>
               <li>Manter sigilo sobre as informações dos usuários, conforme Política de Privacidade;</li>
               <li>Prestar suporte adequado aos usuários da plataforma.</li>
@@ -126,17 +131,40 @@ export default function DashboardContratoDeAdesaoPage() {
 
           <section className="mb-8">
             <h3 className="text-2xl font-bold text-[#0F2240] mb-4">CLÁUSULA OITAVA - DAS TAXAS E VALORES</h3>
+            <h4 className="text-xl font-semibold text-[#0F2240] mb-3">8.1. Mensalidade de Proteção Locatícia</h4>
             <p className="text-slate-700 mb-4">
-              O CONTRATANTE pagará à PAGPRO as taxas e valores estabelecidos na plataforma, que podem incluir:
+              O CONTRATANTE pagará à PAGPRO uma <strong>mensalidade de proteção locatícia</strong>, equivalente a <strong>15% do valor do aluguel mensal</strong> contratado.
+            </p>
+            <p className="text-slate-700 mb-4">
+              A plataforma PagPro <strong>gerará automaticamente, todos os meses, no vencimento mensal</strong>, a cobrança desta mensalidade para cada inquilino protegido, através de <strong>PIX ou Boleto Bancário</strong>.
+            </p>
+
+            <h4 className="text-xl font-semibold text-[#0F2240] mb-3">8.2. Outras Taxas</h4>
+            <p className="text-slate-700 mb-4">
+              Além da mensalidade de proteção, o CONTRATANTE poderá pagar outras taxas estabelecidas na plataforma, que podem incluir:
             </p>
             <ul className="list-disc pl-6 text-slate-700 space-y-2">
-              <li>Taxa de adesão;</li>
-              <li>Taxa mensal de proteção;</li>
+              <li>Taxa de adesão (quando aplicável);</li>
               <li>Taxas de processamento de pagamento;</li>
               <li>Outras taxas previstas na plataforma.</li>
             </ul>
+
+            <h4 className="text-xl font-semibold text-[#0F2240] mb-3">8.3. Transparência e Monitoramento</h4>
+            <p className="text-slate-700 mb-4">
+              A plataforma disponibiliza sistema de monitoramento onde <strong>franqueados, imobiliárias e corretores</strong> podem acompanhar em tempo real:
+            </p>
+            <ul className="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+              <li>Status das cobranças das mensalidades de proteção;</li>
+              <li>Confirmações de pagamento;</li>
+              <li>Histórico de transações;</li>
+              <li>Inadimplências e pendências.</li>
+            </ul>
+            <p className="text-slate-700 mb-4">
+              <strong>Reenvio Opcional:</strong> Franqueados, imobiliárias e corretores podem, de forma <strong>opcional e manual</strong>, reenviar as mensalidades aos clientes/inquilinos através da plataforma, para agilizar e reforçar a cobrança, garantindo maior controle e transparência no processo.
+            </p>
+
             <p className="text-slate-700 mb-4 mt-4">
-              Os valores serão informados previamente ao CONTRATANTE antes da confirmação da adesão.
+              Todos os valores serão informados previamente ao CONTRATANTE antes da confirmação da adesão.
             </p>
           </section>
 
