@@ -37,4 +37,3 @@ export const createInquilino = (payload: CreateInquilinoPayload) =>
     url: "/users/inquilinos",
     data: payload,
   });
-

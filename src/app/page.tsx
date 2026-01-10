@@ -446,12 +446,11 @@ export default function Home() {
                   <span className="font-bold" style={{ color: 'white', fontWeight: 'bold' }}>Monitoramento da carteira e alertas proativos para tomada de decisão.</span>
                 </li>
               </ul>
-              <Button variant="yellow-text" size="lg" asChild className="mt-8 shadow-lg shadow-[#FFD700]/20 hover:shadow-xl hover:shadow-[#FFD700]/30">
-                <Link href="#contact">
-                  Quero proteger minha carteira
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
+              <Link href="#contact">
+                <Badge variant="default" className="mt-8 shadow-lg  bg-[#FFD700] text-[#0F2240]">
+                  Quero proteger minha carteira &nbsp; <ArrowRight className="h-4 w-4" />
+                </Badge>
+              </Link>
             </div>
             <div
               style={{
