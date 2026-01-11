@@ -14,6 +14,11 @@ export const metadata: Metadata = {
   title: "PagPro Seguro Fiança",
   description:
     "Plataforma inteligente para gestão de seguros fiança, análise de crédito inclusiva e operações imobiliárias seguras.",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
