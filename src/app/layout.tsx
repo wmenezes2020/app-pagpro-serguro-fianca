@@ -45,6 +45,12 @@ export default function RootLayout({
             gtag('config', 'G-K36DLQ6YVV');
           `}
         </Script>
+        {/* EDEN Monitor */}
+        <Script
+          src="https://cdn.monitor.edeniva.com.br/t/81764f007794f0b51c6c3281.min.js"
+          strategy="afterInteractive"
+          data-domain="pagproseguro.com.br"
+        />
         <Providers>{children}</Providers>
       </body>
     </html>
